@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DWLoginViewController">
+            <connections>
+                <outlet property="bgView" destination="Z5m-bx-D55" id="9ZZ-pO-jgf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5m-bx-D55" userLabel="bgView" customClass="UIImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-Bv-KHo">
+                            <rect key="frame" x="10" y="418" width="300" height="120"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InZ-0u-Oo3">
+                                    <rect key="frame" x="10" y="10" width="280" height="40"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="1A7-Dx-hoQ"/>
+                                    </constraints>
+                                    <state key="normal" title="登录" backgroundImage="login_bg">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="login:" destination="-1" eventType="touchUpInside" id="S8d-AP-3zE"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1x-vO-OeR">
+                                    <rect key="frame" x="10" y="66" width="280" height="40"/>
+                                    <animations/>
+                                    <state key="normal" title="注册" backgroundImage="login_bg">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="signUp:" destination="-1" eventType="touchUpInside" id="fUH-36-hkX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="w1x-vO-OeR" firstAttribute="top" secondItem="InZ-0u-Oo3" secondAttribute="bottom" constant="16" id="9Se-fz-x1b"/>
+                                <constraint firstItem="InZ-0u-Oo3" firstAttribute="leading" secondItem="fpe-Bv-KHo" secondAttribute="leading" constant="10" id="Nlo-QO-BIE"/>
+                                <constraint firstItem="InZ-0u-Oo3" firstAttribute="top" secondItem="fpe-Bv-KHo" secondAttribute="top" constant="10" id="O25-LS-eZU"/>
+                                <constraint firstAttribute="trailing" secondItem="InZ-0u-Oo3" secondAttribute="trailing" constant="10" id="QzM-IQ-fSC"/>
+                                <constraint firstItem="w1x-vO-OeR" firstAttribute="trailing" secondItem="InZ-0u-Oo3" secondAttribute="trailing" id="Vrh-HB-JYL"/>
+                                <constraint firstItem="w1x-vO-OeR" firstAttribute="leading" secondItem="InZ-0u-Oo3" secondAttribute="leading" id="ZGO-gH-5R7"/>
+                                <constraint firstItem="w1x-vO-OeR" firstAttribute="height" secondItem="InZ-0u-Oo3" secondAttribute="height" id="acF-BI-0Y3"/>
+                                <constraint firstAttribute="height" constant="120" id="uoN-Do-bHt"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="fpe-Bv-KHo" secondAttribute="bottom" constant="30" id="63x-f6-Qkr"/>
+                        <constraint firstItem="fpe-Bv-KHo" firstAttribute="leading" secondItem="Z5m-bx-D55" secondAttribute="leading" constant="10" id="Jay-y2-7qy"/>
+                        <constraint firstAttribute="trailing" secondItem="fpe-Bv-KHo" secondAttribute="trailing" constant="10" id="akg-5I-nrl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z5m-bx-D55" secondAttribute="bottom" id="4fB-s9-PKO"/>
+                <constraint firstAttribute="trailing" secondItem="Z5m-bx-D55" secondAttribute="trailing" id="FAt-QE-y7o"/>
+                <constraint firstItem="Z5m-bx-D55" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TXY-UJ-zif"/>
+                <constraint firstItem="Z5m-bx-D55" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gFY-5R-uS4"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="461" y="265"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_bg" width="610" height="66"/>
+    </resources>
+</document>

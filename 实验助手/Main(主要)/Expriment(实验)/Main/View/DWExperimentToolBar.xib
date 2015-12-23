@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DWExperimentToolBar">
+            <connections>
+                <outlet property="backBtn" destination="qCc-ON-g9U" id="iJw-t9-fm9"/>
+                <outlet property="photoBtn" destination="WfD-EN-UHU" id="YJD-rG-vIJ"/>
+                <outlet property="remarkBtn" destination="Lzv-84-s4E" id="kOx-Cd-Da6"/>
+                <outlet property="reportBtn" destination="Ag1-bg-AFV" id="vMT-NJ-ivr"/>
+                <outlet property="startBtn" destination="D0j-gk-u89" id="fYp-6C-syr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="pc6-Iy-BGn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="57"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-ON-g9U">
+                    <rect key="frame" x="82" y="0.0" width="82" height="57"/>
+                    <animations/>
+                    <state key="normal" title="返回"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzv-84-s4E">
+                    <rect key="frame" x="164" y="-1" width="82" height="58"/>
+                    <animations/>
+                    <state key="normal" title="备注"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ag1-bg-AFV">
+                    <rect key="frame" x="246" y="-1" width="82" height="58"/>
+                    <animations/>
+                    <state key="normal" title="报告"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfD-EN-UHU">
+                    <rect key="frame" x="328" y="-1" width="82" height="58"/>
+                    <animations/>
+                    <state key="normal" title="拍照"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0j-gk-u89">
+                    <rect key="frame" x="0.0" y="0.0" width="82" height="57"/>
+                    <animations/>
+                    <state key="normal" title="启动"/>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WfD-EN-UHU" firstAttribute="height" secondItem="D0j-gk-u89" secondAttribute="height" id="0c9-cG-uGc"/>
+                <constraint firstItem="D0j-gk-u89" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.2" id="2UD-qB-sdH"/>
+                <constraint firstItem="Lzv-84-s4E" firstAttribute="width" secondItem="D0j-gk-u89" secondAttribute="width" id="8DT-Ad-ep1"/>
+                <constraint firstItem="WfD-EN-UHU" firstAttribute="leading" secondItem="Ag1-bg-AFV" secondAttribute="trailing" id="9Va-6t-SFI"/>
+                <constraint firstItem="D0j-gk-u89" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D9f-VS-JpO"/>
+                <constraint firstItem="qCc-ON-g9U" firstAttribute="leading" secondItem="D0j-gk-u89" secondAttribute="trailing" id="E00-iq-5CD"/>
+                <constraint firstItem="D0j-gk-u89" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LMS-M3-yqf"/>
+                <constraint firstAttribute="bottom" secondItem="D0j-gk-u89" secondAttribute="bottom" id="Ldq-fX-wVo"/>
+                <constraint firstItem="Ag1-bg-AFV" firstAttribute="leading" secondItem="Lzv-84-s4E" secondAttribute="trailing" id="RBh-bV-eD1"/>
+                <constraint firstItem="Ag1-bg-AFV" firstAttribute="height" secondItem="D0j-gk-u89" secondAttribute="height" id="Rk6-ZE-1mD"/>
+                <constraint firstItem="Lzv-84-s4E" firstAttribute="height" secondItem="D0j-gk-u89" secondAttribute="height" id="Uf5-ph-JSu"/>
+                <constraint firstItem="Ag1-bg-AFV" firstAttribute="width" secondItem="D0j-gk-u89" secondAttribute="width" id="bbY-kC-Qa3"/>
+                <constraint firstItem="qCc-ON-g9U" firstAttribute="centerY" secondItem="D0j-gk-u89" secondAttribute="centerY" id="dGl-Tb-FDf"/>
+                <constraint firstItem="WfD-EN-UHU" firstAttribute="centerY" secondItem="Ag1-bg-AFV" secondAttribute="centerY" id="f8O-cb-y1q"/>
+                <constraint firstItem="Lzv-84-s4E" firstAttribute="centerY" secondItem="qCc-ON-g9U" secondAttribute="centerY" id="i11-zS-PiP"/>
+                <constraint firstItem="qCc-ON-g9U" firstAttribute="width" secondItem="D0j-gk-u89" secondAttribute="width" id="lID-1c-wHn"/>
+                <constraint firstItem="qCc-ON-g9U" firstAttribute="height" secondItem="D0j-gk-u89" secondAttribute="height" id="nxT-TP-vmn"/>
+                <constraint firstItem="Ag1-bg-AFV" firstAttribute="centerY" secondItem="Lzv-84-s4E" secondAttribute="centerY" id="ogs-UX-1ra"/>
+                <constraint firstItem="WfD-EN-UHU" firstAttribute="width" secondItem="D0j-gk-u89" secondAttribute="width" id="ohe-08-1wC"/>
+                <constraint firstItem="Lzv-84-s4E" firstAttribute="leading" secondItem="qCc-ON-g9U" secondAttribute="trailing" id="w4I-Gt-j5E"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="412.5" y="143.5"/>
+        </view>
+    </objects>
+</document>

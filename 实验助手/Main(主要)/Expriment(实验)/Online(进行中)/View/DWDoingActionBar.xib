@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DWDoingActionBar">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0F-pR-LvS" customClass="DWButton">
+                    <rect key="frame" x="273" y="0.0" width="54" height="72"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="报告" image="cm2_btm_tab_icn_cmt"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP4-8j-VEh" customClass="DWButton">
+                    <rect key="frame" x="347" y="0.0" width="50" height="72"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="浏览" image="cm2_btm_tab_icn_share"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MW-MG-f5h" customClass="DWButton">
+                    <rect key="frame" x="199" y="0.0" width="54" height="72"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="评论" image="cm2_btm_tab_icn_save"/>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3IM-Tm-tpt"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="leading" secondItem="2MW-MG-f5h" secondAttribute="trailing" constant="20" id="ARb-9v-UBV"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DIo-ah-Axi"/>
+                <constraint firstItem="EP4-8j-VEh" firstAttribute="leading" secondItem="Y0F-pR-LvS" secondAttribute="trailing" constant="20" id="G1d-L4-tN9"/>
+                <constraint firstItem="2MW-MG-f5h" firstAttribute="centerY" secondItem="Y0F-pR-LvS" secondAttribute="centerY" id="OR5-pz-I0T"/>
+                <constraint firstAttribute="bottom" secondItem="Y0F-pR-LvS" secondAttribute="bottom" constant="24" id="Obc-8r-Y2f"/>
+                <constraint firstItem="EP4-8j-VEh" firstAttribute="height" secondItem="Y0F-pR-LvS" secondAttribute="height" id="TCa-MZ-KOI"/>
+                <constraint firstItem="EP4-8j-VEh" firstAttribute="centerY" secondItem="Y0F-pR-LvS" secondAttribute="centerY" id="Xem-R4-CJG"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Y01-yL-bCP"/>
+                <constraint firstItem="2MW-MG-f5h" firstAttribute="height" secondItem="Y0F-pR-LvS" secondAttribute="height" id="aHx-Qj-rdH"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="jOV-46-Loi"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nca-ov-jfF"/>
+                <constraint firstAttribute="bottom" secondItem="Y0F-pR-LvS" secondAttribute="bottom" id="soT-B1-LrZ"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wP8-Ph-luS"/>
+                <constraint firstAttribute="bottom" secondItem="Y0F-pR-LvS" secondAttribute="bottom" id="xLS-NN-tRU"/>
+                <constraint firstItem="Y0F-pR-LvS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xZU-UZ-wfW"/>
+                <constraint firstAttribute="bottom" secondItem="Y0F-pR-LvS" secondAttribute="bottom" id="yif-c4-1TO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3IM-Tm-tpt"/>
+                    <exclude reference="DIo-ah-Axi"/>
+                    <exclude reference="Obc-8r-Y2f"/>
+                    <exclude reference="Y01-yL-bCP"/>
+                    <exclude reference="jOV-46-Loi"/>
+                    <exclude reference="nca-ov-jfF"/>
+                    <exclude reference="xLS-NN-tRU"/>
+                    <exclude reference="yif-c4-1TO"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="commentBtn" destination="2MW-MG-f5h" id="XNx-TI-ZiN"/>
+                <outlet property="reportBtn" destination="Y0F-pR-LvS" id="gi3-HD-b0z"/>
+                <outlet property="viewBtn" destination="EP4-8j-VEh" id="DEu-mc-yng"/>
+            </connections>
+            <point key="canvasLocation" x="291" y="287"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cm2_btm_tab_icn_cmt" width="24" height="24"/>
+        <image name="cm2_btm_tab_icn_save" width="24" height="24"/>
+        <image name="cm2_btm_tab_icn_share" width="24" height="24"/>
+    </resources>
+</document>

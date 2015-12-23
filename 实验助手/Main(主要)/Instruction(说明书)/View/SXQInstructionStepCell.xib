@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SXQInstructionStepCell" rowHeight="205" id="KGk-i7-Jjw" customClass="SXQInstructionStepCell">
+            <rect key="frame" x="0.0" y="0.0" width="519" height="205"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="519" height="204"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reP-Lh-8wg">
+                        <rect key="frame" x="484" y="169" width="25" height="25"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="PbI-FA-T2f"/>
+                            <constraint firstAttribute="height" constant="25" id="vuZ-MO-3Wj"/>
+                        </constraints>
+                        <state key="normal" image="Night_ZHActionEditAnswerNormal_iOS7"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iep-gi-bae">
+                        <rect key="frame" x="429" y="0.0" width="80" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="HIK-lZ-sI8"/>
+                            <constraint firstAttribute="width" constant="80" id="o6v-mf-1Am"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="detail_divider" translatesAutoresizingMaskIntoConstraints="NO" id="zXt-Dh-7T0">
+                        <rect key="frame" x="0.0" y="203" width="519" height="1"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step1" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-Ar-df6">
+                        <rect key="frame" x="0.0" y="0.0" width="88" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="88" id="1sT-8l-B1Z"/>
+                            <constraint firstAttribute="height" constant="21" id="GQE-9s-7M6"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="it8-hj-HCk">
+                        <rect key="frame" x="429" y="0.0" width="80" height="21"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W89-qY-a4Z">
+                        <rect key="frame" x="10" y="23" width="499" height="144"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="aFQ-Ar-df6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1Du-19-deF"/>
+                    <constraint firstItem="iep-gi-bae" firstAttribute="bottom" secondItem="aFQ-Ar-df6" secondAttribute="bottom" id="7wC-di-jEf"/>
+                    <constraint firstAttribute="trailing" secondItem="zXt-Dh-7T0" secondAttribute="trailing" id="91G-ov-xIT"/>
+                    <constraint firstAttribute="trailing" secondItem="iep-gi-bae" secondAttribute="trailing" constant="10" id="BV7-C0-QRX"/>
+                    <constraint firstAttribute="bottom" secondItem="zXt-Dh-7T0" secondAttribute="bottom" id="D67-zf-PG9"/>
+                    <constraint firstAttribute="trailing" secondItem="reP-Lh-8wg" secondAttribute="trailing" constant="10" id="Drh-xX-Lo5"/>
+                    <constraint firstItem="zXt-Dh-7T0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Dtl-X7-IeC"/>
+                    <constraint firstAttribute="trailing" secondItem="W89-qY-a4Z" secondAttribute="trailing" constant="10" id="Ezc-Fc-s29"/>
+                    <constraint firstItem="it8-hj-HCk" firstAttribute="height" secondItem="iep-gi-bae" secondAttribute="height" id="Kvj-EJ-eZI"/>
+                    <constraint firstItem="reP-Lh-8wg" firstAttribute="top" secondItem="W89-qY-a4Z" secondAttribute="bottom" constant="2" id="Qpl-pp-S3r"/>
+                    <constraint firstItem="W89-qY-a4Z" firstAttribute="top" secondItem="it8-hj-HCk" secondAttribute="bottom" constant="2" id="XHq-ay-BPd"/>
+                    <constraint firstItem="it8-hj-HCk" firstAttribute="width" secondItem="iep-gi-bae" secondAttribute="width" id="cle-fr-PNQ"/>
+                    <constraint firstItem="it8-hj-HCk" firstAttribute="top" secondItem="iep-gi-bae" secondAttribute="top" id="dgq-Zz-O8x"/>
+                    <constraint firstItem="aFQ-Ar-df6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nct-uM-Ntn"/>
+                    <constraint firstItem="W89-qY-a4Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rzz-aN-Uke"/>
+                    <constraint firstItem="it8-hj-HCk" firstAttribute="leading" secondItem="iep-gi-bae" secondAttribute="leading" id="vnX-Ji-oR2"/>
+                    <constraint firstAttribute="bottom" secondItem="reP-Lh-8wg" secondAttribute="bottom" constant="10" id="zD1-Gm-q5e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="editBtn" destination="reP-Lh-8wg" id="29t-py-XLq"/>
+                <outlet property="stepDesc" destination="W89-qY-a4Z" id="GFL-oN-bOs"/>
+                <outlet property="stepIcon" destination="aFQ-Ar-df6" id="RJl-8F-Mqy"/>
+                <outlet property="timeBtn" destination="it8-hj-HCk" id="q2P-KY-oZf"/>
+                <outlet property="timeLabel" destination="iep-gi-bae" id="pVz-7b-RUZ"/>
+            </connections>
+            <point key="canvasLocation" x="-125.5" y="101.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Night_ZHActionEditAnswerNormal_iOS7" width="54" height="54"/>
+        <image name="detail_divider" width="10" height="1"/>
+        <image name="step1" width="132" height="32"/>
+    </resources>
+</document>

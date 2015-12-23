@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--添加试剂-->
+        <scene sceneID="6IQ-Da-z0T">
+            <objects>
+                <tableViewController storyboardIdentifier="DWAddReagentController" title="添加试剂" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jzm-MD-ISX" customClass="DWAddReagentController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="S8M-6s-1NB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="qga-Ae-VWJ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Jzm-MD-ISX" id="WtF-2P-RiQ"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nZP-y9-Nop">
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZP-y9-Nop" id="by7-CV-gRS">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Jzm-MD-ISX" id="rmw-MC-V00"/>
+                            <outlet property="delegate" destination="Jzm-MD-ISX" id="Uov-fO-os9"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="DxS-Ag-sl8" id="QsQ-HH-VpA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fkv-G7-tIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="FEo-pw-MQB">
+                    <connections>
+                        <outlet property="delegate" destination="Jzm-MD-ISX" id="w7k-Pd-uqL"/>
+                        <outlet property="searchContentsController" destination="Jzm-MD-ISX" id="SLB-fq-xKB"/>
+                        <outlet property="searchResultsDataSource" destination="Jzm-MD-ISX" id="Wmb-jp-GAC"/>
+                        <outlet property="searchResultsDelegate" destination="Jzm-MD-ISX" id="elj-bA-Ymw"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="DxS-Ag-sl8">
+                    <connections>
+                        <outlet property="delegate" destination="Jzm-MD-ISX" id="31h-mB-3DZ"/>
+                        <outlet property="searchBar" destination="qga-Ae-VWJ" id="V9n-Fz-Rn8"/>
+                        <outlet property="searchContentsController" destination="Jzm-MD-ISX" id="vZ5-HZ-6aB"/>
+                        <outlet property="searchResultsDataSource" destination="Jzm-MD-ISX" id="UaF-k9-tW7"/>
+                        <outlet property="searchResultsDelegate" destination="Jzm-MD-ISX" id="UFn-l4-Rqi"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="572" y="50"/>
+        </scene>
+        <!--Add Consumable Controller-->
+        <scene sceneID="scL-B7-vYp">
+            <objects>
+                <tableViewController storyboardIdentifier="DWAddConsumableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pd9-FA-uCy" customClass="DWAddConsumableController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="fYW-vz-gFs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="fAD-gT-yL0">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Pd9-FA-uCy" id="zi8-dH-hxt"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DWAddConsumableCell" rowHeight="131" id="5fN-dE-Gqs" customClass="DWAddConsumableCell">
+                                <rect key="frame" x="0.0" y="72" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fN-dE-Gqs" id="H7r-lA-Nd7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="耗材名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooy-3C-hk5">
+                                            <rect key="frame" x="10" y="10" width="60" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单次用量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyG-YS-JNv">
+                                            <rect key="frame" x="10" y="48" width="60" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" text="耗材供应商" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t0-1M-6k6">
+                                            <rect key="frame" x="10" y="86" width="75" height="26"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-Qh-xCf" customClass="DWTextField">
+                                            <rect key="frame" x="95" y="84" width="215" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="5fN-dE-Gqs" id="ZhY-Ja-a86"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQX-Zi-Iwn" customClass="DWTextField">
+                                            <rect key="frame" x="95" y="4" width="215" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="5fN-dE-Gqs" id="a2w-D1-mnW"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aIw-mR-A5Q">
+                                            <rect key="frame" x="95" y="42" width="215" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Amk-Qh-xCf" secondAttribute="trailing" constant="10" id="167-CB-NH3"/>
+                                        <constraint firstItem="EQX-Zi-Iwn" firstAttribute="height" secondItem="Amk-Qh-xCf" secondAttribute="height" id="4Iu-8f-b4R"/>
+                                        <constraint firstItem="aIw-mR-A5Q" firstAttribute="leading" secondItem="Amk-Qh-xCf" secondAttribute="leading" id="GE0-Ds-Iyw"/>
+                                        <constraint firstItem="EQX-Zi-Iwn" firstAttribute="width" secondItem="Amk-Qh-xCf" secondAttribute="width" id="IAC-PR-EZP"/>
+                                        <constraint firstItem="Amk-Qh-xCf" firstAttribute="centerY" secondItem="9t0-1M-6k6" secondAttribute="centerY" id="LhW-7M-LNO"/>
+                                        <constraint firstItem="oyG-YS-JNv" firstAttribute="top" secondItem="Ooy-3C-hk5" secondAttribute="bottom" constant="20" id="PZz-CH-1jH"/>
+                                        <constraint firstItem="oyG-YS-JNv" firstAttribute="leading" secondItem="Ooy-3C-hk5" secondAttribute="leading" id="UJu-tz-QTW"/>
+                                        <constraint firstItem="aIw-mR-A5Q" firstAttribute="centerY" secondItem="oyG-YS-JNv" secondAttribute="centerY" id="ZqE-K4-xFb"/>
+                                        <constraint firstItem="Amk-Qh-xCf" firstAttribute="leading" secondItem="9t0-1M-6k6" secondAttribute="trailing" constant="10" id="b6B-L5-87j"/>
+                                        <constraint firstItem="EQX-Zi-Iwn" firstAttribute="leading" secondItem="Amk-Qh-xCf" secondAttribute="leading" id="bss-wE-Laq"/>
+                                        <constraint firstItem="Ooy-3C-hk5" firstAttribute="leading" secondItem="H7r-lA-Nd7" secondAttribute="leading" constant="10" id="h5e-jB-dKz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9t0-1M-6k6" secondAttribute="bottom" constant="10" id="iw2-lp-9wv"/>
+                                        <constraint firstItem="9t0-1M-6k6" firstAttribute="leading" secondItem="oyG-YS-JNv" secondAttribute="leading" id="lYW-7Y-hSk"/>
+                                        <constraint firstItem="aIw-mR-A5Q" firstAttribute="height" secondItem="Amk-Qh-xCf" secondAttribute="height" id="mh7-WS-0sC"/>
+                                        <constraint firstItem="aIw-mR-A5Q" firstAttribute="width" secondItem="Amk-Qh-xCf" secondAttribute="width" id="n4y-6j-f7t"/>
+                                        <constraint firstItem="EQX-Zi-Iwn" firstAttribute="centerY" secondItem="Ooy-3C-hk5" secondAttribute="centerY" id="rbD-PJ-CMt"/>
+                                        <constraint firstItem="Ooy-3C-hk5" firstAttribute="top" secondItem="H7r-lA-Nd7" secondAttribute="top" constant="10" id="toi-r0-tzg"/>
+                                        <constraint firstItem="9t0-1M-6k6" firstAttribute="top" secondItem="oyG-YS-JNv" secondAttribute="bottom" constant="20" id="xSt-fc-mb5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="amountField" destination="aIw-mR-A5Q" id="9lS-Hn-iRN"/>
+                                    <outlet property="consumableNameField" destination="EQX-Zi-Iwn" id="c9u-qw-aqA"/>
+                                    <outlet property="supplierField" destination="Amk-Qh-xCf" id="Ub6-tL-f5A"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Pd9-FA-uCy" id="9bZ-eA-pz4"/>
+                            <outlet property="delegate" destination="Pd9-FA-uCy" id="FFM-ib-nWY"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="g3d-v1-7Ko" id="u1g-ha-7fg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxd-Nn-jQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="g3d-v1-7Ko">
+                    <connections>
+                        <outlet property="delegate" destination="Pd9-FA-uCy" id="ke8-aN-7lr"/>
+                        <outlet property="searchBar" destination="fAD-gT-yL0" id="2fL-Be-eWd"/>
+                        <outlet property="searchContentsController" destination="Pd9-FA-uCy" id="uTx-64-3OX"/>
+                        <outlet property="searchResultsDataSource" destination="Pd9-FA-uCy" id="xE4-Jd-2aX"/>
+                        <outlet property="searchResultsDelegate" destination="Pd9-FA-uCy" id="XfU-cf-458"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="924" y="42"/>
+        </scene>
+        <!--Add Equipment Controller-->
+        <scene sceneID="Y1X-dc-9of">
+            <objects>
+                <tableViewController storyboardIdentifier="DWAddEquipmentController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kMg-1s-0gL" customClass="DWAddEquipmentController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="SXi-Mb-uVU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="vgU-k2-fia">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="kMg-1s-0gL" id="h9G-NF-sCM"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DWAddEquipmentCell" rowHeight="85" id="AZ8-lZ-vug" customClass="DWAddEquipmentCell">
+                                <rect key="frame" x="0.0" y="72" width="320" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AZ8-lZ-vug" id="44a-ke-LIp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90a-u9-g0Y">
+                                            <rect key="frame" x="10" y="10" width="60" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" text="设备供应商" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-68-xQR">
+                                            <rect key="frame" x="10" y="48" width="75" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNy-4u-o8s" customClass="DWTextField">
+                                            <rect key="frame" x="95" y="4" width="215" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="AZ8-lZ-vug" id="Ovf-oI-ESj"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-Gr-fcC" customClass="DWTextField">
+                                            <rect key="frame" x="95" y="42" width="215" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="AZ8-lZ-vug" id="hVi-Ck-bHH"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="7ko-68-xQR" firstAttribute="leading" secondItem="90a-u9-g0Y" secondAttribute="leading" id="3bN-Cb-ePH"/>
+                                        <constraint firstItem="fNy-4u-o8s" firstAttribute="leading" secondItem="90a-u9-g0Y" secondAttribute="trailing" constant="10" id="8yf-G9-Qku"/>
+                                        <constraint firstAttribute="trailing" secondItem="fNy-4u-o8s" secondAttribute="trailing" constant="10" id="AjN-YP-4bu"/>
+                                        <constraint firstItem="xP8-Gr-fcC" firstAttribute="leading" secondItem="7ko-68-xQR" secondAttribute="trailing" constant="10" id="H91-Z9-W7Q"/>
+                                        <constraint firstItem="xP8-Gr-fcC" firstAttribute="centerY" secondItem="7ko-68-xQR" secondAttribute="centerY" id="Rml-75-mLk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7ko-68-xQR" secondAttribute="bottom" constant="10" id="TJc-O9-M9N"/>
+                                        <constraint firstItem="90a-u9-g0Y" firstAttribute="top" secondItem="44a-ke-LIp" secondAttribute="top" constant="10" id="ZA2-3a-89R"/>
+                                        <constraint firstItem="90a-u9-g0Y" firstAttribute="leading" secondItem="44a-ke-LIp" secondAttribute="leading" constant="10" id="ZRU-Sf-MrQ"/>
+                                        <constraint firstItem="fNy-4u-o8s" firstAttribute="centerY" secondItem="90a-u9-g0Y" secondAttribute="centerY" id="aTz-T6-bmZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="xP8-Gr-fcC" secondAttribute="trailing" constant="10" id="b9E-v1-ijN"/>
+                                        <constraint firstItem="fNy-4u-o8s" firstAttribute="leading" secondItem="xP8-Gr-fcC" secondAttribute="leading" id="lBq-VF-bGB"/>
+                                        <constraint firstItem="90a-u9-g0Y" firstAttribute="leading" secondItem="44a-ke-LIp" secondAttribute="leading" constant="20" id="myb-Ob-ElE"/>
+                                        <constraint firstItem="7ko-68-xQR" firstAttribute="top" secondItem="90a-u9-g0Y" secondAttribute="bottom" constant="20" id="yDP-mN-yqo"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="myb-Ob-ElE"/>
+                                            <exclude reference="8yf-G9-Qku"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="equipmentNameField" destination="fNy-4u-o8s" id="zSk-E4-aER"/>
+                                    <outlet property="supplierField" destination="xP8-Gr-fcC" id="tGg-gg-fn6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kMg-1s-0gL" id="g3H-fC-jwm"/>
+                            <outlet property="delegate" destination="kMg-1s-0gL" id="F8b-JM-aLR"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="5Wy-mY-y1i" id="R4o-yO-1XE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xm8-xi-D4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="5Wy-mY-y1i">
+                    <connections>
+                        <outlet property="delegate" destination="kMg-1s-0gL" id="bAZ-kG-b2g"/>
+                        <outlet property="searchBar" destination="vgU-k2-fia" id="oKf-wa-sxD"/>
+                        <outlet property="searchContentsController" destination="kMg-1s-0gL" id="dQV-Eb-tqx"/>
+                        <outlet property="searchResultsDataSource" destination="kMg-1s-0gL" id="QPX-2K-YQ9"/>
+                        <outlet property="searchResultsDelegate" destination="kMg-1s-0gL" id="H3k-cb-G7X"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1283" y="42"/>
+        </scene>
+    </scenes>
+</document>

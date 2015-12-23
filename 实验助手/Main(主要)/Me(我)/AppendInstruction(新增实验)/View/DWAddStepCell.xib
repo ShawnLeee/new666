@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DWAddStepCell" rowHeight="179" id="KGk-i7-Jjw" customClass="DWAddStepCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="260" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="756" image="step1" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-1g-otP">
+                        <rect key="frame" x="0.0" y="0.0" width="61" height="16"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="1r1-XJ-oKM"/>
+                            <constraint firstAttribute="width" constant="61" id="QMd-FB-4L5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-Fo-uXr">
+                        <rect key="frame" x="190" y="138" width="120" height="30"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="GZP-is-kxy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYB-xX-ncx">
+                        <rect key="frame" x="10" y="26" width="300" height="102"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="tpt-Bn-HoP"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="耗时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr9-iE-c0A">
+                        <rect key="frame" x="150" y="144" width="30" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfR-8f-6Su">
+                        <rect key="frame" x="190" y="138" width="120" height="30"/>
+                        <animations/>
+                    </button>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="fSQ-Fo-uXr" secondAttribute="trailing" constant="10" id="6Dx-0Q-OkP"/>
+                    <constraint firstItem="JYB-xX-ncx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9pR-Or-X5m"/>
+                    <constraint firstItem="mgp-1g-otP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A1Y-zT-j26"/>
+                    <constraint firstItem="JYB-xX-ncx" firstAttribute="top" secondItem="mgp-1g-otP" secondAttribute="bottom" constant="10" id="Lcb-wh-GIU"/>
+                    <constraint firstItem="ZfR-8f-6Su" firstAttribute="top" secondItem="fSQ-Fo-uXr" secondAttribute="top" id="MGL-ux-zYT"/>
+                    <constraint firstItem="Jr9-iE-c0A" firstAttribute="centerY" secondItem="fSQ-Fo-uXr" secondAttribute="centerY" id="PD3-8U-KaN"/>
+                    <constraint firstItem="mgp-1g-otP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QcC-s3-Opb"/>
+                    <constraint firstItem="ZfR-8f-6Su" firstAttribute="width" secondItem="fSQ-Fo-uXr" secondAttribute="width" id="Vpd-wc-KZW"/>
+                    <constraint firstItem="fSQ-Fo-uXr" firstAttribute="top" secondItem="JYB-xX-ncx" secondAttribute="bottom" constant="10" id="bM3-xM-cy8"/>
+                    <constraint firstItem="ZfR-8f-6Su" firstAttribute="height" secondItem="fSQ-Fo-uXr" secondAttribute="height" id="c6x-1i-NAb"/>
+                    <constraint firstAttribute="bottom" secondItem="fSQ-Fo-uXr" secondAttribute="bottom" priority="999" constant="10" id="czv-ed-m31"/>
+                    <constraint firstItem="ZfR-8f-6Su" firstAttribute="leading" secondItem="fSQ-Fo-uXr" secondAttribute="leading" id="j9Z-Qa-UrN"/>
+                    <constraint firstItem="fSQ-Fo-uXr" firstAttribute="leading" secondItem="Jr9-iE-c0A" secondAttribute="trailing" constant="10" id="k8h-Sc-Dt6"/>
+                    <constraint firstAttribute="trailing" secondItem="JYB-xX-ncx" secondAttribute="trailing" constant="10" id="yMm-FW-TFj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="heightConstraint" destination="tpt-Bn-HoP" id="Tcs-Nk-h9G"/>
+                <outlet property="stepContentView" destination="JYB-xX-ncx" id="5uY-DN-MAg"/>
+                <outlet property="stepImageView" destination="mgp-1g-otP" id="lfb-Rj-VwE"/>
+                <outlet property="timeButton" destination="ZfR-8f-6Su" id="BlX-uA-smD"/>
+                <outlet property="timeLabel" destination="fSQ-Fo-uXr" id="zhx-Pp-beJ"/>
+            </connections>
+            <point key="canvasLocation" x="513" y="136.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="step1" width="132" height="32"/>
+    </resources>
+</document>

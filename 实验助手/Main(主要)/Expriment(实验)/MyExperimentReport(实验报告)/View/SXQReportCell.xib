@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SXQReportCell" rowHeight="70" id="KGk-i7-Jjw" customClass="SXQReportCell">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="352" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" image="PDF" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-gh-akv">
+                        <rect key="frame" x="10" y="10" width="50" height="49"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0Q-Lh-P6W">
+                        <rect key="frame" x="292" y="10" width="50" height="50"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="7ae-fD-X7d"/>
+                            <constraint firstAttribute="width" constant="50" id="INA-ay-1fQ"/>
+                        </constraints>
+                        <state key="normal" image="download"/>
+                        <state key="selected">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erI-la-zcp">
+                        <rect key="frame" x="64" y="27" width="218" height="16"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="F0Q-Lh-P6W" secondAttribute="trailing" constant="2" id="3k2-lM-FJr"/>
+                    <constraint firstItem="hZa-gh-akv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="76p-cW-GLO"/>
+                    <constraint firstItem="F0Q-Lh-P6W" firstAttribute="leading" secondItem="erI-la-zcp" secondAttribute="trailing" constant="10" id="IIb-YI-YYo"/>
+                    <constraint firstItem="F0Q-Lh-P6W" firstAttribute="centerY" secondItem="hZa-gh-akv" secondAttribute="centerY" id="L9t-Ww-NV3"/>
+                    <constraint firstItem="hZa-gh-akv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VWO-Yf-D6W"/>
+                    <constraint firstItem="erI-la-zcp" firstAttribute="leading" secondItem="hZa-gh-akv" secondAttribute="trailing" constant="4" id="bIE-Hn-E8l"/>
+                    <constraint firstItem="erI-la-zcp" firstAttribute="centerY" secondItem="hZa-gh-akv" secondAttribute="centerY" id="gSj-If-FSn"/>
+                    <constraint firstAttribute="bottom" secondItem="hZa-gh-akv" secondAttribute="bottom" constant="10" id="sx0-qC-Ud5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="downLoadBtn" destination="F0Q-Lh-P6W" id="1gh-A5-mMI"/>
+                <outlet property="reportNameLabel" destination="erI-la-zcp" id="ToE-89-Oeq"/>
+            </connections>
+            <point key="canvasLocation" x="330" y="322"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="PDF" width="50" height="50"/>
+        <image name="download" width="50" height="50"/>
+    </resources>
+</document>

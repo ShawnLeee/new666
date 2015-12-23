@@ -1,0 +1,18 @@
+//
+//  SXQLab.pch
+//  实验助手
+//
+//  Created by sxq on 15/12/4.
+//  Copyright © 2015年 SXQ. All rights reserved.
+//
+
+#ifndef SXQLab_pch
+#define SXQLab_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#endif /* SXQLab_pch */
+
+#ifdef __OBJC__
+#import "SXQColor.h"
+#endif
