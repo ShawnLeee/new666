@@ -12,4 +12,8 @@
 @property (nonatomic,copy) NSString *topicDetail;
 @property (nonatomic,copy) NSString *topicID;
 @property (nonatomic,copy) NSString *topicName;
+@property (nonatomic,copy) NSString *createTime;
+@property (nonatomic,copy) NSString *icon;
+@property (nonatomic,copy) NSString *creator;
+@property (nonatomic,copy) NSString *timeStr;
 @end

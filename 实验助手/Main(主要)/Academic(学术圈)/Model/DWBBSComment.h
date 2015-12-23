@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface DWBBSComment : NSObject
+/**
+ *  头像URL
+ */
+@property (nonatomic,copy) NSString *icon;
 @property (nonatomic,copy) NSString *reviewDateTime;
 @property (nonatomic,copy) NSString *reviewer;
 @property (nonatomic,copy) NSString *reviewID;

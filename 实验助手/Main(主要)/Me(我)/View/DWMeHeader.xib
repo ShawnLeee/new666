@@ -26,7 +26,7 @@
                         <constraint firstAttribute="width" constant="50" id="pDr-iY-AZe"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-Ob-R1t">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="21" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-Ob-R1t">
                     <rect key="frame" x="80" y="34" width="42" height="21"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -75,7 +75,7 @@
                     <exclude reference="sJO-Jm-JGb"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="520.5" y="117.5"/>
+            <point key="canvasLocation" x="407.5" y="37.5"/>
         </view>
     </objects>
     <resources>

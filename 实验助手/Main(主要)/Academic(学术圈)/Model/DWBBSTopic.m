@@ -9,5 +9,15 @@
 #import "DWBBSTopic.h"
 
 @implementation DWBBSTopic
-
+- (NSString *)timeStr
+{
+    if (!_timeStr) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd";
+        NSTimeInterval timeInterval = [_createTime doubleValue]/1000;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+        _timeStr = [formatter stringFromDate:date];
+    }
+    return _timeStr;
+}
 @end

@@ -25,6 +25,7 @@
     _comment = comment;
     self.reviewID = comment.reviewID;
     self.userName = comment.reviewer;
+    self.imageUrl = [NSURL URLWithString:comment.icon];
     if (comment.parentReviewer.length) {
         self.commentContent = [NSString stringWithFormat:@"回复:%@ %@",comment.parentReviewer,comment.reviewDetail];
     }else

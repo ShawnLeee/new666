@@ -93,6 +93,8 @@
 		B027BCD61C154D55002B74EA /* DWSignOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B027BCD51C154D55002B74EA /* DWSignOutView.m */; };
 		B027BCD81C154D65002B74EA /* DWSignOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B027BCD71C154D65002B74EA /* DWSignOutView.xib */; };
 		B02943401BD48A2B00736364 /* SXQReagentCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = B029433F1BD48A2B00736364 /* SXQReagentCountView.m */; };
+		B029D86E1C2A657C00E518DE /* DWBBSTopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = B029D86D1C2A657C00E518DE /* DWBBSTopicView.m */; };
+		B029D8701C2A658B00E518DE /* DWBBSTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B029D86F1C2A658B00E518DE /* DWBBSTopicView.xib */; };
 		B02C15211C1AA2050049C946 /* DWReagentSecondClarify.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C15201C1AA2050049C946 /* DWReagentSecondClarify.m */; };
 		B02C15241C1AA2CA0049C946 /* DWReagentSecondDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C15231C1AA2CA0049C946 /* DWReagentSecondDelegate.m */; };
 		B02C15271C1AA8BC0049C946 /* DWReagentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C15261C1AA8BC0049C946 /* DWReagentOption.m */; };
@@ -293,8 +295,6 @@
 		B0DF991F1C1FAEE2003E4789 /* DWAddEquipmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DF991E1C1FAEE2003E4789 /* DWAddEquipmentDelegate.m */; };
 		B0E054B71B9470AD00C7F9D0 /* SXQNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E054B61B9470AD00C7F9D0 /* SXQNavgationController.m */; };
 		B0E054BB1B94715A00C7F9D0 /* SXQNavgationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E054BA1B94715A00C7F9D0 /* SXQNavgationBar.m */; };
-		B0E3256C1C11289C0048AD25 /* DWBBSThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E3256B1C11289C0048AD25 /* DWBBSThemeView.m */; };
-		B0E3256E1C112A580048AD25 /* DWBBSThemeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E3256D1C112A580048AD25 /* DWBBSThemeView.xib */; };
 		B0E325711C113C0F0048AD25 /* DWAddThemeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E325701C113C0F0048AD25 /* DWAddThemeParam.m */; };
 		B0E325751C113C780048AD25 /* DWBBSAddThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E325731C113C780048AD25 /* DWBBSAddThemeController.m */; };
 		B0E325761C113C780048AD25 /* DWBBSAddThemeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E325741C113C780048AD25 /* DWBBSAddThemeController.xib */; };
@@ -634,6 +634,9 @@
 		B027BCD71C154D65002B74EA /* DWSignOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWSignOutView.xib; sourceTree = "<group>"; };
 		B029433E1BD48A2B00736364 /* SXQReagentCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQReagentCountView.h; sourceTree = "<group>"; };
 		B029433F1BD48A2B00736364 /* SXQReagentCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQReagentCountView.m; sourceTree = "<group>"; };
+		B029D86C1C2A657C00E518DE /* DWBBSTopicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBBSTopicView.h; sourceTree = "<group>"; };
+		B029D86D1C2A657C00E518DE /* DWBBSTopicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBBSTopicView.m; sourceTree = "<group>"; };
+		B029D86F1C2A658B00E518DE /* DWBBSTopicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWBBSTopicView.xib; sourceTree = "<group>"; };
 		B02C151F1C1AA2050049C946 /* DWReagentSecondClarify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWReagentSecondClarify.h; sourceTree = "<group>"; };
 		B02C15201C1AA2050049C946 /* DWReagentSecondClarify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWReagentSecondClarify.m; sourceTree = "<group>"; };
 		B02C15221C1AA2CA0049C946 /* DWReagentSecondDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWReagentSecondDelegate.h; sourceTree = "<group>"; };
@@ -1013,9 +1016,6 @@
 		B0E054B61B9470AD00C7F9D0 /* SXQNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQNavgationController.m; sourceTree = "<group>"; };
 		B0E054B91B94715A00C7F9D0 /* SXQNavgationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQNavgationBar.h; sourceTree = "<group>"; };
 		B0E054BA1B94715A00C7F9D0 /* SXQNavgationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQNavgationBar.m; sourceTree = "<group>"; };
-		B0E3256A1C11289C0048AD25 /* DWBBSThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBBSThemeView.h; sourceTree = "<group>"; };
-		B0E3256B1C11289C0048AD25 /* DWBBSThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBBSThemeView.m; sourceTree = "<group>"; };
-		B0E3256D1C112A580048AD25 /* DWBBSThemeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWBBSThemeView.xib; sourceTree = "<group>"; };
 		B0E3256F1C113C0F0048AD25 /* DWAddThemeParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddThemeParam.h; sourceTree = "<group>"; };
 		B0E325701C113C0F0048AD25 /* DWAddThemeParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddThemeParam.m; sourceTree = "<group>"; };
 		B0E325721C113C780048AD25 /* DWBBSAddThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBBSAddThemeController.h; sourceTree = "<group>"; };
@@ -3190,9 +3190,9 @@
 				B0FD56BB1C0D7D7B00E9E377 /* DWBBSCommentCell.h */,
 				B0FD56BC1C0D7D7B00E9E377 /* DWBBSCommentCell.m */,
 				B0FD56BD1C0D7D7B00E9E377 /* DWBBSCommentCell.xib */,
-				B0E3256A1C11289C0048AD25 /* DWBBSThemeView.h */,
-				B0E3256B1C11289C0048AD25 /* DWBBSThemeView.m */,
-				B0E3256D1C112A580048AD25 /* DWBBSThemeView.xib */,
+				B029D86C1C2A657C00E518DE /* DWBBSTopicView.h */,
+				B029D86D1C2A657C00E518DE /* DWBBSTopicView.m */,
+				B029D86F1C2A658B00E518DE /* DWBBSTopicView.xib */,
 			);
 			name = BBS;
 			sourceTree = "<group>";
@@ -3378,6 +3378,7 @@
 				B00221451BDA1CCF007A41F9 /* CellContainerView.xib in Resources */,
 				B0F4C7061BBA5714009B7B05 /* SXQSaveReagentController.xib in Resources */,
 				B0C73CB31B92F39E00F4B6D2 /* Images.xcassets in Resources */,
+				B029D8701C2A658B00E518DE /* DWBBSTopicView.xib in Resources */,
 				B0F566361BA7FC4400BA1F7B /* SXQExperimentToolBar.xib in Resources */,
 				B0E46F411BDCF89300B1F2D8 /* DGExperimentBaseController.xib in Resources */,
 				B0F6B1841BC7AB860090E398 /* SXQAddExpController.xib in Resources */,
@@ -3408,7 +3409,6 @@
 				B006ABD91C057A30008C6C76 /* DWMeCell.xib in Resources */,
 				B02C15351C1ABA030049C946 /* DWItemCell.xib in Resources */,
 				B0665B911BF586040021E752 /* DWDoingActionBar.xib in Resources */,
-				B0E3256E1C112A580048AD25 /* DWBBSThemeView.xib in Resources */,
 				B0E46F3A1BDCE32C00B1F2D8 /* DWExperimentToolBar.xib in Resources */,
 				B0F845411BE07CAE00BC539A /* DWConsultDetailController.xib in Resources */,
 				B0026BE41BCF754900FB70A9 /* SXQSupplierCell.xib in Resources */,
@@ -3573,6 +3573,7 @@
 				B0E46F401BDCF89300B1F2D8 /* DGExperimentBaseController.m in Sources */,
 				B0473B231C0FDBBF00C9AA1D /* SXQAdjacentUserParam.m in Sources */,
 				B084045F1BCB478300019039 /* SXQInstructionData.m in Sources */,
+				B029D86E1C2A657C00E518DE /* DWBBSTopicView.m in Sources */,
 				B011AD1A1C0C1CEA00DD94DC /* SXQReviewDetailController.m in Sources */,
 				B0C73CC71B930C6E00F4B6D2 /* SXQInstructionHeader.m in Sources */,
 				B0F7626C1BE1B35400DB7CD4 /* UIBarButtonItem+MJ.m in Sources */,
@@ -3674,7 +3675,6 @@
 				B0B544CC1BE70024003CB14F /* SXQAddScheduleParam.m in Sources */,
 				B0C167E91BEC406000E85361 /* SXQTitle.m in Sources */,
 				B006ABD31C057796008C6C76 /* DWMeServiceImpl.m in Sources */,
-				B0E3256C1C11289C0048AD25 /* DWBBSThemeView.m in Sources */,
 				B00221481BDA1E59007A41F9 /* CellContainerView.m in Sources */,
 				B02C15301C1AB99A0049C946 /* DWItemCellViewModel.m in Sources */,
 				B0FD568E1C0D43B900E9E377 /* DWBBSModel.m in Sources */,

@@ -15,9 +15,9 @@ typedef NS_ENUM(NSUInteger,LABResponseType)
     LABResponseTypeSuccess = 1,
 };
 
-#define sURL @"hualang.wicp.net:8090"
+//#define sURL @"hualang.wicp.net:8090"
 //#define sURL @"127.0.0.1:9090"
-//#define sURL @"172.18.1.55:8080"
+#define sURL @"172.18.1.55:8080"
 //#define sURL @"120.25.78.13:8080/"
 
 ////////////////////////////////////////////实验部分////////////////////////////////////

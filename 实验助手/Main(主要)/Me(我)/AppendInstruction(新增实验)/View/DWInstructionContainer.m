@@ -23,14 +23,19 @@
 @property (nonatomic,strong) MBProgressHUD *hud;
 @end
 @implementation DWInstructionContainer
+- (void)awakeFromNib
+{
+    self.instructionDescView.backgroundColor = RGB(230, 230, 230);
+    self.instructionTheoryView.backgroundColor = RGB(230, 230, 230);
+}
 - (void)setInstructionViewModel:(DWAddExpInstruction *)instructionViewModel
 {
     _instructionViewModel = instructionViewModel;
     self.categoryField.text = instructionViewModel.expCategoryName;
     self.subCategoryField.text = instructionViewModel.expSubCategoryName;
     self.instructionName.text = instructionViewModel.experimentName;
-    self.instructionDescView.text = instructionViewModel.experimentDesc;
-    self.instructionTheoryView.text = instructionViewModel.experimentTheory;
+    self.instructionDescView.text = instructionViewModel.experimentDesc ? : @"请输入实验简介";
+    self.instructionTheoryView.text = instructionViewModel.experimentTheory ? : @"请输入实验原理";
     [self bindingModel];
 }
 - (void)bindingModel
@@ -136,7 +141,7 @@
 {
     if ([introductionView.text isEqualToString:@"请输入实验简介"]) {
         introductionView.text = @"";
-        introductionView.textColor = [UIColor whiteColor]; //optional
+        introductionView.textColor = [UIColor blackColor]; //optional
         [introductionView becomeFirstResponder];
         return;
     }
@@ -150,7 +155,7 @@
 {
     if ([theoryView.text isEqualToString:@"请输入实验原理"]) {
         theoryView.text = @"";
-        theoryView.textColor = [UIColor whiteColor]; //optional
+        theoryView.textColor = [UIColor blackColor]; //optional
         [theoryView becomeFirstResponder];
         return;
     }

@@ -5,7 +5,6 @@
 //  Created by sxq on 15/12/1.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
-#import "DWBBSThemeView.h"
 #import "DWBBSTopicResult.h"
 #import <MJRefresh.h>
 #import "SXQNavgationController.h"
@@ -16,14 +15,19 @@
 #import "DWBBSTheme.h"
 #import "DWBBSCommentController.h"
 #import "DWBBSCommentParam.h"
+#import "DWBBSTopicView.h"
 @interface DWBBSCommentController ()
 @property (nonatomic,strong) DWBBSTheme *bbsTheme;
 @property (nonatomic,strong) id<DWBBSTool> bbsTool;
 @property (nonatomic,strong) NSArray *comments;
-@property (nonatomic,weak) DWBBSThemeView *themeView;
+@property (nonatomic,strong) DWBBSTopic *bbsTopic;
 @end
 
 @implementation DWBBSCommentController
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 - (instancetype)initWithBBSTheme:(DWBBSTheme *)bbsTheme bbsTool:(id<DWBBSTool>)bbsTool
 {
     if (self = [super init]) {
@@ -35,7 +39,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTableHeader];
     [self p_setupRefresh];
     [self p_setupTableView];
     [self p_setupNavigation];
@@ -65,8 +68,7 @@
 }
 - (void)p_setupWithResult:(DWBBSTopicResult *)result
 {
-    self.themeView.bbsTopic = result.topic;
-    [self p_layoutTableFooter];
+    self.bbsTopic = result.topic;
      self.comments = result.reviews;
      [self.tableView reloadData];
      [self.tableView.header endRefreshing];
@@ -85,31 +87,17 @@
          [self p_showWriteCommentControllerWithParam:param];
     }];
 }
-- (void)setupTableHeader
-{
-    DWBBSThemeView *themeView = [DWBBSThemeView themeViewWithBBSTool:self.bbsTool];
-    themeView.backgroundColor = DWRGB(0.95, 0.95, 0.95);
-    self.themeView = themeView;
-    self.tableView.tableHeaderView = themeView;
-}
-- (void)p_layoutTableFooter
-{
-    [self.themeView setNeedsLayout];
-    [self.themeView layoutIfNeeded];
-    
-    CGFloat height = [self.themeView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    CGRect footerFrame = self.themeView.frame;
-    footerFrame.size.height = height;
-    self.themeView.frame = footerFrame;
-}
 - (void)p_setupTableView
 {
     self.title = @"评论";
     self.tableView.backgroundColor = DWRGB(0.95, 0.95, 0.95);
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.estimatedRowHeight = 60;
+    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedSectionHeaderHeight = 50;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DWBBSCommentCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([DWBBSCommentCell class])];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DWBBSTopicView class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([DWBBSTopicView class])];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -121,6 +109,12 @@
     DWBBSCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([DWBBSCommentCell class]) forIndexPath:indexPath];
     cell.viewModel = self.comments[indexPath.row];
     return cell;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    DWBBSTopicView *topicView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([DWBBSTopicView class])];
+    topicView.bbsTopic = self.bbsTopic;
+    return topicView;
 }
 #pragma mark - TableView Deleagate Method 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,4 +143,5 @@
     SXQNavgationController *nav = [[SXQNavgationController alloc] initWithRootViewController:writeCommentVC];
     [self presentViewController:nav animated:YES completion:nil];
 }
+
 @end

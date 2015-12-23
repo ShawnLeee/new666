@@ -44,7 +44,7 @@
         }else
         {
 //            [self.service updateRepeateCountWithCount:repeatCount exception:self];
-            self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue])];
+            self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
         }
         
     }];

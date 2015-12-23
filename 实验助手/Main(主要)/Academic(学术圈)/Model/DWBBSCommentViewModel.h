@@ -14,5 +14,6 @@
 @property (nonatomic,copy) NSString *createTime;
 @property (nonatomic,copy) NSString *commentContent;
 @property (nonatomic,copy) NSString *reviewID;
+@property (nonatomic,strong) NSURL *imageUrl;
 - (instancetype)initWithComment:(DWBBSComment *)comment bbsTool:(id<DWBBSTool>)bbsTool;
 @end
