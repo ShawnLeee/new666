@@ -16,7 +16,7 @@
 #import "DWBBSCommentController.h"
 #import "DWBBSCommentParam.h"
 #import "DWBBSTopicView.h"
-@interface DWBBSCommentController ()
+@interface DWBBSCommentController ()<DWBBSTopicViewDelegate>
 @property (nonatomic,strong) DWBBSTheme *bbsTheme;
 @property (nonatomic,strong) id<DWBBSTool> bbsTool;
 @property (nonatomic,strong) NSArray *comments;
@@ -41,7 +41,7 @@
     [super viewDidLoad];
     [self p_setupRefresh];
     [self p_setupTableView];
-    [self p_setupNavigation];
+//    [self p_setupNavigation];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -113,6 +113,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     DWBBSTopicView *topicView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([DWBBSTopicView class])];
+    topicView.delegate = self;
     topicView.bbsTopic = self.bbsTopic;
     return topicView;
 }
@@ -142,5 +143,20 @@
     DWBBSWriteComment *writeCommentVC = [[DWBBSWriteComment alloc] initWithCommentParam:param bbsTool:self.bbsTool];
     SXQNavgationController *nav = [[SXQNavgationController alloc] initWithRootViewController:writeCommentVC];
     [self presentViewController:nav animated:YES completion:nil];
+}
+- (void)didClickTopicView:(DWBBSTopicView *)topicView
+{
+    UIActionSheet *commentActionSheet =[[UIActionSheet alloc] initWithTitle:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"取消"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:@"评论", nil];
+    [commentActionSheet.rac_buttonClickedSignal subscribeNext:^(NSNumber *buttonIndex) {
+        if ([buttonIndex integerValue] == 0) {
+            DWBBSCommentParam *param = [DWBBSCommentParam paramWithTopicID:_bbsTheme.topicID parentReviewID:nil];
+            [self p_showWriteCommentControllerWithParam:param];
+        }
+    }];
+    [commentActionSheet showInView:self.view];
 }
 @end

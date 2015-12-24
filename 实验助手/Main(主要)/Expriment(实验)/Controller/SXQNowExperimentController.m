@@ -66,8 +66,11 @@
 #pragma mark - TableView Delegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DWCurrentViewModel *currentViewModel = self.experiments[indexPath.row];
     
-    SXQExperimentModel *experiment = self.experiments[indexPath.row];
+    SXQExperimentModel *experiment = [[SXQExperimentModel alloc] init];
+    experiment.myExpID = currentViewModel.myExpID;
+    
     DGExperimentBaseController *stepVC = [[DGExperimentBaseController alloc] initWithExperimentModel:experiment];
     [self.navigationController pushViewController:stepVC animated:YES];
 }

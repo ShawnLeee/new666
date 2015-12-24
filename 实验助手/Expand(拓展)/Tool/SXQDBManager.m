@@ -1691,6 +1691,14 @@ static SXQDBManager *_dbManager = nil;
     }];
     [_queue close];
 }
+- (void)setCurrentStepWithMyExpStep:(SXQExpStep *)expStep
+{
+    [_queue inDatabase:^(FMDatabase *db) {
+        NSString *updateSQL = [NSString stringWithFormat:@"update t_myExp set currentStep = '%d' where MyExpID = '%@'",expStep.stepNum,expStep.myExpId];
+        [db executeUpdate:updateSQL];
+    }];
+    [_queue close];
+}
 @end
 
 

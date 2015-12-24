@@ -85,6 +85,8 @@
         if ([isUseTimer boolValue]) {
             
             [UILocalNotification localNotificationWithBody:self.notificatitonBody timeIntervel:self.surplusTime indentifier:@"sss"];
+            //设置当前步骤
+            [self.service setCurrentStepWithMyExpStep:_experimentStep];
         }else
         {
             [[UIApplication sharedApplication] cancelAllLocalNotifications];

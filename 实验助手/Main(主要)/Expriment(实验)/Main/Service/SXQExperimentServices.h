@@ -5,7 +5,7 @@
 //  Created by sxq on 15/10/23.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
-@class RACSignal;
+@class RACSignal,SXQExpStep;
 #import <Foundation/Foundation.h>
 #import "DWExperimentStep.h"
 @class CellContainerViewModel;
@@ -15,5 +15,6 @@
 - (RACSignal *)remarkAddSignalWithViewModel:(CellContainerViewModel *)viewModel;
 - (RACSignal *)launchSignalWithViewModel:(CellContainerViewModel *)viewModel;
 - (RACSignal *)setCompleteWithMyExpId:(NSString *)myExpId;
+- (void )setCurrentStepWithMyExpStep:(SXQExpStep *)expStep;
 - (void)activeAllStep;
 @end

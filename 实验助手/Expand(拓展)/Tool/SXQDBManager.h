@@ -5,7 +5,7 @@
 //  Created by sxq on 15/9/25.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
-@class SXQExpInstruction,SXQInstructionData,SXQCurrentExperimentData,SXQExperimentModel,SXQInstructionDetail,DWAddInstructionViewModel,DWInstructionUploadParam;
+@class SXQExpInstruction,SXQInstructionData,SXQCurrentExperimentData,SXQExperimentModel,SXQInstructionDetail,DWAddInstructionViewModel,DWInstructionUploadParam,SXQExpStep;
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 typedef void  (^CompletionHandler)(BOOL success,NSDictionary *info);
@@ -90,6 +90,10 @@ typedef NS_ENUM(NSUInteger,ExperimentState) {
 - (DWInstructionUploadParam *)getInstructionUploadDataWithInstructionID:(NSString *)instructionID;
 - (NSArray *)localInstructions;
 - (void)loadDataWithDWaddInstructionViewModel:(DWAddInstructionViewModel *)instructionViewModel;
+/**
+ *  设置当前步骤
+ */
+- (void)setCurrentStepWithMyExpStep:(SXQExpStep *)expStep;
 @end
 
 

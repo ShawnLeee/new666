@@ -15,32 +15,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6L-0a-NiP">
-                        <rect key="frame" x="8" y="8" width="4" height="21"/>
+                        <rect key="frame" x="8" y="8" width="358" height="21"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="lE0-aS-k3D"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rf-I7-sF4">
-                        <rect key="frame" x="8" y="55" width="38" height="18"/>
+                        <rect key="frame" x="28" y="55" width="36" height="18"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="FI7-a9-OMH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkN-ar-kOg">
-                        <rect key="frame" x="8" y="33" width="38" height="18"/>
+                        <rect key="frame" x="28" y="33" width="36" height="18"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="RHR-OS-hMN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,6 +48,7 @@
                         <rect key="frame" x="336" y="28" width="30" height="30"/>
                         <animations/>
                         <state key="normal" title="下载">
+                            <color key="titleColor" red="0.23137254900000001" green="0.65490196079999996" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -57,15 +58,24 @@
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="xiA-ri-RLo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SkN-ar-kOg" secondAttribute="trailing" constant="10" id="32q-D9-lb2"/>
+                    <constraint firstAttribute="trailing" secondItem="g6L-0a-NiP" secondAttribute="trailing" constant="10" id="FXc-LD-Ena"/>
+                    <constraint firstItem="7Rf-I7-sF4" firstAttribute="leading" secondItem="SkN-ar-kOg" secondAttribute="leading" id="GYj-pA-Srk"/>
                     <constraint firstItem="g6L-0a-NiP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="MoE-i8-orG"/>
                     <constraint firstItem="g6L-0a-NiP" firstAttribute="leading" secondItem="7Rf-I7-sF4" secondAttribute="leading" id="NDX-Uc-fiZ"/>
-                    <constraint firstItem="g6L-0a-NiP" firstAttribute="leading" secondItem="SkN-ar-kOg" secondAttribute="leading" id="fNn-dn-WrJ"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Rf-I7-sF4" secondAttribute="trailing" constant="10" id="e2v-oU-bvl"/>
+                    <constraint firstItem="SkN-ar-kOg" firstAttribute="leading" secondItem="g6L-0a-NiP" secondAttribute="leading" constant="20" id="fNn-dn-WrJ"/>
                     <constraint firstItem="7Rf-I7-sF4" firstAttribute="top" secondItem="SkN-ar-kOg" secondAttribute="bottom" constant="4" id="i3M-vW-82S"/>
                     <constraint firstAttribute="trailing" secondItem="xiA-ri-RLo" secondAttribute="trailing" constant="10" id="nJ1-ht-sv6"/>
                     <constraint firstItem="SkN-ar-kOg" firstAttribute="top" secondItem="g6L-0a-NiP" secondAttribute="bottom" constant="4" id="oZb-rr-uSg"/>
                     <constraint firstItem="g6L-0a-NiP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="po2-AB-IGs"/>
                     <constraint firstAttribute="centerY" secondItem="xiA-ri-RLo" secondAttribute="centerY" id="u7h-po-r6X"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="NDX-Uc-fiZ"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
@@ -74,7 +84,7 @@
                 <outlet property="supplierIDLabel" destination="7Rf-I7-sF4" id="V2K-ZZ-DNG"/>
                 <outlet property="supplierLabel" destination="SkN-ar-kOg" id="9aI-qt-nw3"/>
             </connections>
-            <point key="canvasLocation" x="469" y="168.5"/>
+            <point key="canvasLocation" x="410" y="138.5"/>
         </tableViewCell>
     </objects>
 </document>

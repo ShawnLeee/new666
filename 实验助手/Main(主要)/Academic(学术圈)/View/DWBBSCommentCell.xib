@@ -40,7 +40,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="38" placeholderIntrinsicHeight="18" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-sI-Q17">
-                        <rect key="frame" x="70" y="30" width="38" height="18"/>
+                        <rect key="frame" x="372" y="10" width="38" height="18"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,17 +51,17 @@
                 <constraints>
                     <constraint firstItem="PrP-Fz-DUq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7TY-OJ-ON6"/>
                     <constraint firstItem="d4P-6c-tpl" firstAttribute="leading" secondItem="PrP-Fz-DUq" secondAttribute="trailing" constant="10" id="9eH-Jj-mOc"/>
-                    <constraint firstItem="Jr4-sI-Q17" firstAttribute="top" secondItem="d4P-6c-tpl" secondAttribute="bottom" constant="2" id="C1t-HB-yNI"/>
+                    <constraint firstItem="Jr4-sI-Q17" firstAttribute="top" secondItem="PrP-Fz-DUq" secondAttribute="top" id="DzQ-mJ-XfW"/>
                     <constraint firstAttribute="bottom" secondItem="leE-qz-Z0h" secondAttribute="bottom" id="HKM-fA-W1q"/>
                     <constraint firstItem="3sO-lS-jpg" firstAttribute="leading" secondItem="leE-qz-Z0h" secondAttribute="trailing" constant="-350" id="IJF-kO-hpJ"/>
-                    <constraint firstItem="3sO-lS-jpg" firstAttribute="leading" secondItem="Jr4-sI-Q17" secondAttribute="leading" id="IPo-rL-hid"/>
+                    <constraint firstAttribute="trailing" secondItem="Jr4-sI-Q17" secondAttribute="trailing" constant="10" id="QDN-cg-DeT"/>
                     <constraint firstAttribute="trailing" secondItem="3sO-lS-jpg" secondAttribute="trailing" constant="10" id="TKm-MG-ZaV"/>
-                    <constraint firstItem="3sO-lS-jpg" firstAttribute="top" secondItem="Jr4-sI-Q17" secondAttribute="bottom" constant="2" id="dQL-iP-USt"/>
+                    <constraint firstItem="3sO-lS-jpg" firstAttribute="leading" secondItem="d4P-6c-tpl" secondAttribute="leading" id="dPd-xO-j5E"/>
                     <constraint firstItem="leE-qz-Z0h" firstAttribute="top" secondItem="3sO-lS-jpg" secondAttribute="bottom" constant="2" id="h3B-uE-UND"/>
                     <constraint firstItem="d4P-6c-tpl" firstAttribute="top" secondItem="PrP-Fz-DUq" secondAttribute="top" id="p6K-Kj-v9N"/>
                     <constraint firstItem="leE-qz-Z0h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="p7H-7F-oby"/>
+                    <constraint firstItem="3sO-lS-jpg" firstAttribute="top" secondItem="d4P-6c-tpl" secondAttribute="bottom" constant="22" id="qxM-QZ-Tdk"/>
                     <constraint firstItem="PrP-Fz-DUq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rD6-gS-gKg"/>
-                    <constraint firstItem="Jr4-sI-Q17" firstAttribute="leading" secondItem="d4P-6c-tpl" secondAttribute="leading" id="tQ5-Rj-8yL"/>
                     <constraint firstAttribute="trailing" secondItem="leE-qz-Z0h" secondAttribute="trailing" id="zbV-aN-IQ1"/>
                 </constraints>
                 <variation key="default">

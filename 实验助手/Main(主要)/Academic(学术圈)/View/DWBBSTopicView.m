@@ -16,7 +16,11 @@
 @property (nonatomic,weak) IBOutlet UILabel *topicContentLabel;
 @end
 @implementation DWBBSTopicView
-
+- (void)awakeFromNib
+{
+    UITapGestureRecognizer *tapRecoginzer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
+    [self addGestureRecognizer:tapRecoginzer];
+}
 - (UIView *)contentView
 {
     return [self.subviews firstObject];
@@ -38,5 +42,11 @@
     [super layoutSubviews];
     self.userIconView.layer.cornerRadius = self.userIconView.bounds.size.width/2;
     self.userIconView.clipsToBounds = YES;
+}
+- (void)tapHandler:(UITapGestureRecognizer *)tapGestureRecognizer
+{
+    if ([self.delegate respondsToSelector:@selector(didClickTopicView:)]) {
+        [self.delegate didClickTopicView:self];
+    }
 }
 @end
