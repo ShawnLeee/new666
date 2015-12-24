@@ -128,6 +128,9 @@
 		B04C735F1BF1B0590038B1A6 /* SXQReportHelperImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C735E1BF1B0590038B1A6 /* SXQReportHelperImpl.m */; };
 		B04C73631BF1B0930038B1A6 /* SXQReportServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C73621BF1B0930038B1A6 /* SXQReportServiceImpl.m */; };
 		B04C73661BF1B3AD0038B1A6 /* SXQReportItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C73651BF1B3AD0038B1A6 /* SXQReportItem.m */; };
+		B04DAA231C2B868600540902 /* DWCurrentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DAA221C2B868600540902 /* DWCurrentViewModel.m */; };
+		B04DAA271C2B90BE00540902 /* DWCurrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DAA251C2B90BE00540902 /* DWCurrentCell.m */; };
+		B04DAA281C2B90BE00540902 /* DWCurrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04DAA261C2B90BE00540902 /* DWCurrentCell.xib */; };
 		B052AFF71C239A3300A00E5B /* DWInstructionUploadParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B052AFF61C239A3300A00E5B /* DWInstructionUploadParam.m */; };
 		B052AFFA1C23B31900A00E5B /* DWSyncInstructionParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B052AFF91C23B31900A00E5B /* DWSyncInstructionParam.m */; };
 		B052AFFD1C23B4C300A00E5B /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B052AFFC1C23B4C300A00E5B /* NSString+JSON.m */; };
@@ -703,6 +706,11 @@
 		B04C73621BF1B0930038B1A6 /* SXQReportServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQReportServiceImpl.m; sourceTree = "<group>"; };
 		B04C73641BF1B3AD0038B1A6 /* SXQReportItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQReportItem.h; sourceTree = "<group>"; };
 		B04C73651BF1B3AD0038B1A6 /* SXQReportItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQReportItem.m; sourceTree = "<group>"; };
+		B04DAA211C2B868600540902 /* DWCurrentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWCurrentViewModel.h; sourceTree = "<group>"; };
+		B04DAA221C2B868600540902 /* DWCurrentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWCurrentViewModel.m; sourceTree = "<group>"; };
+		B04DAA241C2B90BE00540902 /* DWCurrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWCurrentCell.h; sourceTree = "<group>"; };
+		B04DAA251C2B90BE00540902 /* DWCurrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWCurrentCell.m; sourceTree = "<group>"; };
+		B04DAA261C2B90BE00540902 /* DWCurrentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWCurrentCell.xib; sourceTree = "<group>"; };
 		B052AFF51C239A3300A00E5B /* DWInstructionUploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWInstructionUploadParam.h; sourceTree = "<group>"; };
 		B052AFF61C239A3300A00E5B /* DWInstructionUploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWInstructionUploadParam.m; sourceTree = "<group>"; };
 		B052AFF81C23B31900A00E5B /* DWSyncInstructionParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSyncInstructionParam.h; sourceTree = "<group>"; };
@@ -1815,6 +1823,8 @@
 			children = (
 				B0665B8A1BF5830B0021E752 /* DWDoingViewModel.h */,
 				B0665B8B1BF5830B0021E752 /* DWDoingViewModel.m */,
+				B04DAA211C2B868600540902 /* DWCurrentViewModel.h */,
+				B04DAA221C2B868600540902 /* DWCurrentViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2661,6 +2671,9 @@
 				B0DEFB331BF592BE00CF44AB /* DWDoingCell.h */,
 				B0DEFB341BF592BE00CF44AB /* DWDoingCell.m */,
 				B0DEFB351BF592BF00CF44AB /* DWDoingCell.xib */,
+				B04DAA241C2B90BE00540902 /* DWCurrentCell.h */,
+				B04DAA251C2B90BE00540902 /* DWCurrentCell.m */,
+				B04DAA261C2B90BE00540902 /* DWCurrentCell.xib */,
 			);
 			name = CellView;
 			sourceTree = "<group>";
@@ -3363,6 +3376,7 @@
 				B013832F1C02DCC300F37F76 /* DWCommentCell.xib in Resources */,
 				B006ABCA1C055BD2008C6C76 /* DWMeHeader.xib in Resources */,
 				B027BCCE1C151E69002B74EA /* DWBBSTopicController.xib in Resources */,
+				B04DAA281C2B90BE00540902 /* DWCurrentCell.xib in Resources */,
 				B08E7C691BB25C070023893B /* SXQSingleContentCell.xib in Resources */,
 				B0221C771BFB2B3E00DB4083 /* SXQVenderView.xib in Resources */,
 				B006ABE11C05945E008C6C76 /* DWMeInstructionCell.xib in Resources */,
@@ -3575,6 +3589,7 @@
 				B084045F1BCB478300019039 /* SXQInstructionData.m in Sources */,
 				B029D86E1C2A657C00E518DE /* DWBBSTopicView.m in Sources */,
 				B011AD1A1C0C1CEA00DD94DC /* SXQReviewDetailController.m in Sources */,
+				B04DAA271C2B90BE00540902 /* DWCurrentCell.m in Sources */,
 				B0C73CC71B930C6E00F4B6D2 /* SXQInstructionHeader.m in Sources */,
 				B0F7626C1BE1B35400DB7CD4 /* UIBarButtonItem+MJ.m in Sources */,
 				B0A271011BD73B5C00BA0C1B /* NSString+FSExtension.m in Sources */,
@@ -3798,6 +3813,7 @@
 				B0981F731BF1B92200925D5B /* SXQReportCell.m in Sources */,
 				B0A271151BD74E7D00BA0C1B /* SXQScheduleParam.m in Sources */,
 				B02C15241C1AA2CA0049C946 /* DWReagentSecondDelegate.m in Sources */,
+				B04DAA231C2B868600540902 /* DWCurrentViewModel.m in Sources */,
 				B0221C581BFB182200DB4083 /* SXQReviewDetail.m in Sources */,
 				B0A270FE1BD73B5C00BA0C1B /* FSCalendarStickyHeader.m in Sources */,
 				B0276F8E1BFDE53C00651C23 /* DWSignUpCell.m in Sources */,

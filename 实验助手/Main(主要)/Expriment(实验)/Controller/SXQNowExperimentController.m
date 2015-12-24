@@ -8,13 +8,13 @@
 #import "DGExperimentBaseController.h"
 #define Identifier @"cell"
 #import "SXQDBManager.h"
-#import "ArrayDataSource+TableView.h"
 #import "SXQNowExperimentController.h"
 #import "SXQExperimentModel.h"
 #import "ExperimentTool.h"
 #import "SXQExperimentResult.h"
+#import "DWCurrentViewModel.h"
+#import "DWCurrentCell.h"
 @interface SXQNowExperimentController ()
-@property (nonatomic,strong) ArrayDataSource *nowDataSource;
 @property (nonatomic,strong) NSArray *experiments;
 @end
 
@@ -29,7 +29,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
    self.experiments = [[SXQDBManager sharedManager] fetchExperimentWithState:ExperimentStateDoing];
-    _nowDataSource.items = self.experiments;
     [self.tableView reloadData];
     [super viewWillAppear:animated];
 }
@@ -46,12 +45,23 @@
 
 - (void)setupTableView
 {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:Identifier];
-    _nowDataSource = [[ArrayDataSource alloc] initWithItems:self.experiments cellIdentifier:Identifier cellConfigureBlock:^(UITableViewCell *cell, SXQExperimentModel *model) {
-        cell.textLabel.text = model.experimentName;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }];
-    self.tableView.dataSource = _nowDataSource;
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 50;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DWCurrentCell class]) bundle:nil]
+         forCellReuseIdentifier:NSStringFromClass([DWCurrentCell class])];
+}
+#pragma mark - TableView DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.experiments.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DWCurrentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([DWCurrentCell class]) forIndexPath:indexPath];
+    cell.currentViewModel = self.experiments[indexPath.row];
+    return cell;
 }
 #pragma mark - TableView Delegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

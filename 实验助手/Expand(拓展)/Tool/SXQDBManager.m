@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "DWCurrentViewModel.h"
 #import "AccountTool.h"
 #import "Account.h"
 #import "NSString+Date.h"
@@ -190,7 +191,7 @@ static SXQDBManager *_dbManager = nil;
     //我的说明书表
     NSString *myExpInstruction = @"create table if not exists t_myExpInstruction (MyExpInstructionID text,ExpInstructionID text,UserID text,DownloadTime numeric);";
     //我的实验主表
-    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text);";
+    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1);";
     //我的实验试剂表
     NSString *myExpReageneSQL = @"create table if not exists t_myExpReagent( MyExpReagentID text primary key, MyExpID text, ExpInstructionID text,ReagentID  text, SupplierID text);";
     //我的实验耗材表
@@ -964,19 +965,57 @@ static SXQDBManager *_dbManager = nil;
 //    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text);";
         NSString *querySql = [NSString stringWithFormat:@"select * from t_myExp where ExpState = '%lu'",(unsigned long)state];
         FMResultSet *rs = [db executeQuery:querySql];
-        while (rs.next) {
-            SXQExperimentModel *experiment = [[SXQExperimentModel alloc] init];
-            experiment.myExpID = [rs stringForColumn:@"MyExpID"];
-            experiment.expState = [rs intForColumn:@"ExpState"];
-            experiment.expInstructionID =  [rs stringForColumn:@"ExpInstructionID"];
-            experiment.experimentName = [self fetchExperimentNameWithInstructionID:experiment.expInstructionID db:db];
-            [tmpArr addObject:experiment];
+        switch (state) {
+            case ExperimentStateDoing:
+            {
+                while (rs.next) {
+                    DWCurrentViewModel *currenViewModel = [[DWCurrentViewModel alloc] init];
+                    currenViewModel.myExpID =[rs stringForColumn:@"MyExpID"];
+                    currenViewModel.expInstructionID = [rs stringForColumn:@"ExpInstructionID"];
+                    currenViewModel.experimentName = [self fetchExperimentNameWithInstructionID:currenViewModel.expInstructionID db:db];
+                    currenViewModel.currentStep = [rs intForColumn:@"currentStep"];
+                    currenViewModel.notes = [rs stringForColumn:@"ExpMemo"];
+                    SXQExpStep *expStep = [self fetchCurrentStepWithMyExpID:currenViewModel.myExpID stepNum:currenViewModel.currentStep db:db];
+                    currenViewModel.currentStepDesc = expStep.expStepDesc;
+                    currenViewModel.notes = expStep.processMemo;
+                    currenViewModel.timeStr = [NSString stringWithFormat:@"%@分钟",expStep.expStepTime];
+                    [tmpArr addObject:currenViewModel];
+                }
+                break;
+            }
+            case ExperimentStateDown:
+            {
+                while (rs.next) {
+                    SXQExperimentModel *experiment = [[SXQExperimentModel alloc] init];
+                    experiment.myExpID = [rs stringForColumn:@"MyExpID"];
+                    experiment.expState = [rs intForColumn:@"ExpState"];
+                    experiment.expInstructionID =  [rs stringForColumn:@"ExpInstructionID"];
+                    experiment.experimentName = [self fetchExperimentNameWithInstructionID:experiment.expInstructionID db:db];
+                    [tmpArr addObject:experiment];
+                }
+                break;
+            }
+            default:
+                break;
         }
+        
     }];
     [_queue close];
     return tmpArr;
 }
-
+//t_myExpProcess( MyExpProcessID text primary key,MyExpID text,ExpInstructionID text,ExpStepID text,StepNum integer,ExpStepDesc text,ExpStepTime integer,IsUseTimer integer,ProcessMemo text,IsActiveStep integer,depositReagent text);
+- (SXQExpStep *)fetchCurrentStepWithMyExpID:(NSString *)myExpID stepNum:(int)stepNum db:(FMDatabase *)db
+{
+    SXQExpStep *expStep = [[SXQExpStep alloc] init];
+    NSString *querySQL = [NSString stringWithFormat:@"select  * from t_myExpProcess where MyExpID = '%@' and StepNum = '%d'",myExpID,stepNum];
+    FMResultSet *rs = [db executeQuery:querySQL];
+    while (rs.next) {
+        expStep.expStepDesc = [rs stringForColumn:@"ExpStepDesc"];
+        expStep.processMemo = [rs stringForColumn:@"ProcessMemo"];
+        expStep.expStepTime = [rs stringForColumn:@"ExpStepTime"];
+    }
+    return expStep;
+}
 - (NSString *)fetchExperimentNameWithInstructionID:(NSString *)instructionID db:(FMDatabase *)db
 {
     NSString *querySql = [NSString stringWithFormat:@"select experimentname from t_expinstructionsMain where expinstructionid = '%@'",instructionID];
@@ -1314,7 +1353,7 @@ static SXQDBManager *_dbManager = nil;
                 *rollback = YES;
                 return;
             }
-            if (![self saveInstructionSteps:addInstructionViewModel.expExpStep db:db]) {
+            if (![self saveInstructionSteps:addInstructionViewModel.expExpStep instructionID:expInstructionID db:db]) {
                 *rollback = YES;
                 return;
             }
@@ -1340,18 +1379,18 @@ static SXQDBManager *_dbManager = nil;
     NSString *insertSql = [NSString stringWithFormat:@"insert into t_expinstructionsMain (expinstructionid ,experimentname ,experimentdesc ,experimenttheory ,provideuser,expcategoryid ,expsubcategoryid ,createdate ,allowdownload, expversion,self_created,expCategoryName,expSubCategoryName) values('%@','%@','%@','%@','%@','%@','%@','%@','%d','%d','%d','%@','%@')",addExpInstruction.expInstructionID,addExpInstruction.experimentName,addExpInstruction.experimentDesc,addExpInstruction.experimentTheory,userID,addExpInstruction.expCategoryID,addExpInstruction.expSubCategoryID,[NSString currentDate],addExpInstruction.allowDownload,addExpInstruction.expVersion,1,addExpInstruction.expCategoryName,addExpInstruction.expSubCategoryName];
     return [db executeUpdate:insertSql];
 }
-- (BOOL)saveInstructionSteps:(NSArray<DWAddExpStep *> *)instructionSteps db:(FMDatabase *)db
+- (BOOL)saveInstructionSteps:(NSArray<DWAddExpStep *> *)instructionSteps instructionID:(NSString *)instructionID db:(FMDatabase *)db
 {
     __block BOOL success = NO;
     [instructionSteps enumerateObjectsUsingBlock:^(DWAddExpStep * _Nonnull addStep, NSUInteger idx, BOOL * _Nonnull stop) {
-        success = [self insertIntoExpProcessWithAddExpStep:addStep db:db];
+        success = [self insertIntoExpProcessWithAddExpStep:addStep instructionID:instructionID db:db];
         *stop = !success;
     }];
     return success;
 }
-- (BOOL)insertIntoExpProcessWithAddExpStep:(DWAddExpStep *)dwAddExpStep db:(FMDatabase *)db
+- (BOOL)insertIntoExpProcessWithAddExpStep:(DWAddExpStep *)dwAddExpStep instructionID:(NSString *)instructionID db:(FMDatabase *)db
 {
-    NSString *insertSQL = [NSString stringWithFormat:@"insert into t_expProcess (expInstructionID ,expStepDesc ,expStepID ,expStepTime ,stepNum ) values ('%@','%@','%@','%lu','%lu')",dwAddExpStep.expInstructionID,dwAddExpStep.expStepDesc,[NSString uuid],(unsigned long)dwAddExpStep.expStepTime,(unsigned long)dwAddExpStep.stepNum];
+    NSString *insertSQL = [NSString stringWithFormat:@"insert into t_expProcess (expInstructionID ,expStepDesc ,expStepID ,expStepTime ,stepNum ) values ('%@','%@','%@','%lu','%lu')",instructionID,dwAddExpStep.expStepDesc,[NSString uuid],(unsigned long)dwAddExpStep.expStepTime,(unsigned long)dwAddExpStep.stepNum];
     return [db executeUpdate:insertSQL];
 }
 - (BOOL)saveInstructionConsumables:(NSArray<DWAddExpConsumable *> *)consumables expInstrucitonID:(NSString *)instrucitonID db:(FMDatabase *)db

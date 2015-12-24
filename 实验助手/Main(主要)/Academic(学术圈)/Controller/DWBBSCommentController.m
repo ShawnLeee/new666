@@ -143,5 +143,4 @@
     SXQNavgationController *nav = [[SXQNavgationController alloc] initWithRootViewController:writeCommentVC];
     [self presentViewController:nav animated:YES completion:nil];
 }
-
 @end
