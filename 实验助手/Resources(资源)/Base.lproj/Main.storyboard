@@ -1507,17 +1507,11 @@
                         <constraints>
                             <constraint firstItem="eAJ-V0-yMk" firstAttribute="top" secondItem="Gkt-jl-TJH" secondAttribute="top" constant="10" id="8oQ-9O-ZNB"/>
                             <constraint firstAttribute="trailing" secondItem="duS-Cm-chg" secondAttribute="trailing" id="99a-c7-nvf"/>
-                            <constraint firstItem="eAJ-V0-yMk" firstAttribute="top" secondItem="HhV-43-1P2" secondAttribute="bottom" id="fGj-NA-GZs"/>
                             <constraint firstItem="duS-Cm-chg" firstAttribute="leading" secondItem="Gkt-jl-TJH" secondAttribute="leading" id="lGa-Xf-RmN"/>
                             <constraint firstItem="PMk-br-U0s" firstAttribute="top" secondItem="eAJ-V0-yMk" secondAttribute="bottom" id="oaH-3U-dvC"/>
                             <constraint firstAttribute="trailing" secondItem="eAJ-V0-yMk" secondAttribute="trailing" id="pbY-dt-Yze"/>
                             <constraint firstItem="eAJ-V0-yMk" firstAttribute="leading" secondItem="Gkt-jl-TJH" secondAttribute="leading" id="sU3-3D-Vh1"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="fGj-NA-GZs"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="创建说明书" id="auJ-vK-H6Y"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

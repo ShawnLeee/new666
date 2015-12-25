@@ -59,15 +59,18 @@
 {
     __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     self.tableView.tableFooterView.hidden = YES;
+    @weakify(self)
     [[[[[[self.services getServices] experimentStepSignalWithMyExpId:self.experimentModel.myExpID]
       deliverOn:[RACScheduler mainThreadScheduler]]
       map:^id(SXQCurrentExperimentData *experimentData) {
           return experimentData.expProcesses;
       }]
       map:^id(NSArray *expProcesses) {
+          @strongify(self)
          return [self modelArrayToViewModelArray:expProcesses];
       }]
       subscribeNext:^(NSArray *viewModels) {
+          @strongify(self)
          self.arrDataSource.items = viewModels;
          [self.tableView reloadData];
           [hud hide:YES];
@@ -91,15 +94,20 @@
 }
 - (NSArray *)modelArrayToViewModelArray:(NSArray *)modelArray
 {
+    __weak typeof(self) weakSelf = self;
     __block NSMutableArray *viewModelArray = [NSMutableArray array];
     [modelArray enumerateObjectsUsingBlock:^(SXQExpStep *expStep, NSUInteger idx, BOOL * _Nonnull stop) {
         CellContainerViewModel *viewModel =  [CellContainerViewModel viewModelWithExpStep:expStep service:self.services];
         viewModel.updateCellBlock = ^{
-            [self.tableView reloadData];
+            [weakSelf.tableView reloadData];
         };
         [viewModelArray addObject:viewModel];
     }];
     return [viewModelArray copy];
+}
+- (void)dealloc
+{
+
 }
 - (void)bindingReportBtn
 {
@@ -122,6 +130,7 @@
         //启动当前步骤->提示是否停止此前暂停的步骤->启动计时器->置其他计时器为不能启动状态(置当前步骤为此步)
         //暂停当前步骤->暂停计时器->确认是否暂停->是->暂停计时器(置其他步骤为可启动状态)->提示是否添加试剂保存位置->是->添加保存位置
 //                                        ->否->启动计时器                    ->否->Do Nothing!
+        @strongify(self)
         if(viewModel.isUseTimer){//正在计时，暂停
             //暂停计时器
             viewModel.isUseTimer = NO;

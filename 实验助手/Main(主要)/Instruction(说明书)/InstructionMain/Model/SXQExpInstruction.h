@@ -30,4 +30,8 @@
 @property (nonatomic,assign) int localized;
 @property (nonatomic,copy) NSString *expCategoryName;
 @property (nonatomic,copy) NSString *expSubCategoryName;
+
+@property (nonatomic,copy) NSString *projectName;
+@property (nonatomic,copy) NSString *researchName;
+@property (nonatomic,copy) NSString *taskName;
 @end

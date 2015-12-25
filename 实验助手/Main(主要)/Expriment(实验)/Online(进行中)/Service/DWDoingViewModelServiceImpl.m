@@ -113,6 +113,10 @@
 }
 - (NSInteger)averageWithViewModels:(NSArray *)viewModels
 {
+    if(viewModels.count == 0)
+    {
+        return 0;
+    }
     __block NSInteger sum = 0;
     [viewModels enumerateObjectsUsingBlock:^(DWCommentHeaderViewModel *viewModel, NSUInteger idx, BOOL * _Nonnull stop) {
         sum += viewModel.groupScore;

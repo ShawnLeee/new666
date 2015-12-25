@@ -191,7 +191,7 @@ static SXQDBManager *_dbManager = nil;
     //我的说明书表
     NSString *myExpInstruction = @"create table if not exists t_myExpInstruction (MyExpInstructionID text,ExpInstructionID text,UserID text,DownloadTime numeric);";
     //我的实验主表
-    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1);";
+    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1,projectName text,researchName text,taskName text);";
     //我的实验试剂表
     NSString *myExpReageneSQL = @"create table if not exists t_myExpReagent( MyExpReagentID text primary key, MyExpID text, ExpInstructionID text,ReagentID  text, SupplierID text);";
     //我的实验耗材表
@@ -463,6 +463,9 @@ static SXQDBManager *_dbManager = nil;
         experiment.createTime = [rs stringForColumn:@"CreateTime"];
         experiment.reportLocation = [rs stringForColumn:@"ReportLocation"];
         experiment.createMonth = [rs stringForColumn:@"CreateMonth"];
+        experiment.projectName = [rs stringForColumn:@"projectName"];
+        experiment.researchName = [rs stringForColumn:@"researchName"];
+        experiment.taskName = [rs stringForColumn:@"taskName"];
     }
     return experiment;
 }
@@ -554,7 +557,7 @@ static SXQDBManager *_dbManager = nil;
 {
     BOOL success = NO;
 #warning userid
-     NSString *addMyExpSql = [NSString stringWithFormat:@"insert into t_myExp ( MyExpID , ExpInstructionID , UserID , CreateTime , CreateYear,CreateMonth , FinishTime , ExpVersion , IsReviewed ,IsCreateReport  , IsUpload , ReportName , ReportLocation ,ReportServerPath ,  ExpState ,ExpMemo ) values('%@','%@','%@','%@','%@','%@','%@','%d','%d','%d','%d','%@','%@','%@','%d','%@')",myExpId,instruciton.expInstructionID,@"4028c681494b994701494b99aba50000",[NSString dw_currentDate],[NSString dw_year],[NSString dw_month],@"",instruciton.expVersion,0,0,0,@"",@"",@"",0,@""];
+     NSString *addMyExpSql = [NSString stringWithFormat:@"insert into t_myExp ( MyExpID , ExpInstructionID , UserID , CreateTime , CreateYear,CreateMonth , FinishTime , ExpVersion , IsReviewed ,IsCreateReport  , IsUpload , ReportName , ReportLocation ,ReportServerPath ,  ExpState ,ExpMemo ,projectName,researchName,taskName) values('%@','%@','%@','%@','%@','%@','%@','%d','%d','%d','%d','%@','%@','%@','%d','%@','%@','%@','%@')",myExpId,instruciton.expInstructionID,@"4028c681494b994701494b99aba50000",[NSString dw_currentDate],[NSString dw_year],[NSString dw_month],@"",instruciton.expVersion,0,0,0,@"",@"",@"",0,@"",instruciton.projectName,instruciton.researchName,instruciton.taskName];
     success = [db executeUpdate:addMyExpSql];
     return success;
 }

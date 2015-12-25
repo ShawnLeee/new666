@@ -26,4 +26,7 @@
 @property (nonatomic,copy) NSString *createYear;
 @property (nonatomic,copy) NSString *createTime;
 @property (nonatomic,copy) NSString *reportLocation;
+@property (nonatomic,copy) NSString *projectName;
+@property (nonatomic,copy) NSString *researchName;
+@property (nonatomic,copy) NSString *taskName;
 @end

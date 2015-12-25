@@ -5,6 +5,7 @@
 //  Created by sxq on 15/9/15.
 //  Copyright (c) 2015年 SXQ. All rights reserved.
 //
+#import "DWAddExperimentController.h"
 #import "DWInstructionsHeader.h"
 #import "SXQHotInstructionCell.h"
 #import "DWGroup.h"
@@ -140,8 +141,11 @@
 }
 - (void)changeViewControllerWithInstructionData:(SXQInstructionData *)instructionData
 {
-    SXQReagentListController *listVC = [[SXQReagentListController alloc] initWithExpInstructionData:instructionData];
-    [self.navigationController pushViewController:listVC animated:YES];
+    
+    DWAddExperimentController *addExperimentVC = [[UIStoryboard storyboardWithName:@"AddItem" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([DWAddExperimentController class])];
+    addExperimentVC.instructionData = instructionData;
+    [self.navigationController pushViewController:addExperimentVC animated:YES];
+    
 }
 @end
 

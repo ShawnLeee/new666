@@ -103,6 +103,11 @@
 		B02C15301C1AB99A0049C946 /* DWItemCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C152F1C1AB99A0049C946 /* DWItemCellViewModel.m */; };
 		B02C15341C1ABA030049C946 /* DWItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C15321C1ABA030049C946 /* DWItemCell.m */; };
 		B02C15351C1ABA030049C946 /* DWItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02C15331C1ABA030049C946 /* DWItemCell.xib */; };
+		B032483A1C2CDA1300DA0417 /* DWAddExperimentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03248391C2CDA1300DA0417 /* DWAddExperimentController.m */; };
+		B032483D1C2CE11300DA0417 /* DWAddExperimentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B032483C1C2CE11300DA0417 /* DWAddExperimentContainerView.m */; };
+		B03248401C2CE2F700DA0417 /* DWAddExperimentContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B032483F1C2CE2F700DA0417 /* DWAddExperimentContentView.m */; };
+		B03248431C2CEE0C00DA0417 /* DWAddExperimentAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = B03248421C2CEE0C00DA0417 /* DWAddExperimentAssignView.m */; };
+		B03248461C2CEEE000DA0417 /* DWAssignmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B03248451C2CEEE000DA0417 /* DWAssignmentViewModel.m */; };
 		B0383F901C1E9553000904B8 /* DWAddConsumableController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0383F8F1C1E9553000904B8 /* DWAddConsumableController.m */; };
 		B0383F931C1E9582000904B8 /* DWAddConsumableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0383F921C1E9582000904B8 /* DWAddConsumableCell.m */; };
 		B0383F961C1E9A3A000904B8 /* DWAddEquipmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0383F951C1E9A3A000904B8 /* DWAddEquipmentController.m */; };
@@ -655,6 +660,16 @@
 		B02C15311C1ABA030049C946 /* DWItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWItemCell.h; sourceTree = "<group>"; };
 		B02C15321C1ABA030049C946 /* DWItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWItemCell.m; sourceTree = "<group>"; };
 		B02C15331C1ABA030049C946 /* DWItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWItemCell.xib; sourceTree = "<group>"; };
+		B03248381C2CDA1300DA0417 /* DWAddExperimentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddExperimentController.h; sourceTree = "<group>"; };
+		B03248391C2CDA1300DA0417 /* DWAddExperimentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddExperimentController.m; sourceTree = "<group>"; };
+		B032483B1C2CE11300DA0417 /* DWAddExperimentContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddExperimentContainerView.h; sourceTree = "<group>"; };
+		B032483C1C2CE11300DA0417 /* DWAddExperimentContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddExperimentContainerView.m; sourceTree = "<group>"; };
+		B032483E1C2CE2F700DA0417 /* DWAddExperimentContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddExperimentContentView.h; sourceTree = "<group>"; };
+		B032483F1C2CE2F700DA0417 /* DWAddExperimentContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddExperimentContentView.m; sourceTree = "<group>"; };
+		B03248411C2CEE0C00DA0417 /* DWAddExperimentAssignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddExperimentAssignView.h; sourceTree = "<group>"; };
+		B03248421C2CEE0C00DA0417 /* DWAddExperimentAssignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddExperimentAssignView.m; sourceTree = "<group>"; };
+		B03248441C2CEEE000DA0417 /* DWAssignmentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAssignmentViewModel.h; sourceTree = "<group>"; };
+		B03248451C2CEEE000DA0417 /* DWAssignmentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAssignmentViewModel.m; sourceTree = "<group>"; };
 		B0383F8E1C1E9553000904B8 /* DWAddConsumableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddConsumableController.h; sourceTree = "<group>"; };
 		B0383F8F1C1E9553000904B8 /* DWAddConsumableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddConsumableController.m; sourceTree = "<group>"; };
 		B0383F911C1E9582000904B8 /* DWAddConsumableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddConsumableCell.h; sourceTree = "<group>"; };
@@ -2208,6 +2223,8 @@
 				B0DDFF1B1BA686AF00E4AB3C /* SXQEquimentController.m */,
 				B0F5661F1BA7D51100BA1F7B /* SXQMyInstructionsController.h */,
 				B0F566201BA7D51100BA1F7B /* SXQMyInstructionsController.m */,
+				B03248381C2CDA1300DA0417 /* DWAddExperimentController.h */,
+				B03248391C2CDA1300DA0417 /* DWAddExperimentController.m */,
 				B0F295D61BB517F600E20865 /* SXQRemarkController.h */,
 				B0F295D71BB517F600E20865 /* SXQRemarkController.m */,
 				B0F295D81BB517F600E20865 /* SXQRemarkController.xib */,
@@ -2294,6 +2311,12 @@
 				B0D7F7E01C29376C00814EBE /* DWInstructionsHeader.h */,
 				B0D7F7E11C29376C00814EBE /* DWInstructionsHeader.m */,
 				B0D7F7E31C29385500814EBE /* DWInstructionsHeader.xib */,
+				B032483E1C2CE2F700DA0417 /* DWAddExperimentContentView.h */,
+				B032483F1C2CE2F700DA0417 /* DWAddExperimentContentView.m */,
+				B032483B1C2CE11300DA0417 /* DWAddExperimentContainerView.h */,
+				B032483C1C2CE11300DA0417 /* DWAddExperimentContainerView.m */,
+				B03248411C2CEE0C00DA0417 /* DWAddExperimentAssignView.h */,
+				B03248421C2CEE0C00DA0417 /* DWAddExperimentAssignView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2999,6 +3022,8 @@
 				B0F73B951BBB894500B3D0A0 /* SXQExpReagent.m */,
 				B003A2881BDF54DA00E2B282 /* SXQExpProcessAttch.h */,
 				B003A2891BDF54DA00E2B282 /* SXQExpProcessAttch.m */,
+				B03248441C2CEEE000DA0417 /* DWAssignmentViewModel.h */,
+				B03248451C2CEEE000DA0417 /* DWAssignmentViewModel.m */,
 			);
 			name = "实验";
 			sourceTree = "<group>";
@@ -3613,6 +3638,7 @@
 				B006ABD81C057A30008C6C76 /* DWMeCell.m in Sources */,
 				B0F4C7051BBA5714009B7B05 /* SXQSaveReagentController.m in Sources */,
 				B0F295C51BB4F3A800E20865 /* SXQInstructionManager.m in Sources */,
+				B03248401C2CE2F700DA0417 /* DWAddExperimentContentView.m in Sources */,
 				B0F73B8B1BBB762000B3D0A0 /* DWMyInstructionData.m in Sources */,
 				B062E2901BF9BAEE00A7C0FB /* DWInstructionDetailCell.m in Sources */,
 				B0FD56A51C0D622B00E9E377 /* DWBBSController.m in Sources */,
@@ -3655,6 +3681,7 @@
 				B0E752541B94AA38009781E1 /* SXQSegmentedControl.m in Sources */,
 				B0D7F7DC1C2923B200814EBE /* DWMeEditParam.m in Sources */,
 				B03F97BF1BA2CAEE009FD1B4 /* SXQVenderLoginTool.m in Sources */,
+				B032483D1C2CE11300DA0417 /* DWAddExperimentContainerView.m in Sources */,
 				B0FD56BE1C0D7D7B00E9E377 /* DWBBSCommentCell.m in Sources */,
 				B0DC38A61C1946FB0011134A /* DWAddItemController.m in Sources */,
 				B0A270F91BD73B5C00BA0C1B /* FSCalendarAppearance.m in Sources */,
@@ -3702,6 +3729,7 @@
 				B0F5B8B01BD8864F005D6AE4 /* SXQLoginViewModel.m in Sources */,
 				B0026BEE1BCF8A9C00FB70A9 /* SXQConsumableMap.m in Sources */,
 				B0F6B18A1BC7BCB70090E398 /* SXQExpEquipment.m in Sources */,
+				B03248431C2CEE0C00DA0417 /* DWAddExperimentAssignView.m in Sources */,
 				B062E2781BF969CE00A7C0FB /* UIButton+Action.m in Sources */,
 				B0665B8F1BF585E40021E752 /* DWDoingActionBar.m in Sources */,
 				B003A28A1BDF54DA00E2B282 /* SXQExpProcessAttch.m in Sources */,
@@ -3727,6 +3755,7 @@
 				B0F5054B1BABDEC700B88A3D /* SXQNowExperimentController.m in Sources */,
 				B0026BFA1BCF8D5700FB70A9 /* SXQEquipment.m in Sources */,
 				B094C25D1BFAC1AB00CDC289 /* DWInstructionNavViewModel.m in Sources */,
+				B032483A1C2CDA1300DA0417 /* DWAddExperimentController.m in Sources */,
 				B0F738CC1BA935C200EA7E9E /* SXQExperimentModel.m in Sources */,
 				B0F73BB61BBBB3E600B3D0A0 /* FPPopoverView.m in Sources */,
 				B0DDFF0F1BA67EF000E4AB3C /* SXQExperimentStepController.m in Sources */,
@@ -3741,6 +3770,7 @@
 				B0E46F381BDCE31800B1F2D8 /* DWExperimentToolBar.m in Sources */,
 				B062E2861BF99DE300A7C0FB /* DWInstructionDetailController+DataSource.m in Sources */,
 				B011AD1E1C0C1D6B00DD94DC /* DWReviewDetailCell.m in Sources */,
+				B03248461C2CEEE000DA0417 /* DWAssignmentViewModel.m in Sources */,
 				B027BCD61C154D55002B74EA /* DWSignOutView.m in Sources */,
 				B03F97BA1BA2A052009FD1B4 /* SXQLoginField.m in Sources */,
 				B0FD56BA1C0D776600E9E377 /* DWBBSComment.m in Sources */,
