@@ -165,7 +165,7 @@ static SXQDBManager *_dbManager = nil;
     //实验试剂表
     NSString *expReagentSQL = @"create table if not exists t_expreaget (createMethod text,expInstructionID text,expReagentID text primary key,reagentCommonName text,reagentID text,reagentName text,reagentSpec text,useAmount integer,supplierID text,levelOneSortID text,levelTwoSortID text,supplierName text,levelOneSortName text,levelTwoSortName text);";
     //实验流程表
-    NSString *expProcessSQL = @"create table if not exists t_expProcess (expInstructionID text,expStepDesc text,expStepID text primary key,expStepTime integer,stepNum integer);";
+    NSString *expProcessSQL = @"create table if not exists t_expProcess (expInstructionID text,expStepDesc text,expStepID text primary key,expStepTime integer,stepNum integer,expStepTips text);";
     //实验设备表
     NSString *expEquipmetnSQL = @"create table if not exists t_expEquipment (equipmentID text ,equipmentFactory text,equipmentName text,expEquipmentID text primary key,expInstructionID text,supplierID text,supplierName text);";
     //实验耗材表
@@ -199,7 +199,7 @@ static SXQDBManager *_dbManager = nil;
     //我的实验设备表
     NSString *myExpEquimentSQL = @"create table if not exists t_myExpEquipment(MyExpEquipmentID text primary key,MyExpID text,ExpInstructionID text,EquipmentID text,SupplierID text);";
     //我的实验步骤表
-    NSString *myExpProcessSQL = @"create table if not exists t_myExpProcess( MyExpProcessID text primary key,MyExpID text,ExpInstructionID text,ExpStepID text,StepNum integer,ExpStepDesc text,ExpStepTime integer,IsUseTimer integer,ProcessMemo text,IsActiveStep integer,depositReagent text);";
+    NSString *myExpProcessSQL = @"create table if not exists t_myExpProcess( MyExpProcessID text primary key,MyExpID text,ExpInstructionID text,ExpStepID text,StepNum integer,ExpStepDesc text,ExpStepTime integer,IsUseTimer integer,ProcessMemo text,IsActiveStep integer,depositReagent text,expStepTips text);";
     //我的实验步骤附件表
     NSString *myExpProcessAttchSQL = @"create table if not exists t_myExpProcessAttch(MyExpProcessAttchID text primary key, MyExpID text,ExpInstructionID text,ExpStepID text,AttchmentName text,AttchmentLocation text,AttchmentServerPath text,IsUpload integer,imgStream blob);";
     //我的实验计划表
@@ -315,6 +315,7 @@ static SXQDBManager *_dbManager = nil;
         step.expStepDesc = [rs stringForColumn:@"expStepDesc"];
         step.expStepTime = [rs stringForColumn:@"expStepTime"];
         step.stepNum = [rs intForColumn:@"stepNum"];
+        step.expStepTips = [rs stringForColumn:@"expStepTips"];
         [stepArr addObject:step];
     }
     return [stepArr copy];
@@ -476,7 +477,7 @@ static SXQDBManager *_dbManager = nil;
 - (BOOL)insertIntoProcess:(SXQExpStep *)expProcess database:(FMDatabase *)db
 {
     BOOL success = NO;
-    NSString *insertSql = [NSString stringWithFormat:@"insert into t_expProcess (expInstructionID ,expStepDesc ,expStepID ,expStepTime ,stepNum ) values ('%@','%@','%@','%@','%d')",expProcess.expInstructionID,expProcess.expStepDesc,expProcess.expStepID,expProcess.expStepTime,expProcess.stepNum];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into t_expProcess (expInstructionID ,expStepDesc ,expStepID ,expStepTime ,stepNum ,expStepTips) values ('%@','%@','%@','%@','%d','%@')",expProcess.expInstructionID,expProcess.expStepDesc,expProcess.expStepID,expProcess.expStepTime,expProcess.stepNum,expProcess.expStepTips];
         success = [db executeUpdate:insertSql];
     return success;
 }
@@ -599,7 +600,7 @@ static SXQDBManager *_dbManager = nil;
 - (BOOL)insertIntoMyExpProcess:(SXQExpStep *)expProcess myExpProcessId:(NSString *)myExpProcesId myExpId:(NSString *)myExpId db:(FMDatabase *)db
 {
     BOOL success = NO;
-    NSString *insertSql = [NSString stringWithFormat:@"insert into  t_myExpProcess(MyExpProcessID,MyExpID,ExpInstructionID,ExpStepID,StepNum,ExpStepDesc,ExpStepTime,IsUseTimer,ProcessMemo,IsActiveStep) values ('%@','%@','%@','%@','%d','%@','%@','%d','%@','%d')",myExpProcesId,myExpId,expProcess.expInstructionID,expProcess.expStepID,expProcess.stepNum,expProcess.expStepDesc,expProcess.expStepTime,expProcess.isUserTimer,expProcess.processMemo ? : @"",expProcess.isActiveStep];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into  t_myExpProcess(MyExpProcessID,MyExpID,ExpInstructionID,ExpStepID,StepNum,ExpStepDesc,ExpStepTime,IsUseTimer,ProcessMemo,IsActiveStep,expStepTips) values ('%@','%@','%@','%@','%d','%@','%@','%d','%@','%d','%@')",myExpProcesId,myExpId,expProcess.expInstructionID,expProcess.expStepID,expProcess.stepNum,expProcess.expStepDesc,expProcess.expStepTime,expProcess.isUserTimer,expProcess.processMemo ? : @"",expProcess.isActiveStep,expProcess.expStepTips];
     success = [db executeUpdate:insertSql];
     return success;
 }
@@ -665,6 +666,7 @@ static SXQDBManager *_dbManager = nil;
         expProcess.isActiveStep = [rs intForColumn:@"IsActiveStep"];
         expProcess.depositReagent = [rs stringForColumn:@"depositReagent"];
         expProcess.myExpId = [rs stringForColumn:@"MyExpID"];
+        expProcess.expStepTips = [rs stringForColumn:@"expStepTips"];
         expProcess.images = [self fetchImageWithMyExpId:myExpId expStepId:expProcess.expStepID db:db];
         [tmpArr addObject:expProcess];
     }
@@ -981,6 +983,7 @@ static SXQDBManager *_dbManager = nil;
                     SXQExpStep *expStep = [self fetchCurrentStepWithMyExpID:currenViewModel.myExpID stepNum:currenViewModel.currentStep db:db];
                     currenViewModel.currentStepDesc = expStep.expStepDesc;
                     currenViewModel.notes = expStep.processMemo;
+                    currenViewModel.reagentLocation = expStep.reagentLocation;
                     currenViewModel.timeStr = [NSString stringWithFormat:@"%@分钟",expStep.expStepTime];
                     [tmpArr addObject:currenViewModel];
                 }
@@ -1016,6 +1019,7 @@ static SXQDBManager *_dbManager = nil;
         expStep.expStepDesc = [rs stringForColumn:@"ExpStepDesc"];
         expStep.processMemo = [rs stringForColumn:@"ProcessMemo"];
         expStep.expStepTime = [rs stringForColumn:@"ExpStepTime"];
+        expStep.reagentLocation = [rs stringForColumn:@"depositReagent"];
     }
     return expStep;
 }
@@ -1701,6 +1705,17 @@ static SXQDBManager *_dbManager = nil;
         [db executeUpdate:updateSQL];
     }];
     [_queue close];
+}
+- (BOOL)saveReagentLocationWithMyExpStep:(SXQExpStep *)expStep
+{
+    __block BOOL success = NO;
+    [_queue inDatabase:^(FMDatabase *db) {
+        
+        NSString *updateSQL = [NSString stringWithFormat:@"update t_myExpProcess set depositReagent = '%@' where MyExpID = '%@' and ExpStepID = '%@'",expStep.reagentLocation,expStep.myExpId,expStep.expStepID];
+        success = [db executeUpdate:updateSQL];
+    }];
+    [_queue close];
+    return success;
 }
 @end
 

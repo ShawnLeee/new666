@@ -16,4 +16,5 @@
 @property (nonatomic,copy) NSString *timeStr;
 @property (nonatomic,copy) NSString *currentStepDesc;
 @property (nonatomic,copy) NSString *notes;
+@property (nonatomic,copy) NSString *reagentLocation;
 @end

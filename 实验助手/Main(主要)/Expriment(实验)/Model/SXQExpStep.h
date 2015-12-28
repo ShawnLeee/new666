@@ -15,12 +15,14 @@
 @property (nonatomic,copy) NSString  *expStepDesc;
 @property (nonatomic,copy) NSString  *expStepID;
 @property (nonatomic,copy) NSString  *expStepTime;
+@property (nonatomic,copy) NSString *expStepTips;
 @property (nonatomic,assign) int  stepNum;
 
 
 @property (nonatomic,assign) int isUserTimer;
 @property (nonatomic,assign) int isActiveStep;
 @property (nonatomic,copy) NSString *processMemo;
+@property (nonatomic,copy) NSString *reagentLocation;
 @property (nonatomic,copy) NSString *myExpProcessId;
 
 

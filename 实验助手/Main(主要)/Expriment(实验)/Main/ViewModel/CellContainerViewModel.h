@@ -11,6 +11,8 @@
 #import "SXQCountTimeView.h"
 #import "SXQExperimentServices.h"
 @interface CellContainerViewModel : NSObject<SXQCountTimeViewDelegate,MZTimerLabelDelegate>
+
+@property (nonatomic,strong) SXQExpStep *experimentStep;
 /**
  *  计时器剩余时间
  */
@@ -20,6 +22,7 @@
 @property (nonatomic,copy) NSString *stepImageName;
 @property (nonatomic,copy) NSString *stepDesc;
 @property (nonatomic,copy) NSString *processMemo;
+@property (nonatomic,copy) NSString *expStepTips;
 @property (nonatomic,assign) NSTimeInterval stepTime;
 @property (nonatomic,strong) NSMutableArray *images;
 @property (nonatomic,assign) BOOL isUseTimer;
@@ -30,6 +33,7 @@
 @property (nonatomic,strong) RACCommand *addImageCommand;
 @property (nonatomic,strong) RACCommand *addMemoCommand;
 @property (nonatomic,strong) RACCommand *startCommand;
+@property (nonatomic,strong) RACCommand *addReagentLocationCommand;
 
 @property (nonatomic,assign) BOOL startButtonActive;
 @property (nonatomic,weak) DWExperimentCell *cell;

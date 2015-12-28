@@ -136,6 +136,10 @@
 {
     return [self.experimentController launchSignalWithModel:viewModel];
 }
+- (RACSignal *)addReagentSignalWithViewModel:(CellContainerViewModel *)viewModel
+{
+    return [self.experimentController pu_addReagentSignalWithViewModel:viewModel];
+}
 - (RACSignal *)setCompleteWithMyExpId:(NSString *)myExpId
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {

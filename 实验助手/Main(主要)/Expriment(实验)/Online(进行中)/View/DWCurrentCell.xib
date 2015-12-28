@@ -66,8 +66,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kJ-fF-GH5" userLabel="commentContainer">
                         <rect key="frame" x="35" y="154" width="337" height="25"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="备注:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7S-Ge-3Zh">
-                                <rect key="frame" x="4" y="4" width="33" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="试剂保存位置:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7S-Ge-3Zh">
+                                <rect key="frame" x="4" y="4" width="89" height="17"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="notesLabel"/>
@@ -76,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" text="notes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-7r-bzj">
-                                <rect key="frame" x="41" y="4" width="292" height="17"/>
+                                <rect key="frame" x="97" y="4" width="236" height="17"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" identifier="notesContents"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -147,7 +147,7 @@
                 <outlet property="stepIcon" destination="8DI-dW-k6g" id="3md-KE-t2B"/>
                 <outlet property="stepTimeLabel" destination="AhU-Sn-bT9" id="COq-NE-Iij"/>
             </connections>
-            <point key="canvasLocation" x="-13" y="267.5"/>
+            <point key="canvasLocation" x="-452" y="236.5"/>
         </tableViewCell>
     </objects>
     <resources>

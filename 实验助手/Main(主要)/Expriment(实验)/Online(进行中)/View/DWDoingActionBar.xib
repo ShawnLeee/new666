@@ -10,27 +10,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0F-pR-LvS" customClass="DWButton">
-                    <rect key="frame" x="273" y="0.0" width="54" height="72"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0F-pR-LvS" customClass="DWButton">
+                    <rect key="frame" x="273" y="0.0" width="55" height="72"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="报告" image="cm2_btm_tab_icn_cmt"/>
+                    <state key="normal" title="报告" image="lab_create_report"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP4-8j-VEh" customClass="DWButton">
-                    <rect key="frame" x="347" y="0.0" width="50" height="72"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP4-8j-VEh" customClass="DWButton">
+                    <rect key="frame" x="348" y="0.0" width="51" height="72"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="浏览" image="cm2_btm_tab_icn_share"/>
+                    <state key="normal" title="浏览" image="lab_preview"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MW-MG-f5h" customClass="DWButton">
-                    <rect key="frame" x="199" y="0.0" width="54" height="72"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MW-MG-f5h" customClass="DWButton">
+                    <rect key="frame" x="198" y="0.0" width="55" height="72"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="评论" image="cm2_btm_tab_icn_save"/>
+                    <state key="normal" title="评论" image="lab_comment"/>
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.23137254900000001" green="0.65490196079999996" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Y0F-pR-LvS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3IM-Tm-tpt"/>
                 <constraint firstItem="Y0F-pR-LvS" firstAttribute="leading" secondItem="2MW-MG-f5h" secondAttribute="trailing" constant="20" id="ARb-9v-UBV"/>
@@ -73,8 +73,8 @@
         </view>
     </objects>
     <resources>
-        <image name="cm2_btm_tab_icn_cmt" width="24" height="24"/>
-        <image name="cm2_btm_tab_icn_save" width="24" height="24"/>
-        <image name="cm2_btm_tab_icn_share" width="24" height="24"/>
+        <image name="lab_comment" width="25" height="25"/>
+        <image name="lab_create_report" width="25" height="25"/>
+        <image name="lab_preview" width="25" height="25"/>
     </resources>
 </document>

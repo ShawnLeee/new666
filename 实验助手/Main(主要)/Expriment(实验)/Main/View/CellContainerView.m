@@ -12,6 +12,7 @@
 #import "CellContainerView.h"
 #import "SXQCountTimeView.h"
 #import "MZTimerLabel.h"
+#import <DXPopover/DXPopover.h>
 @interface CellContainerView ()
 @property (nonatomic,weak) IBOutlet UIImageView *remakrContainer;
 @property (nonatomic,weak) IBOutlet UILabel *stepDescLabel;
@@ -23,7 +24,10 @@
 @property (nonatomic,weak) IBOutlet UIButton *chooseTimeBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photosViewHeightConstraint;
 @property (nonatomic,weak) IBOutlet UIView *view;
+@property (nonatomic,weak) IBOutlet UIButton *tipsButton;
+@property (nonatomic,weak) IBOutlet UIButton *addReagentButton;
 @property (nonatomic,assign) BOOL didSetupContraints;
+
 @property (nonatomic,strong) MZTimerLabel *mzLabel;
 //剩余时间
 //备注按钮
@@ -116,6 +120,7 @@
     self.remarkButton.rac_command = viewModel.addMemoCommand;
     
     self.startButton.rac_command = viewModel.startCommand;
+    self.addReagentButton.rac_command = viewModel.addReagentLocationCommand;
 }
 - (void)awakeFromNib
 {
@@ -125,6 +130,19 @@
 {
     [super layoutSubviews];
 }
+- (IBAction)showTips:(UIButton *)sender {
+    NSDictionary *attr  = @{NSFontAttributeName : [UIFont systemFontOfSize:15]};
+    CGRect  rect = [self.viewModel.expStepTips boundingRectWithSize:CGSizeMake(100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:0];
+    UILabel *tipsView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, rect.size.height)];
+    tipsView.font = [UIFont systemFontOfSize:15];
+    tipsView.text = self.viewModel.expStepTips;
+    tipsView.numberOfLines = 0;
+    DXPopover *popover = [DXPopover popover];
+    popover.contentInset = UIEdgeInsetsMake(2, 2, 2, 2);
+    CGPoint startPoint = CGPointMake(CGRectGetMidX(sender.frame), CGRectGetMidY(sender.frame));
+    [popover showAtPoint:startPoint popoverPostion:DXPopoverPositionDown withContentView:tipsView inView:self.superview];
+}
+
 @end
 
 

@@ -17,4 +17,5 @@
 - (instancetype)initWithExperimentModel:(SXQExperimentModel *)experimentModel;
 - (RACSignal *)launchSignalWithModel:(CellContainerViewModel *)viewModel;
 - (void)dg_activeAllStep;
+- (RACSignal *)pu_addReagentSignalWithViewModel:(CellContainerViewModel *)viewModel;
 @end

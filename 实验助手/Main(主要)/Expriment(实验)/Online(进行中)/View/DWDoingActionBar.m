@@ -60,7 +60,7 @@ static BOOL isLoaded = NO;
 {
     
 //    self.image = [[UIImage imageNamed:@"cm2_btm_tab_left"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-    self.backgroundColor = [UIColor colorWithRed:0.21 green:0.22 blue:0.22 alpha:1.0];
+//    self.backgroundColor = [UIColor colorWithRed:0.21 green:0.22 blue:0.22 alpha:1.0];
 }
 - (void)setViewModel:(DWDoingViewModel *)viewModel
 {

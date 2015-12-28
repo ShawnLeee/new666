@@ -25,7 +25,7 @@
     self.nameLabel.text = currentViewModel.experimentName;
     self.stepTimeLabel.text = currentViewModel.timeStr;
     self.stepDescLabel.text = currentViewModel.currentStepDesc;
-    self.notesLabel.text = currentViewModel.notes;
+    self.notesLabel.text = currentViewModel.reagentLocation;
     NSString *imageName = [NSString stringWithFormat:@"step%d",currentViewModel.currentStep];
     self.stepIcon.image = [UIImage imageNamed:imageName];
 }

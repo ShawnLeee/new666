@@ -8,6 +8,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "SXQSaveReagentController.h"
 #import "CellContainerViewModel.h"
+#import "SXQDBManager.h"
+#import "MBProgressHUD+MJ.h"
 @interface SXQSaveReagentController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (nonatomic,strong) CellContainerViewModel *viewModel;
@@ -60,7 +62,7 @@
     rightBtn.enabled = NO;
     rightBtn.frame = CGRectMake(0, 0, 40, 30);
     [rightBtn setTitle:@"确定" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [rightBtn setTitleColor:MainBgColor forState:UIControlStateNormal];
     [rightBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -72,7 +74,17 @@
     }];
     [[_confirmBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         _viewModel.reagentLocation = _textView.text;
-        [self.navigationController dismissViewControllerAnimated:YES completion:self.completion];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            BOOL success = [[SXQDBManager sharedManager] saveReagentLocationWithMyExpStep:_viewModel.experimentStep];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    [self.navigationController dismissViewControllerAnimated:YES completion:self.completion];
+                }else
+                {
+                    [MBProgressHUD showError:@"添加位置失败"];
+                }
+            });
+        });
     }];
 }
 @end

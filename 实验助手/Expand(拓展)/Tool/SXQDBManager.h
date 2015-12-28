@@ -94,7 +94,12 @@ typedef NS_ENUM(NSUInteger,ExperimentState) {
  *  设置当前步骤
  */
 - (void)setCurrentStepWithMyExpStep:(SXQExpStep *)expStep;
+/**
+ *  添加试剂保存位置
+ */
+- (BOOL)saveReagentLocationWithMyExpStep:(SXQExpStep *)expStep;
 @end
+
 
 
 

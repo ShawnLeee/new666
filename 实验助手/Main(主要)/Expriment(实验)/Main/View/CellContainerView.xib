@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellContainerView">
             <connections>
+                <outlet property="addReagentButton" destination="uU5-kN-hy8" id="FQA-aD-iyE"/>
                 <outlet property="chooseTimeBtn" destination="mc7-1j-zKy" id="pJY-Z1-w3P"/>
                 <outlet property="photoContainer" destination="rZr-WX-3Je" id="V7z-XT-Wjb"/>
                 <outlet property="photosViewHeightConstraint" destination="vhN-Xt-vnE" id="42v-L8-HI8"/>
@@ -16,6 +17,7 @@
                 <outlet property="stepIcon" destination="ZrF-KI-dih" id="Abr-KU-L3c"/>
                 <outlet property="stepMemoLabel" destination="f4M-bb-k3i" id="kE1-51-wjk"/>
                 <outlet property="timeLabel" destination="N9g-br-FAx" id="7MF-VU-jaQ"/>
+                <outlet property="tipsButton" destination="aHa-8z-vkH" id="4rY-J1-Zhb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hxP-ka-JDS"/>
             </connections>
         </placeholder>
@@ -34,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9g-br-FAx">
-                    <rect key="frame" x="505" y="0.0" width="100" height="21"/>
+                    <rect key="frame" x="442" y="4" width="100" height="21"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration" identifier="时间"/>
@@ -46,7 +48,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="l40-f1-5zB">
-                    <rect key="frame" x="483" y="0.0" width="22" height="21"/>
+                    <rect key="frame" x="420" y="4" width="22" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="QeM-O0-T7X"/>
@@ -54,7 +56,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2El-nv-v6o">
-                    <rect key="frame" x="605" y="0.0" width="22" height="21"/>
+                    <rect key="frame" x="542" y="4" width="22" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="hHr-C6-tJ1"/>
@@ -64,7 +66,7 @@
                     <state key="selected" image="pause"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mc7-1j-zKy">
-                    <rect key="frame" x="505" y="0.0" width="100" height="21"/>
+                    <rect key="frame" x="442" y="4" width="100" height="21"/>
                     <animations/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-3E-Y5s" userLabel="remarkContainerView" customClass="UIImageView">
@@ -131,48 +133,73 @@
                         <constraint firstAttribute="width" constant="88" id="TH3-C2-a5u"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU5-kN-hy8">
+                    <rect key="frame" x="609" y="0.0" width="28" height="28"/>
+                    <animations/>
+                    <state key="normal" image="CommentIcon_Highligh"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-8z-vkH">
+                    <rect key="frame" x="574" y="2" width="25" height="25"/>
+                    <animations/>
+                    <state key="normal" image="lab_tips"/>
+                    <connections>
+                        <action selector="showTips:" destination="-1" eventType="touchUpInside" id="ExS-Xv-4x9"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="mc7-1j-zKy" firstAttribute="height" secondItem="N9g-br-FAx" secondAttribute="height" id="3Vt-l1-Xbv"/>
+                <constraint firstItem="l40-f1-5zB" firstAttribute="centerY" secondItem="mc7-1j-zKy" secondAttribute="centerY" id="7eJ-RH-V6z"/>
                 <constraint firstItem="N9g-br-FAx" firstAttribute="leading" secondItem="l40-f1-5zB" secondAttribute="trailing" id="8JU-E1-r8q"/>
+                <constraint firstAttribute="trailing" secondItem="uU5-kN-hy8" secondAttribute="trailing" constant="10" id="9Oc-ke-1Em"/>
                 <constraint firstItem="683-Lo-9S0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="EPH-jR-R4F"/>
                 <constraint firstAttribute="trailing" secondItem="Mzg-md-6Db" secondAttribute="trailing" constant="10" id="ESE-gx-rgE"/>
                 <constraint firstItem="683-Lo-9S0" firstAttribute="top" secondItem="ZrF-KI-dih" secondAttribute="bottom" constant="10" id="GEH-Wb-EeT"/>
                 <constraint firstItem="2El-nv-v6o" firstAttribute="leading" secondItem="N9g-br-FAx" secondAttribute="trailing" id="Gzo-w8-6QI"/>
+                <constraint firstItem="2El-nv-v6o" firstAttribute="centerY" secondItem="aHa-8z-vkH" secondAttribute="centerY" id="JHo-en-ppg"/>
                 <constraint firstItem="gXt-3E-Y5s" firstAttribute="leading" secondItem="683-Lo-9S0" secondAttribute="leading" id="LEC-CT-Q8k"/>
                 <constraint firstAttribute="bottom" secondItem="rZr-WX-3Je" secondAttribute="bottom" id="NWi-bV-dfq"/>
                 <constraint firstItem="mc7-1j-zKy" firstAttribute="leading" secondItem="N9g-br-FAx" secondAttribute="leading" id="PJz-Kq-WCP"/>
                 <constraint firstItem="N9g-br-FAx" firstAttribute="height" secondItem="2El-nv-v6o" secondAttribute="height" id="Q1Q-ps-MTK"/>
                 <constraint firstItem="gXt-3E-Y5s" firstAttribute="top" secondItem="683-Lo-9S0" secondAttribute="bottom" constant="4" id="QtT-Ns-Wxw"/>
                 <constraint firstItem="ZrF-KI-dih" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TQa-AQ-BOh"/>
+                <constraint firstItem="aHa-8z-vkH" firstAttribute="centerY" secondItem="uU5-kN-hy8" secondAttribute="centerY" id="VSM-If-YZH"/>
                 <constraint firstItem="rZr-WX-3Je" firstAttribute="top" secondItem="gXt-3E-Y5s" secondAttribute="bottom" constant="10" id="ZLA-b6-7v2"/>
                 <constraint firstItem="mc7-1j-zKy" firstAttribute="width" secondItem="N9g-br-FAx" secondAttribute="width" id="bCk-Qc-YQS"/>
+                <constraint firstItem="aHa-8z-vkH" firstAttribute="leading" secondItem="2El-nv-v6o" secondAttribute="trailing" constant="10" id="dXS-71-gDV"/>
                 <constraint firstItem="l40-f1-5zB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eEy-vL-XCZ"/>
                 <constraint firstAttribute="trailing" secondItem="683-Lo-9S0" secondAttribute="trailing" constant="20" id="g0M-tv-Utf"/>
                 <constraint firstItem="rZr-WX-3Je" firstAttribute="trailing" secondItem="gXt-3E-Y5s" secondAttribute="trailing" id="k4h-5M-Z3T"/>
                 <constraint firstItem="rZr-WX-3Je" firstAttribute="leading" secondItem="gXt-3E-Y5s" secondAttribute="leading" id="m4k-hb-L78"/>
                 <constraint firstItem="2El-nv-v6o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mJf-a2-vO3"/>
                 <constraint firstItem="mc7-1j-zKy" firstAttribute="bottom" secondItem="N9g-br-FAx" secondAttribute="bottom" id="nUG-jV-ra6"/>
+                <constraint firstItem="uU5-kN-hy8" firstAttribute="leading" secondItem="aHa-8z-vkH" secondAttribute="trailing" constant="10" id="qtE-Nd-1Xx"/>
                 <constraint firstItem="gXt-3E-Y5s" firstAttribute="trailing" secondItem="683-Lo-9S0" secondAttribute="trailing" id="vUJ-t3-3IZ"/>
                 <constraint firstItem="N9g-br-FAx" firstAttribute="bottom" secondItem="2El-nv-v6o" secondAttribute="bottom" id="w4b-aH-BtJ"/>
                 <constraint firstAttribute="trailing" secondItem="2El-nv-v6o" secondAttribute="trailing" constant="20" id="wNy-TS-lPt"/>
+                <constraint firstItem="uU5-kN-hy8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xQt-yB-xnC"/>
                 <constraint firstItem="ZrF-KI-dih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zVO-Ny-f0Y"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="eEy-vL-XCZ"/>
+                    <exclude reference="mJf-a2-vO3"/>
+                    <exclude reference="wNy-TS-lPt"/>
                     <exclude reference="ESE-gx-rgE"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-262.5" y="-137.5"/>
+            <point key="canvasLocation" x="-432.5" y="-176.5"/>
         </view>
     </objects>
     <resources>
+        <image name="CommentIcon_Highligh" width="28" height="28"/>
         <image name="Night_ZHActionEditAnswerNormal_iOS7" width="54" height="54"/>
         <image name="clock" width="34" height="32"/>
+        <image name="lab_tips" width="25" height="25"/>
         <image name="pause" width="34" height="32"/>
         <image name="play" width="34" height="32"/>
         <image name="step1" width="132" height="32"/>

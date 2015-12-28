@@ -14,7 +14,6 @@
 #import "SXQDBManager.h"
 @interface CellContainerViewModel ()
 @property (nonatomic,strong) id<SXQExperimentServices> service;
-@property (nonatomic,strong) SXQExpStep *experimentStep;
 
 @property (nonatomic,assign) NSTimeInterval originTime;
 @property (nonatomic,copy) NSString *notificatitonBody;
@@ -63,6 +62,8 @@
     _surplusTime = [experimentStep.expStepTime doubleValue] * 60;
     _originTime = [experimentStep.expStepTime doubleValue] * 60;
     _notificatitonBody = [_stepDesc stringByAppendingString:@"\n已完成"];
+    self.reagentLocation = experimentStep.reagentLocation;
+    self.expStepTips = experimentStep.expStepTips;
     self.images = experimentStep.images;
     
     @weakify(self)
@@ -70,7 +71,9 @@
         @strongify(self)
         self.processMemo = processMemo;
     }];
-    
+    [RACObserve(self, reagentLocation) subscribeNext:^(NSString *reagentLocation) {
+        self.experimentStep.reagentLocation  = reagentLocation;
+    }];
     [RACObserve(experimentStep, expStepTime) subscribeNext:^(NSString *stepTime) {
         @strongify(self)
         self.stepTime = [stepTime doubleValue] * 60;
@@ -121,6 +124,9 @@
     _startCommand = [[RACCommand alloc] initWithEnabled:RACObserve(self, startButtonActive) signalBlock:^RACSignal *(id input) {
                         return [self.service launchSignalWithViewModel:self];
                     }];
+    _addReagentLocationCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self.service addReagentSignalWithViewModel:self];
+    }];
     [self p_setupButtonBusiness];
 }
 - (void)p_setupButtonBusiness

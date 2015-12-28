@@ -140,18 +140,19 @@
                     viewModel.isUseTimer = NO;
                     //置所有步骤为可启动状态
                     [self p_activeAllStep];
+                    [subscriber sendCompleted];
                     //提示是否添加试剂保存位置
-                    [self addReagentLocationHandler:^(BOOL add) {
-                        if (add) {//添加试剂保存位置
-                            @strongify(self)
-                            [self addReagentLocationWithViewModel:viewModel completion:^{
-                                [subscriber sendCompleted];
-                            }];
-                        }else
-                        {
-                            [subscriber sendCompleted];
-                        }
-                    }];
+//                    [self addReagentLocationHandler:^(BOOL add) {
+//                        if (add) {//添加试剂保存位置
+//                            @strongify(self)
+//                            [self addReagentLocationWithViewModel:viewModel completion:^{
+//                                [subscriber sendCompleted];
+//                            }];
+//                        }else
+//                        {
+//                            [subscriber sendCompleted];
+//                        }
+//                    }];
                 }else
                 {
                     viewModel.isUseTimer = YES;
@@ -176,6 +177,16 @@
         return nil;
     }];
 }
+- (RACSignal *)pu_addReagentSignalWithViewModel:(CellContainerViewModel *)viewModel
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self addReagentLocationWithViewModel:viewModel completion:^{
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
+
 - (void)addReagentLocationWithViewModel:(CellContainerViewModel *)viewModel completion:(void (^)())completion
 {
     SXQSaveReagentController *saveVC = [[SXQSaveReagentController alloc] initWithViewModel:viewModel completion:completion];
