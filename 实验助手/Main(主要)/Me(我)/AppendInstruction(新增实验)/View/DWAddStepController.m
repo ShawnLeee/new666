@@ -16,7 +16,7 @@
 #import "DWAddInstructionViewModel.h"
 #import "DWAddExpInstruction.h"
 
-@interface DWAddStepController ()
+@interface DWAddStepController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) NSMutableArray *addedSteps;
 @end
 
@@ -96,6 +96,72 @@
     [self.view addGestureRecognizer:tapGestureRecognizer];
     [self p_setupTableFooter];
     
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
+    longPress.delegate = self;
+    [self.tableView addGestureRecognizer:longPress];
+   
+}
+- (void)longPressGestureRecognized:(UILongPressGestureRecognizer *)longPressGesture
+{
+    CGPoint location = [longPressGesture locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+    static UIView *snapshot = nil;
+    static NSIndexPath *sourceIndexPath = nil;
+    switch (longPressGesture.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            if (indexPath)
+            {
+                sourceIndexPath = indexPath;
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                snapshot = [self p_customSnapshotFromView:cell];
+                
+                __block CGPoint center = cell.center;
+                snapshot.center = center;
+                snapshot.alpha = 0.0;
+                [self.tableView addSubview:snapshot];
+                [UIView animateWithDuration:0.25 animations:^{
+                    center.y = location.y;
+                    snapshot.center = center;
+                    snapshot.transform = CGAffineTransformMakeScale(1.05, 1.05);
+                    snapshot.alpha = 0.98;
+                }];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateChanged:
+        {
+            CGPoint center = snapshot.center;
+            center.y = location.y;
+            snapshot.center = center;
+            //Is destination valid and is it different from source?
+            if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
+               // ... Update data source.
+                [self.addedSteps exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                // ... Move the rows.
+                [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
+                sourceIndexPath = indexPath;
+            }
+            break;
+        }
+        default:
+        {
+            //Clean up.
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:sourceIndexPath];
+            [UIView animateWithDuration:0.25 animations:^{
+                snapshot.center = cell.center;
+                snapshot.transform = CGAffineTransformIdentity;
+                snapshot.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                [snapshot removeFromSuperview];
+                snapshot = nil;
+            }];
+            sourceIndexPath = nil;
+            [self.tableView reloadData];
+            break;
+        }
+    }
 }
 - (void)p_dismissKeyboard:(UITapGestureRecognizer *)tapReconizer
 {
@@ -154,5 +220,19 @@
         [tmpArray addObject:stepViewModel.addExpStep];
     }];
     return [tmpArray copy];
+}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+//{
+//    return YES;
+//}
+- (UIView *)p_customSnapshotFromView:(UIView *)inputView
+{
+    UIView *snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
+    snapshot.layer.masksToBounds = YES;
+    snapshot.layer.cornerRadius = 0.0;
+    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0);
+    snapshot.layer.shadowRadius = 5.0;
+    snapshot.layer.shadowOpacity = 0.4;
+    return snapshot;
 }
 @end

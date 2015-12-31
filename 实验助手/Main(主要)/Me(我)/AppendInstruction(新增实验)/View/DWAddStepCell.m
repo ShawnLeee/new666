@@ -56,6 +56,13 @@
     
     
 }
-
+- (void)awakeFromNib
+{
+    for (UIGestureRecognizer *recognizer in self.stepContentView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
+            recognizer.enabled = NO;
+        }
+    }
+}
 
 @end

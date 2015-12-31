@@ -36,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9g-br-FAx">
-                    <rect key="frame" x="442" y="4" width="100" height="21"/>
+                    <rect key="frame" x="445" y="2" width="100" height="21"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration" identifier="时间"/>
@@ -48,7 +48,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="l40-f1-5zB">
-                    <rect key="frame" x="420" y="4" width="22" height="21"/>
+                    <rect key="frame" x="423" y="2" width="22" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="QeM-O0-T7X"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2El-nv-v6o">
-                    <rect key="frame" x="542" y="4" width="22" height="21"/>
+                    <rect key="frame" x="545" y="2" width="22" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="hHr-C6-tJ1"/>
@@ -66,7 +66,7 @@
                     <state key="selected" image="pause"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mc7-1j-zKy">
-                    <rect key="frame" x="442" y="4" width="100" height="21"/>
+                    <rect key="frame" x="445" y="2" width="100" height="21"/>
                     <animations/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-3E-Y5s" userLabel="remarkContainerView" customClass="UIImageView">
@@ -134,12 +134,12 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU5-kN-hy8">
-                    <rect key="frame" x="609" y="0.0" width="28" height="28"/>
+                    <rect key="frame" x="612" y="0.0" width="25" height="25"/>
                     <animations/>
-                    <state key="normal" image="CommentIcon_Highligh"/>
+                    <state key="normal" image="reagent_deposit"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-8z-vkH">
-                    <rect key="frame" x="574" y="2" width="25" height="25"/>
+                    <rect key="frame" x="577" y="0.0" width="25" height="25"/>
                     <animations/>
                     <state key="normal" image="lab_tips"/>
                     <connections>
@@ -192,16 +192,16 @@
                     <exclude reference="ESE-gx-rgE"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-432.5" y="-176.5"/>
+            <point key="canvasLocation" x="-493.5" y="-196.5"/>
         </view>
     </objects>
     <resources>
-        <image name="CommentIcon_Highligh" width="28" height="28"/>
         <image name="Night_ZHActionEditAnswerNormal_iOS7" width="54" height="54"/>
         <image name="clock" width="34" height="32"/>
         <image name="lab_tips" width="25" height="25"/>
         <image name="pause" width="34" height="32"/>
         <image name="play" width="34" height="32"/>
+        <image name="reagent_deposit" width="25" height="25"/>
         <image name="step1" width="132" height="32"/>
     </resources>
 </document>
