@@ -43,6 +43,8 @@
 {
     self.tableView.allowsSelection = NO;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DWMeEditCell class])  bundle:nil] forCellReuseIdentifier:NSStringFromClass([DWMeEditCell class])];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
+    [self.tableView addGestureRecognizer:tapGesture];
 }
 - (void)p_loadUserInfo
 {
@@ -109,9 +111,8 @@
     cell.viewModel = self.viewModels[indexPath.row];
     return cell;
 }
-#pragma mark - TableView Delegate 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)tapGestureRecognized:(UITapGestureRecognizer *)tapRecognizer
 {
-    [self.tableView endEditing:YES];
+    [self.view endEditing:YES];
 }
 @end

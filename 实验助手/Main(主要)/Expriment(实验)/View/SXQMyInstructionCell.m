@@ -10,7 +10,6 @@
 @interface SXQMyInstructionCell ()
 @property (weak, nonatomic) IBOutlet UILabel *instructionNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uploadTImeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *editTimeLabel;
 
 @end
 @implementation SXQMyInstructionCell
@@ -18,6 +17,5 @@
 {
     _instructionNameLabel.text = item.experimentName;
     _uploadTImeLabel.text =  item.uploadTime;
-    _editTimeLabel.text = item.editTime;
 }
 @end

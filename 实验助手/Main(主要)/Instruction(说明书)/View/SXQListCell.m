@@ -13,8 +13,9 @@
 @interface SXQListCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *supplierLabel;
-@property (weak, nonatomic) IBOutlet UILabel *supplierIDLabel;
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
+@property (nonatomic,weak) IBOutlet UILabel *downloadCountLabel;
+@property (nonatomic,weak) IBOutlet UILabel *reviewCountLabel;
 @property (nonatomic,strong) SXQExpInstruction *instruction;
 @end
 @implementation SXQListCell
@@ -29,8 +30,10 @@
 {
     _instruction = item;
     _nameLabel.text = item.experimentName;
-    _supplierLabel.text = [NSString stringWithFormat:@"厂商:%@",item.supplierName];
-    _supplierIDLabel.text  = [NSString stringWithFormat:@"货号:%@",item.supplierID];
+    
+    _supplierLabel.text = [NSString stringWithFormat:@"%@ %@",item.supplierName?:@"",item.provideUser? : @""];
+    _downloadCountLabel.text = [NSString stringWithFormat:@"%d",item.downloadCount];
+    _reviewCountLabel.text =  [NSString stringWithFormat:@"%d",item.reviewCount];
     [_downloadBtn setTitle:@"下载" forState:UIControlStateNormal];
     [_downloadBtn setTitle:@"已下载" forState:UIControlStateDisabled];
     _downloadBtn.enabled = !_instruction.isDownloaded;

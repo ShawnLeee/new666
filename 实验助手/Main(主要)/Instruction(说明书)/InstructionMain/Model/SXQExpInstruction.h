@@ -34,4 +34,5 @@
 @property (nonatomic,copy) NSString *projectName;
 @property (nonatomic,copy) NSString *researchName;
 @property (nonatomic,copy) NSString *taskName;
+@property (nonatomic,copy) NSString *uploadTime;
 @end

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DWMyInstructionCell" rowHeight="61" id="KGk-i7-Jjw" customClass="DWMyInstructionCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh1-Jj-txH">
+                        <rect key="frame" x="10" y="32" width="33" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="240" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3M-jZ-Csm">
+                        <rect key="frame" x="53" y="32" width="257" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_statistic_form_background_line" translatesAutoresizingMaskIntoConstraints="NO" id="0u7-CP-Fyj">
+                        <rect key="frame" x="0.0" y="58" width="320" height="2"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42G-OR-NDI">
+                        <rect key="frame" x="10" y="4" width="300" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="42G-OR-NDI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4p7-gR-wqx"/>
+                    <constraint firstItem="0u7-CP-Fyj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Zm-Qo-lp9"/>
+                    <constraint firstAttribute="bottom" secondItem="0u7-CP-Fyj" secondAttribute="bottom" id="Fic-FQ-WgI"/>
+                    <constraint firstItem="Bh1-Jj-txH" firstAttribute="leading" secondItem="42G-OR-NDI" secondAttribute="leading" id="OWH-aZ-eZh"/>
+                    <constraint firstAttribute="trailing" secondItem="0u7-CP-Fyj" secondAttribute="trailing" id="QhW-0N-VP1"/>
+                    <constraint firstAttribute="trailing" secondItem="42G-OR-NDI" secondAttribute="trailing" constant="10" id="fko-4r-F4X"/>
+                    <constraint firstItem="b3M-jZ-Csm" firstAttribute="centerY" secondItem="Bh1-Jj-txH" secondAttribute="centerY" id="q6Z-Oe-0yj"/>
+                    <constraint firstItem="Bh1-Jj-txH" firstAttribute="top" secondItem="42G-OR-NDI" secondAttribute="bottom" constant="10" id="qI7-jl-ok6"/>
+                    <constraint firstItem="42G-OR-NDI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="xYf-T4-DMT"/>
+                    <constraint firstItem="b3M-jZ-Csm" firstAttribute="leading" secondItem="Bh1-Jj-txH" secondAttribute="trailing" constant="10" id="xax-hy-Vfd"/>
+                    <constraint firstAttribute="trailing" secondItem="b3M-jZ-Csm" secondAttribute="trailing" constant="10" id="xyy-UJ-esb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="authorNameLabel" destination="b3M-jZ-Csm" id="rwZ-aA-Smp"/>
+                <outlet property="instructionNameLabel" destination="42G-OR-NDI" id="SGA-2M-xXL"/>
+            </connections>
+            <point key="canvasLocation" x="397" y="188.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="settings_statistic_form_background_line" width="6" height="2"/>
+    </resources>
+</document>

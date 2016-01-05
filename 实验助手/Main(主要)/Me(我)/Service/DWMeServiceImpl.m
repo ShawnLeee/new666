@@ -5,6 +5,8 @@
 //  Created by sxq on 15/11/25.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
+#define nilOrJSONObjectForKey(JSON_, KEY_) [[JSON_ objectForKey:KEY_] isKindOfClass:[NSNull class]] ? nil : [JSON_ objectForKey:KEY_]
+#import "DWGroup.h"
 #import "DWUserIcon.h"
 #import "NSString+Base64.h"
 #import "NSString+JSON.h"
@@ -60,25 +62,35 @@
 }
 - (NSArray *)userInfoViewModelWithDict:(NSDictionary *)dict
 {
+
     @weakify(self)
-    DWUserInfoViewModel *userName = [DWUserInfoViewModel userInforViewModelWithTitle:@"用户名" text:dict[@"nickName"]  idStr:nil editType:MeEditTypeUserName];
     
-    DWUserInfoViewModel *email = [DWUserInfoViewModel userInforViewModelWithTitle:@"邮箱" text:dict[@"email"] idStr:nil editType:MeEditTypeEmail];
+    DWUserInfoViewModel *userName = [DWUserInfoViewModel userInforViewModelWithTitle:@"用户名" text:nilOrJSONObjectForKey(dict, @"nickName") idStr:nil editType:MeEditTypeUserName];
+    
+    DWUserInfoViewModel *email = [DWUserInfoViewModel userInforViewModelWithTitle:@"邮箱" text:nilOrJSONObjectForKey(dict, @"email") idStr:nil editType:MeEditTypeEmail];
     email.shouldBeginEditing = YES;
     RAC(self.editParam,eMail) = RACObserve(email, text);
     
-    DWUserInfoViewModel *major = [DWUserInfoViewModel userInforViewModelWithTitle:@"专业" text:dict[@"major"][@"majorName"] idStr:nil editType:MeEditTypeProfession];
+    NSDictionary *majorDict = nilOrJSONObjectForKey(dict, @"major");
+    NSString *majorName = nilOrJSONObjectForKey(majorDict, @"majorName");
+    DWUserInfoViewModel *major = [DWUserInfoViewModel userInforViewModelWithTitle:@"专业" text:majorName idStr:nil editType:MeEditTypeProfession];
     RAC(self.editParam,majorID) = RACObserve(major, idStr);
     
-    DWUserInfoViewModel *degree = [DWUserInfoViewModel userInforViewModelWithTitle:@"学历" text:dict[@"education"][@"educationName"] idStr:nil editType:MeEditTypeDegree];
+    NSDictionary *eduDict = nilOrJSONObjectForKey(dict, @"education");
+    NSString *educationName = nilOrJSONObjectForKey(eduDict, @"educationName");
+    DWUserInfoViewModel *degree = [DWUserInfoViewModel userInforViewModelWithTitle:@"学历" text:educationName idStr:nil editType:MeEditTypeDegree];
     RAC(self.editParam,educationID) = RACObserve(degree, idStr);
     
-    DWUserInfoViewModel *identity = [DWUserInfoViewModel userInforViewModelWithTitle:@"职称" text:dict[@"title"][@"titleName"] idStr:nil editType:MeEditTypeIdentity];
+    NSDictionary *titleDict = nilOrJSONObjectForKey(dict, @"title");
+    NSString *titleName = nilOrJSONObjectForKey(titleDict, @"titleName");
+    DWUserInfoViewModel *identity = [DWUserInfoViewModel userInforViewModelWithTitle:@"职称" text:titleName idStr:nil editType:MeEditTypeIdentity];
     
-    DWUserInfoViewModel *college = [DWUserInfoViewModel userInforViewModelWithTitle:@"学校" text:dict[@"college"][@"collegeName"] idStr:nil editType:MeEditTypeSchool];
+    NSDictionary *collegeDict = nilOrJSONObjectForKey(dict, @"college");
+    NSString *colleageName = nilOrJSONObjectForKey(collegeDict, @"collegeName");
+    DWUserInfoViewModel *college = [DWUserInfoViewModel userInforViewModelWithTitle:@"学校" text:colleageName idStr:nil editType:MeEditTypeSchool];
     RAC(self.editParam,collegeID) = RACObserve(college, idStr);
     
-    DWUserInfoViewModel *telNumber = [DWUserInfoViewModel userInforViewModelWithTitle:@"电话" text:dict[@"telNo"] idStr:nil editType:MeEditTypeTelNum];
+    DWUserInfoViewModel *telNumber = [DWUserInfoViewModel userInforViewModelWithTitle:@"电话" text:nilOrJSONObjectForKey(dict, @"telNo") idStr:nil editType:MeEditTypeTelNum];
     RAC(self.editParam,telNo) = RACObserve(telNumber, text);
     telNumber.shouldBeginEditing = YES;
 //    NSString *province = [dict[@"province"] isEqualToString:@""]?dict[@"province"][@"provinceName"]:nil;
@@ -108,11 +120,22 @@
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSArray *dictArr = [[SXQDBManager sharedManager] meAllInstructions];
-        NSArray *modelArr =  [SXQExpInstruction objectArrayWithKeyValuesArray:dictArr];
-        [subscriber sendNext:modelArr];
+        NSArray *groups = [self groupWithDictArr:dictArr];
+        [subscriber sendNext:groups];
         [subscriber sendCompleted];
         return nil;
     }];
+}
+- (NSArray *)groupWithDictArr:(NSArray *)dictArr
+{
+    DWGroup *group0 = [DWGroup new];
+    group0.items = [SXQExpInstruction mj_objectArrayWithKeyValuesArray:[dictArr firstObject]];
+    group0.headerTitle = @"我创建的";
+    
+    DWGroup *group1 = [DWGroup new];
+    group1.items = [SXQExpInstruction mj_objectArrayWithKeyValuesArray:[dictArr lastObject]];
+    group1.headerTitle = @"已下载的";
+    return @[group0,group1];
 }
 - (RACSignal *)uploadUserProfile
 {
@@ -146,7 +169,13 @@
         [[self uploadParamSignalWithInstrucitonID:instructionID allowDownload:allowDownload]
         subscribeNext:^(DWSyncInstructionParam *param) {
             [SXQHttpTool postWithURL:SyncInstructionURL params:param.mj_keyValues success:^(id json) {
-                [subscriber sendNext:@([json[@"code"] isEqualToString:@"1"])];
+                BOOL success = [json[@"code"] isEqualToString:@"1"];
+                if(success)
+                {
+                    //设置上传时间
+                    [[SXQDBManager sharedManager] updateUploadTimeWithInstructionID:instructionID];
+                }
+                [subscriber sendNext:@(success)];
                 [subscriber sendCompleted];
             } failure:^(NSError *error) {
                 

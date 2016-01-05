@@ -59,6 +59,11 @@
     [SXQHttpTool postWithURL:SignUpURL params:param.keyValues success:^(id json) {
         if (completion) {
             BOOL success = [(NSString *)json[@"code"] isEqualToString:@"1"] ? YES : NO;
+            if (success) {
+                //存储帐号
+                Account *acc = [Account objectWithKeyValues:json[@"data"]];
+                [AccountTool saveAccount:acc];
+            }
             completion(success);
         }
     } failure:^(NSError *error) {

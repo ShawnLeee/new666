@@ -13,10 +13,12 @@
 #import "SXQExpInstruction.h"
 #import <MJExtension/MJExtension.h>
 #import "SXQDBManager.h"
+#import "SXQBaseParam.h"
 @implementation SXQInstructionSearchImpl
 - (RACSignal *)signalForSerchWithText:(NSString *)text
 {
-    NSDictionary *param = @{@"filterStr" : text};
+    SXQBaseParam *baseParam = [SXQBaseParam  new];
+    NSDictionary *param = @{@"filterStr" : text,@"userID" : baseParam.userID};
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [SXQHttpTool getWithURL:SearchInstructionURL params:param success:^(id json) {
             if ([json[@"code"] isEqualToString:@"1"]) {

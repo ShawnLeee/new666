@@ -22,11 +22,11 @@
    
     if(viewModel.shouldBeginEditing)
     {
-        RAC(viewModel,text) = self.inputField.rac_textSignal;
+        RAC(viewModel,text) = [self.inputField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
     }else
     {
         @weakify(self)
-        [RACObserve(self.viewModel, text)
+        [[RACObserve(self.viewModel, text) takeUntil:self.rac_prepareForReuseSignal]
          subscribeNext:^(NSString *text) {
              @strongify(self)
              self.inputField.text = text;

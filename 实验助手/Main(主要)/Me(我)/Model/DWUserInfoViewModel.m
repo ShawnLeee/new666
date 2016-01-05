@@ -39,6 +39,11 @@
 }
 - (void)showZone:(UITextField *)textfield
 {
+    UITabBarController *tabbarVC =  (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav  = (UINavigationController *)tabbarVC.selectedViewController;
+    UIViewController *topVC = [nav topViewController];
+    [topVC.view endEditing:YES];
+    
     DWZonePickerDelegate *zoneDelegate = [[DWZonePickerDelegate alloc] initWithDoneBlock:^(NSDictionary *province, NSDictionary *city) {
         NSString *zoneStr = [NSString stringWithFormat:@"%@  %@",province[@"name"],city[@"name"]];
         self.text = zoneStr;

@@ -253,7 +253,14 @@ static SXQDBManager *_dbManager = nil;
     CFRelease(uuidString);
     return resultStr;
 }
-
+- (void)updateUploadTimeWithInstructionID:(NSString *)instrucitonID
+{
+    [_queue inDatabase:^(FMDatabase *db) {
+        NSString *updateSQL = [NSString stringWithFormat:@"update t_expinstructionsMain set uploadTime = '%@' where expinstructionid = '%@'",[NSString currentDate],instrucitonID];
+        [db executeUpdate:updateSQL];
+    }];
+    [_queue close];
+}
 
 /**
  * 根据说明书ID取一条说明书纪录
@@ -280,9 +287,13 @@ static SXQDBManager *_dbManager = nil;
             expInstruction.supplierID = [rs stringForColumn:@"supplierid"];
             expInstruction.supplierName = [rs stringForColumn:@"suppliername"];
             expInstruction.localized = [rs intForColumn:@"localized"];
+            expInstruction.expCategoryName = [rs stringForColumn:@"expCategoryName"];
+            expInstruction.expSubCategoryName = [rs stringForColumn:@"expSubCategoryName"];
+            expInstruction.uploadTime = [rs stringForColumn:@"uploadTime"];
         }
     return expInstruction;
 }
+
 /**
  *  根据说明书ID取实验流程
  *
@@ -368,7 +379,7 @@ static SXQDBManager *_dbManager = nil;
 }
 - (NSArray *)meAllInstructions
 {
-    return [self allInstructionsOfMine:YES];
+    return @[[self allInstructionsOfMine:YES],[self allInstructionsOfMine:NO]];
 }
 - (NSArray *)querySupplierWithReagetID:(NSString *)reagentID
 {

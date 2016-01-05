@@ -98,6 +98,10 @@ typedef NS_ENUM(NSUInteger,ExperimentState) {
  *  添加试剂保存位置
  */
 - (BOOL)saveReagentLocationWithMyExpStep:(SXQExpStep *)expStep;
+/**
+ *   设置说明书上传时间
+ */
+- (void)updateUploadTimeWithInstructionID:(NSString *)instrucitonID;
 @end
 
 

@@ -35,8 +35,6 @@
 		B006ABD81C057A30008C6C76 /* DWMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006ABD61C057A30008C6C76 /* DWMeCell.m */; };
 		B006ABD91C057A30008C6C76 /* DWMeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006ABD71C057A30008C6C76 /* DWMeCell.xib */; };
 		B006ABDC1C058933008C6C76 /* DWMeInstructionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006ABDB1C058933008C6C76 /* DWMeInstructionsController.m */; };
-		B006ABE01C05945E008C6C76 /* DWMeInstructionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006ABDE1C05945E008C6C76 /* DWMeInstructionCell.m */; };
-		B006ABE11C05945E008C6C76 /* DWMeInstructionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006ABDF1C05945E008C6C76 /* DWMeInstructionCell.xib */; };
 		B006ABE41C05A071008C6C76 /* DWMeEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006ABE31C05A071008C6C76 /* DWMeEditController.m */; };
 		B00734921BF073D20020DC79 /* SXQSupplierViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00734911BF073D20020DC79 /* SXQSupplierViewModel.m */; };
 		B010CF9E1C082B0C00F5053F /* DWReagentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = B010CF9C1C082B0C00F5053F /* DWReagentDetailController.m */; };
@@ -370,6 +368,8 @@
 		B0F600781C1FF4ED00A40A14 /* DWAddStepCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F600761C1FF4ED00A40A14 /* DWAddStepCell.m */; };
 		B0F600791C1FF4ED00A40A14 /* DWAddStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F600771C1FF4ED00A40A14 /* DWAddStepCell.xib */; };
 		B0F6007C1C1FF6D700A40A14 /* DWAddStepFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F6007B1C1FF6D700A40A14 /* DWAddStepFooter.m */; };
+		B0F646551C3B9438002BF0BE /* DWMyInstructionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F646531C3B9438002BF0BE /* DWMyInstructionCell.m */; };
+		B0F646561C3B9438002BF0BE /* DWMyInstructionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F646541C3B9438002BF0BE /* DWMyInstructionCell.xib */; };
 		B0F64BD61BAF94B7001CF997 /* SXQBaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F64BD51BAF94B7001CF997 /* SXQBaseResult.m */; };
 		B0F64BDF1BAF99EB001CF997 /* SXQExperiment.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F64BDE1BAF99EB001CF997 /* SXQExperiment.m */; };
 		B0F64C251BAFB407001CF997 /* SXQExperimentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F64C221BAFB407001CF997 /* SXQExperimentResult.m */; };
@@ -541,9 +541,6 @@
 		B006ABD71C057A30008C6C76 /* DWMeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWMeCell.xib; sourceTree = "<group>"; };
 		B006ABDA1C058933008C6C76 /* DWMeInstructionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMeInstructionsController.h; sourceTree = "<group>"; };
 		B006ABDB1C058933008C6C76 /* DWMeInstructionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWMeInstructionsController.m; sourceTree = "<group>"; };
-		B006ABDD1C05945E008C6C76 /* DWMeInstructionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMeInstructionCell.h; sourceTree = "<group>"; };
-		B006ABDE1C05945E008C6C76 /* DWMeInstructionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWMeInstructionCell.m; sourceTree = "<group>"; };
-		B006ABDF1C05945E008C6C76 /* DWMeInstructionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWMeInstructionCell.xib; sourceTree = "<group>"; };
 		B006ABE21C05A071008C6C76 /* DWMeEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMeEditController.h; sourceTree = "<group>"; };
 		B006ABE31C05A071008C6C76 /* DWMeEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWMeEditController.m; sourceTree = "<group>"; };
 		B00734901BF073D20020DC79 /* SXQSupplierViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQSupplierViewModel.h; sourceTree = "<group>"; };
@@ -854,7 +851,7 @@
 		B09F9D791C1972A900E69DF8 /* DWAddReagentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddReagentCell.h; sourceTree = "<group>"; };
 		B09F9D7A1C1972A900E69DF8 /* DWAddReagentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddReagentCell.m; sourceTree = "<group>"; };
 		B09F9D7B1C1972A900E69DF8 /* DWAddReagentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWAddReagentCell.xib; sourceTree = "<group>"; };
-		B0A05F1B1B92871300EAEBF2 /* 实验助手.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "实验助手.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A05F1B1B92871300EAEBF2 /* 实验达人.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "实验达人.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05F341B92871300EAEBF2 /* 实验助手Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "实验助手Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05F391B92871300EAEBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A05F3A1B92871300EAEBF2 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
@@ -1166,6 +1163,9 @@
 		B0F600771C1FF4ED00A40A14 /* DWAddStepCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWAddStepCell.xib; sourceTree = "<group>"; };
 		B0F6007A1C1FF6D700A40A14 /* DWAddStepFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddStepFooter.h; sourceTree = "<group>"; };
 		B0F6007B1C1FF6D700A40A14 /* DWAddStepFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddStepFooter.m; sourceTree = "<group>"; };
+		B0F646521C3B9438002BF0BE /* DWMyInstructionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMyInstructionCell.h; sourceTree = "<group>"; };
+		B0F646531C3B9438002BF0BE /* DWMyInstructionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWMyInstructionCell.m; sourceTree = "<group>"; };
+		B0F646541C3B9438002BF0BE /* DWMyInstructionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWMyInstructionCell.xib; sourceTree = "<group>"; };
 		B0F64BD41BAF94B7001CF997 /* SXQBaseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQBaseResult.h; sourceTree = "<group>"; };
 		B0F64BD51BAF94B7001CF997 /* SXQBaseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQBaseResult.m; sourceTree = "<group>"; };
 		B0F64BDD1BAF99EB001CF997 /* SXQExperiment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXQExperiment.h; sourceTree = "<group>"; };
@@ -1919,7 +1919,7 @@
 		B0A05F1C1B92871300EAEBF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0A05F1B1B92871300EAEBF2 /* 实验助手.app */,
+				B0A05F1B1B92871300EAEBF2 /* 实验达人.app */,
 				B0A05F341B92871300EAEBF2 /* 实验助手Tests.xctest */,
 			);
 			name = Products;
@@ -2481,15 +2481,15 @@
 				B006ABD51C057A30008C6C76 /* DWMeCell.h */,
 				B006ABD61C057A30008C6C76 /* DWMeCell.m */,
 				B006ABD71C057A30008C6C76 /* DWMeCell.xib */,
-				B006ABDD1C05945E008C6C76 /* DWMeInstructionCell.h */,
-				B006ABDE1C05945E008C6C76 /* DWMeInstructionCell.m */,
-				B006ABDF1C05945E008C6C76 /* DWMeInstructionCell.xib */,
 				B06490011C06EAA500B9C78E /* DWMeEditCell.h */,
 				B06490021C06EAA500B9C78E /* DWMeEditCell.m */,
 				B06490031C06EAA500B9C78E /* DWMeEditCell.xib */,
 				B027BCD41C154D55002B74EA /* DWSignOutView.h */,
 				B027BCD51C154D55002B74EA /* DWSignOutView.m */,
 				B027BCD71C154D65002B74EA /* DWSignOutView.xib */,
+				B0F646521C3B9438002BF0BE /* DWMyInstructionCell.h */,
+				B0F646531C3B9438002BF0BE /* DWMyInstructionCell.m */,
+				B0F646541C3B9438002BF0BE /* DWMyInstructionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3304,7 +3304,7 @@
 			);
 			name = "实验助手";
 			productName = "实验助手";
-			productReference = B0A05F1B1B92871300EAEBF2 /* 实验助手.app */;
+			productReference = B0A05F1B1B92871300EAEBF2 /* 实验达人.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B0A05F331B92871300EAEBF2 /* 实验助手Tests */ = {
@@ -3337,6 +3337,7 @@
 				TargetAttributes = {
 					B0A05F1A1B92871300EAEBF2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 576RU7J295;
 					};
 					B0A05F331B92871300EAEBF2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -3399,12 +3400,12 @@
 				B0F73BA11BBBA97800B3D0A0 /* SXQReagentCell.xib in Resources */,
 				B09F9D7D1C1972A900E69DF8 /* DWAddReagentCell.xib in Resources */,
 				B013832F1C02DCC300F37F76 /* DWCommentCell.xib in Resources */,
+				B0F646561C3B9438002BF0BE /* DWMyInstructionCell.xib in Resources */,
 				B006ABCA1C055BD2008C6C76 /* DWMeHeader.xib in Resources */,
 				B027BCCE1C151E69002B74EA /* DWBBSTopicController.xib in Resources */,
 				B04DAA281C2B90BE00540902 /* DWCurrentCell.xib in Resources */,
 				B08E7C691BB25C070023893B /* SXQSingleContentCell.xib in Resources */,
 				B0221C771BFB2B3E00DB4083 /* SXQVenderView.xib in Resources */,
-				B006ABE11C05945E008C6C76 /* DWMeInstructionCell.xib in Resources */,
 				B0DDFF2E1BA6A07000E4AB3C /* SXQReagentContoller.xib in Resources */,
 				B0F939CB1BA166F900D093F9 /* WeiboSDK.bundle in Resources */,
 				B062E2911BF9BAEE00A7C0FB /* DWInstructionDetailCell.xib in Resources */,
@@ -3580,7 +3581,6 @@
 				B062E2831BF99DAA00A7C0FB /* DWInstructionDetailController.m in Sources */,
 				B0DF991F1C1FAEE2003E4789 /* DWAddEquipmentDelegate.m in Sources */,
 				B0F64BD61BAF94B7001CF997 /* SXQBaseResult.m in Sources */,
-				B006ABE01C05945E008C6C76 /* DWMeInstructionCell.m in Sources */,
 				B02943401BD48A2B00736364 /* SXQReagentCountView.m in Sources */,
 				B054C18A1BFC60A4009662D6 /* DWSignUpGroup.m in Sources */,
 				B0B544C91BE6FA37003CB14F /* SXQExpPlan.m in Sources */,
@@ -3631,6 +3631,7 @@
 				B0F73BB71BBBB3E600B3D0A0 /* FPTouchView.m in Sources */,
 				B0383F9C1C1E9DD7000904B8 /* DWAddConsumabelViewModel.m in Sources */,
 				B054C1801BFC5D04009662D6 /* DWSignUpViewModel.m in Sources */,
+				B0F646551C3B9438002BF0BE /* DWMyInstructionCell.m in Sources */,
 				B0EFCF401C1A9B9400429188 /* DWReagentFirstClarify.m in Sources */,
 				B0F8BF0C1BB0F7DE00F434FE /* LoginTool.m in Sources */,
 				B0F64C321BAFBD77001CF997 /* MZTimerLabel.m in Sources */,
@@ -3930,8 +3931,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiaoaoxtu@gmail.com (QHR2TC7G7E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiaoaoxtu@gmail.com (QHR2TC7G7E)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3974,7 +3975,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3999,8 +4000,8 @@
 			baseConfigurationReference = BA10C25B56685BF3E3D3D5E3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/实验助手/Vender(第三方)",
@@ -4049,7 +4050,8 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_NAME = "实验助手";
+				PRODUCT_BUNDLE_IDENTIFIER = com.testlab.cm;
+				PRODUCT_NAME = "实验达人";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -4059,8 +4061,8 @@
 			baseConfigurationReference = 24263CB54E630AD295654538 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/实验助手/Vender(第三方)",
@@ -4109,7 +4111,8 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_NAME = "实验助手";
+				PRODUCT_BUNDLE_IDENTIFIER = com.testlab.cm;
+				PRODUCT_NAME = "实验达人";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -4119,7 +4122,7 @@
 			baseConfigurationReference = BA10C25B56685BF3E3D3D5E3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -4131,7 +4134,7 @@
 				INFOPLIST_FILE = "实验助手Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/实验助手.app/实验助手";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/实验达人.app/实验达人";
 			};
 			name = Debug;
 		};
@@ -4147,7 +4150,7 @@
 				INFOPLIST_FILE = "实验助手Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/实验助手.app/实验助手";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/实验达人.app/实验达人";
 			};
 			name = Release;
 		};
