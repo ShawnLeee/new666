@@ -65,10 +65,18 @@
             }
         }];
     }];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [self.view addGestureRecognizer:tapGesture];
+}
+- (void)handleTapGesture:(UITapGestureRecognizer *)recoginzer
+{
+    [self.view endEditing:YES];
 }
 - (void)setupTableView
 {
     self.title = @"实验准备";
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 40;
     self.tableView.allowsSelection = NO;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DWReagentAmountCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([DWReagentAmountCell class])];
 }

@@ -9,9 +9,8 @@
 #import "DWReagentAmountCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 @interface DWReagentAmountCell ()
-@property (nonatomic,weak) IBOutlet NSLayoutConstraint *widthConstraint;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
-@property (nonatomic,weak) IBOutlet UILabel *singleLabel;
+@property (nonatomic,weak) IBOutlet UITextField *singleUseAmount;
 @property (nonatomic,weak) IBOutlet UITextField *sampleField;
 @property (nonatomic,weak) IBOutlet UITextField *repeatCountField;
 @property (nonatomic,weak) IBOutlet UILabel *totalLabel;
@@ -20,7 +19,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.widthConstraint.constant = ([UIScreen mainScreen].bounds.size.width - 20)/5.0;
     [self setNeedsUpdateConstraints];
     [self layoutIfNeeded];
 }
@@ -28,10 +26,13 @@
 {
     _viewModel = viewModel;
     self.nameLabel.text = viewModel.reagentName;
-    self.singleLabel.text = viewModel.singleAmount;
-    RAC(self.viewModel,sampleAmount) = [self.sampleField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
-    RAC(self.viewModel,repeatCount) = [self.repeatCountField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
-    [RACObserve(self.viewModel, totalAmount)
+    self.singleUseAmount.text = viewModel.singleAmount;
+    
+//    RAC(self.viewModel,sampleAmount) = [self.sampleField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
+    
+//    RAC(self.viewModel,repeatCount) = [self.repeatCountField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
+    
+    [[RACObserve(self.viewModel, totalAmount) takeUntil:self.rac_prepareForReuseSignal]
     subscribeNext:^(NSString *totalAmount) {
         self.totalLabel.text = totalAmount;
     }];

@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/8/12.
 //  Copyright (c) 2015年 SXQ. All rights reserved.
 //
-#import <AFNetworking.h>
+#import "DWLABAppDotNetAPIClient.h"
 #import "SXQHttpTool.h"
 
 @implementation SXQHttpTool
@@ -40,12 +40,12 @@
 + (void)getWithURL:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     //1.创建请求管理对象
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    DWLABAppDotNetAPIClient *apiClient = [DWLABAppDotNetAPIClient sharedClient];
 //    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
 //    [serializer setRemovesKeysWithNullValues:YES];
 //    [manager setResponseSerializer:serializer];
     //2.发送请求
-    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [apiClient GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success(responseObject);
         }
@@ -58,10 +58,10 @@
 +(void)postWithURL:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     //1.创建请求管理对象
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    DWLABAppDotNetAPIClient *apiClient = [DWLABAppDotNetAPIClient sharedClient];
     //2.发送请求
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [apiClient POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success(responseObject);
         }
