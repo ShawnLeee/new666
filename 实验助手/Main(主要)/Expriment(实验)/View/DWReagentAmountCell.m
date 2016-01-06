@@ -8,7 +8,8 @@
 #import "DWReagentAmountViewModel.h"
 #import "DWReagentAmountCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-@interface DWReagentAmountCell ()
+NSString * const kAmountIsEditingNotification = @"kamountiseditingnotification";
+@interface DWReagentAmountCell ()<UITextFieldDelegate>
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic,weak) IBOutlet UITextField *singleUseAmount;
 @property (nonatomic,weak) IBOutlet UITextField *sampleField;
@@ -16,7 +17,6 @@
 @property (nonatomic,weak) IBOutlet UILabel *totalLabel;
 @end
 @implementation DWReagentAmountCell
-
 - (void)awakeFromNib {
     // Initialization code
     [self setNeedsUpdateConstraints];
@@ -27,14 +27,31 @@
     _viewModel = viewModel;
     self.nameLabel.text = viewModel.reagentName;
     self.singleUseAmount.text = viewModel.singleAmount;
-    
-//    RAC(self.viewModel,sampleAmount) = [self.sampleField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
-    
-//    RAC(self.viewModel,repeatCount) = [self.repeatCountField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal];
+    @weakify(self)
+    [[self.singleUseAmount.rac_textSignal takeUntil:self.rac_prepareForReuseSignal]
+    subscribeNext:^(NSString *singleAmount) {
+        @strongify(self)
+        self.viewModel.singleAmount = singleAmount;
+    }];
+    [[self.sampleField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal]
+    subscribeNext:^(NSString *amount) {
+        @strongify(self)
+        self.viewModel.sampleAmount =  amount;
+    }];
+    [[self.repeatCountField.rac_textSignal takeUntil:self.rac_prepareForReuseSignal]
+    subscribeNext:^(NSString *repeatCount) {
+        @strongify(self)
+        self.viewModel.repeatCount = repeatCount;
+    }];
     
     [[RACObserve(self.viewModel, totalAmount) takeUntil:self.rac_prepareForReuseSignal]
     subscribeNext:^(NSString *totalAmount) {
         self.totalLabel.text = totalAmount;
     }];
 }
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAmountIsEditingNotification object:self userInfo:@{}];
+}
 @end
+

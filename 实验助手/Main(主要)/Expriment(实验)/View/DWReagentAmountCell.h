@@ -7,7 +7,7 @@
 //
 @class DWReagentAmountViewModel;
 #import <UIKit/UIKit.h>
-
+extern NSString * const kAmountIsEditingNotification;
 @interface DWReagentAmountCell : UITableViewCell
 @property (nonatomic,strong) DWReagentAmountViewModel *viewModel;
 @end

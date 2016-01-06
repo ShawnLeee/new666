@@ -27,14 +27,28 @@
     self.reagentName = _reagent.reagentName;
     self.singleAmount = [NSString stringWithFormat:@"%d",_reagent.useAmount];
     self.totalAmount = @"0";
+    [RACObserve(self, singleAmount)
+    subscribeNext:^(NSString *singleAmount) {
+        if (![singleAmount dg_isNumber]) {
+            if (singleAmount.length > 0 ) {
+                [MBProgressHUD showError:@"请输入数字"];
+            }
+            return ;
+        }
+        self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
+    }];
     [RACObserve(self, sampleAmount)
     subscribeNext:^(NSString *amount) {
         if (![amount dg_isNumber]) {
             if (amount.length > 0 ) {
                 [MBProgressHUD showError:@"请输入数字"];
             }
+            return ;
         }
+        self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
+        
     }];
+    
     [RACObserve(self, repeatCount)
     subscribeNext:^(NSString *repeatCount) {
         if (![repeatCount dg_isNumber]) {
@@ -43,7 +57,6 @@
             }
         }else
         {
-//            [self.service updateRepeateCountWithCount:repeatCount exception:self];
             self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
         }
         

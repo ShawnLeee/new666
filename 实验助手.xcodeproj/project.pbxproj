@@ -302,6 +302,7 @@
 		B0E054B71B9470AD00C7F9D0 /* SXQNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E054B61B9470AD00C7F9D0 /* SXQNavgationController.m */; };
 		B0E054BB1B94715A00C7F9D0 /* SXQNavgationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E054BA1B94715A00C7F9D0 /* SXQNavgationBar.m */; };
 		B0E1E3441C3CA628008D1735 /* DWLABAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1E3431C3CA628008D1735 /* DWLABAppDotNetAPIClient.m */; };
+		B0E1E3471C3CEA1E008D1735 /* NSString+SQL.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1E3461C3CEA1E008D1735 /* NSString+SQL.m */; };
 		B0E325711C113C0F0048AD25 /* DWAddThemeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E325701C113C0F0048AD25 /* DWAddThemeParam.m */; };
 		B0E325751C113C780048AD25 /* DWBBSAddThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E325731C113C780048AD25 /* DWBBSAddThemeController.m */; };
 		B0E325761C113C780048AD25 /* DWBBSAddThemeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E325741C113C780048AD25 /* DWBBSAddThemeController.xib */; };
@@ -1039,6 +1040,8 @@
 		B0E054BA1B94715A00C7F9D0 /* SXQNavgationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXQNavgationBar.m; sourceTree = "<group>"; };
 		B0E1E3421C3CA628008D1735 /* DWLABAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLABAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		B0E1E3431C3CA628008D1735 /* DWLABAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLABAppDotNetAPIClient.m; sourceTree = "<group>"; };
+		B0E1E3451C3CEA1E008D1735 /* NSString+SQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SQL.h"; sourceTree = "<group>"; };
+		B0E1E3461C3CEA1E008D1735 /* NSString+SQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SQL.m"; sourceTree = "<group>"; };
 		B0E3256F1C113C0F0048AD25 /* DWAddThemeParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAddThemeParam.h; sourceTree = "<group>"; };
 		B0E325701C113C0F0048AD25 /* DWAddThemeParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWAddThemeParam.m; sourceTree = "<group>"; };
 		B0E325721C113C780048AD25 /* DWBBSAddThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBBSAddThemeController.h; sourceTree = "<group>"; };
@@ -2972,6 +2975,8 @@
 				B0E512921C1804E50071BCA5 /* NSString+UUID.m */,
 				B052AFFB1C23B4C300A00E5B /* NSString+JSON.h */,
 				B052AFFC1C23B4C300A00E5B /* NSString+JSON.m */,
+				B0E1E3451C3CEA1E008D1735 /* NSString+SQL.h */,
+				B0E1E3461C3CEA1E008D1735 /* NSString+SQL.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3725,6 +3730,7 @@
 				B006ABD31C057796008C6C76 /* DWMeServiceImpl.m in Sources */,
 				B00221481BDA1E59007A41F9 /* CellContainerView.m in Sources */,
 				B0E1E3441C3CA628008D1735 /* DWLABAppDotNetAPIClient.m in Sources */,
+				B0E1E3471C3CEA1E008D1735 /* NSString+SQL.m in Sources */,
 				B02C15301C1AB99A0049C946 /* DWItemCellViewModel.m in Sources */,
 				B0FD568E1C0D43B900E9E377 /* DWBBSModel.m in Sources */,
 				B0A3D9521BFEF24900D7BB4E /* DWReagentAmountViewModel.m in Sources */,

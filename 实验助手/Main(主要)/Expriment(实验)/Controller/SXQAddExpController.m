@@ -45,8 +45,46 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addKeyBoardNotification];
     [self setupNav];
     [self setupTableView];
+}
+- (void)addKeyBoardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTheEditingView:) name:kAmountIsEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)keyboardWasShown:(NSNotification *)aNotificatioin
+{
+    NSDictionary *info = [aNotificatioin userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+- (void)keyboardWillBeHidden:(NSNotification *)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+- (void)handleTheEditingView:(NSNotification *)notification
+{
+    DWReagentAmountCell *cell = (DWReagentAmountCell *)notification.object;
+    if (cell) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        if (indexPath) {
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        }
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAmountIsEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self   name:UIKeyboardDidShowNotification object:nil];
 }
 - (void)setupNav{
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"确认" action:^{

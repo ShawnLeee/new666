@@ -32,7 +32,10 @@
                         <rect key="frame" x="318" y="42" width="166" height="30"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="zly-jA-07g"/>
+                        </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-8u-UZs">
                         <rect key="frame" x="318" y="85" width="166" height="21"/>
@@ -73,13 +76,19 @@
                         <rect key="frame" x="80" y="42" width="167" height="30"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Duu-mG-bf8"/>
+                        </connections>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ee-Kv-Znm">
                         <rect key="frame" x="80" y="80" width="167" height="30"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="TOB-EU-8Kl"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <animations/>
@@ -120,7 +129,7 @@
                 <outlet property="singleUseAmount" destination="wTm-k7-L2w" id="qz8-zb-6gc"/>
                 <outlet property="totalLabel" destination="Vd2-8u-UZs" id="pHR-1p-536"/>
             </connections>
-            <point key="canvasLocation" x="260" y="200.5"/>
+            <point key="canvasLocation" x="-211" y="230.5"/>
         </tableViewCell>
     </objects>
 </document>

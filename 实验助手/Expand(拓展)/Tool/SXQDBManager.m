@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "NSString+SQL.h"
 #import "DWCurrentViewModel.h"
 #import "AccountTool.h"
 #import "Account.h"
@@ -568,8 +569,9 @@ static SXQDBManager *_dbManager = nil;
 - (BOOL)insertIntoMyExp:(SXQExpInstruction *)instruciton myExpId:(NSString *)myExpId db:(FMDatabase *)db;
 {
     BOOL success = NO;
+    NSString *userID = [[AccountTool account] userID];
 #warning userid
-     NSString *addMyExpSql = [NSString stringWithFormat:@"insert into t_myExp ( MyExpID , ExpInstructionID , UserID , CreateTime , CreateYear,CreateMonth , FinishTime , ExpVersion , IsReviewed ,IsCreateReport  , IsUpload , ReportName , ReportLocation ,ReportServerPath ,  ExpState ,ExpMemo ,projectName,researchName,taskName) values('%@','%@','%@','%@','%@','%@','%@','%d','%d','%d','%d','%@','%@','%@','%d','%@','%@','%@','%@')",myExpId,instruciton.expInstructionID,@"4028c681494b994701494b99aba50000",[NSString dw_currentDate],[NSString dw_year],[NSString dw_month],@"",instruciton.expVersion,0,0,0,@"",@"",@"",0,@"",instruciton.projectName,instruciton.researchName,instruciton.taskName];
+     NSString *addMyExpSql = [NSString stringWithFormat:@"insert into t_myExp ( MyExpID , ExpInstructionID , UserID , CreateTime , CreateYear,CreateMonth , FinishTime , ExpVersion , IsReviewed ,IsCreateReport  , IsUpload , ReportName , ReportLocation ,ReportServerPath ,  ExpState ,ExpMemo ,projectName,researchName,taskName) values('%@','%@','%@','%@','%@','%@','%@','%d','%d','%d','%d','%@','%@','%@','%d','%@','%@','%@','%@')",myExpId,instruciton.expInstructionID,userID,[NSString dw_currentDate],[NSString dw_year],[NSString dw_month],@"",instruciton.expVersion,0,0,0,@"",@"",@"",0,@"",instruciton.projectName,instruciton.researchName,instruciton.taskName];
     success = [db executeUpdate:addMyExpSql];
     return success;
 }
