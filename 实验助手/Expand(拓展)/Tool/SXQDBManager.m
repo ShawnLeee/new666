@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "NSObject+NilString.h"
 #import "NSString+SQL.h"
 #import "DWCurrentViewModel.h"
 #import "AccountTool.h"
@@ -594,7 +595,6 @@ static SXQDBManager *_dbManager = nil;
 {
     
     NSString *insertSql = [NSString stringWithFormat:@"insert into t_myExpReagent( MyExpReagentID, MyExpID, ExpInstructionID,ReagentID, SupplierID,totalAmount,reagentSpec) values ('%@','%@','%@','%@','%@','%f','%@')",myExpReagentId,myExpId,expReagent.expInstructionID,expReagent.reagentID,expReagent.supplierID,expReagent.totalCount,expReagent.reagentSpec];
-//    return  [db executeUpdate:@"insert into t_myExpReagent( MyExpReagentID, MyExpID, ExpInstructionID,ReagentID, SupplierID,totalAmount,reagentSpec) values (?,?,?,?,?,?,?)",myExpReagentId,myExpId,expReagent.expInstructionID,expReagent.reagentID,expReagent.supplierID,expReagent.totalCount,expReagent.reagentSpec];
     return [db executeUpdate:insertSql];
 }
 /**
@@ -763,8 +763,10 @@ static SXQDBManager *_dbManager = nil;
 - (void)insertConsumable:(SXQConsumable *)consumable db:(FMDatabase *)db
 {
 //    NSString *consumableSQL = @"create table if not exists t_consumable(consumableID text primary key,consumableName text,consumableType text)";
-    NSString *insertSql = [NSString stringWithFormat:@"insert into t_consumable (consumableID,consumableName,consumableType) values ('%@','%@','%@')",consumable.consumableID,consumable.consumableName,consumable.consumableType];
-    [db executeUpdate:insertSql];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into t_consumable (consumableID,consumableName,consumableType) values (%@,%@,%@)",consumable.consumableID,consumable.consumableName,consumable.consumableType? : @""];
+//    [db executeUpdate:newSQL];
+    [consumable replaceNilValueForStringProper];
+    [db executeUpdate: @"insert into t_consumable (consumableID,consumableName,consumableType) values (?,?,?)",consumable.consumableID,consumable.consumableName,consumable.consumableType];
 }
 - (void)insertConsumableMap:(SXQConsumableMap *)consumableMap db:(FMDatabase *)db
 {
@@ -775,7 +777,8 @@ static SXQDBManager *_dbManager = nil;
 - (void)insertReagent:(SXQReagent *)reagent db:(FMDatabase *)db
 {
 //    NSString *reagentSQL = @"create table if not exists t_reagent(reagentID text primary key,reagentName text,reagentCommonName text,levelOneSortID text,levelTwoSortID text,originalPlace text,productNo text,agents text,specification text,price integer,chemicalName text,CASNo text,arriveDate numeric,memo text)";
-    NSString *insertSql = [NSString stringWithFormat:@"insert into t_reagent (reagentID,reagentName ,reagentCommonName ,levelOneSortID ,levelTwoSortID ,originalPlace ,productNo,agents,specification ,price,chemicalName ,CASNo ,arriveDate ,memo) values ('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')",reagent.reagentID,reagent.reagentName,reagent.reagentCommonName,reagent.levelOneSortID,reagent.levelTwoSortID,reagent.originPlace,reagent.productNo,reagent.agents,reagent.specification,reagent.price,reagent.chemicalName,reagent.casNo,reagent.arrivalDate,reagent.memo];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into t_reagent (reagentID,reagentName ,reagentCommonName ,levelOneSortID ,levelTwoSortID ,originalPlace ,productNo,agents,specification ,price,chemicalName ,CASNo ,arriveDate ,memo) values (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)",reagent.reagentID,reagent.reagentName,reagent.reagentCommonName,reagent.levelOneSortID,reagent.levelTwoSortID,reagent.originPlace,reagent.productNo,reagent.agents,reagent.specification,reagent.price,reagent.chemicalName,reagent.casNo,reagent.arrivalDate,reagent.memo];
+    NSString *newSQL = [insertSql stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
     [db executeUpdate:insertSql];
    
 }
