@@ -26,7 +26,8 @@
 {
     self.reagentName = _reagent.reagentName;
     self.singleAmount = [NSString stringWithFormat:@"%d",_reagent.useAmount];
-    self.totalAmount = @"0";
+    self.totalAmount = [NSString stringWithFormat:@"%f %@",_reagent.totalCount,_reagent.reagentSpec];
+    
     [RACObserve(self, singleAmount)
     subscribeNext:^(NSString *singleAmount) {
         if (![singleAmount dg_isNumber]) {
@@ -35,7 +36,7 @@
             }
             return ;
         }
-        self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
+        self.totalAmount =[NSString stringWithFormat:@"%.0f %@",[self countTotalAmount],_reagent.reagentSpec];
     }];
     [RACObserve(self, sampleAmount)
     subscribeNext:^(NSString *amount) {
@@ -45,7 +46,7 @@
             }
             return ;
         }
-        self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
+        self.totalAmount =[NSString stringWithFormat:@"%.0f %@",[self countTotalAmount],_reagent.reagentSpec];
         
     }];
     
@@ -57,10 +58,17 @@
             }
         }else
         {
-            self.totalAmount =[NSString stringWithFormat:@"%.0f",([self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue])];
+            self.totalAmount =[NSString stringWithFormat:@"%.0f %@",[self countTotalAmount],_reagent.reagentSpec];
         }
         
     }];
+    [RACObserve(self, totalAmount)
+    subscribeNext:^(id x) {
+        self.reagent.totalCount = [self countTotalAmount];
+    }];
 }
-
+- (CGFloat)countTotalAmount
+{
+    return  [self.sampleAmount doubleValue] * [self.repeatCount doubleValue] * [self.singleAmount doubleValue];
+}
 @end

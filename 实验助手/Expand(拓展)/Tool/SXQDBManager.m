@@ -194,7 +194,7 @@ static SXQDBManager *_dbManager = nil;
     //我的实验主表
     NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1,projectName text,researchName text,taskName text);";
     //我的实验试剂表
-    NSString *myExpReageneSQL = @"create table if not exists t_myExpReagent( MyExpReagentID text primary key, MyExpID text, ExpInstructionID text,ReagentID  text, SupplierID text);";
+    NSString *myExpReageneSQL = @"create table if not exists t_myExpReagent( MyExpReagentID text primary key, MyExpID text, ExpInstructionID text,ReagentID  text, SupplierID text,totalAmount integer,reagentSpec text);";
     //我的实验耗材表
     NSString *myExpConsumableSQL = @"create table if not exists t_myExpConsumable(MyExpConsumableID text primary key,MyExpID text,ExpInstructionID text,ConsumableID text,SupplierID text);";
     //我的实验设备表
@@ -593,7 +593,8 @@ static SXQDBManager *_dbManager = nil;
 - (BOOL)insertIntoMyExpReagent:(SXQExpReagent *)expReagent myExpReagentId:(NSString *)myExpReagentId myExpId:(NSString *)myExpId db:(FMDatabase *)db
 {
     
-    NSString *insertSql = [NSString stringWithFormat:@"insert into t_myExpReagent( MyExpReagentID, MyExpID, ExpInstructionID,ReagentID, SupplierID) values ('%@','%@','%@','%@','%@')",myExpReagentId,myExpId,expReagent.expInstructionID,expReagent.reagentID,expReagent.supplierID];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into t_myExpReagent( MyExpReagentID, MyExpID, ExpInstructionID,ReagentID, SupplierID,totalAmount,reagentSpec) values ('%@','%@','%@','%@','%@','%f','%@')",myExpReagentId,myExpId,expReagent.expInstructionID,expReagent.reagentID,expReagent.supplierID,expReagent.totalCount,expReagent.reagentSpec];
+//    return  [db executeUpdate:@"insert into t_myExpReagent( MyExpReagentID, MyExpID, ExpInstructionID,ReagentID, SupplierID,totalAmount,reagentSpec) values (?,?,?,?,?,?,?)",myExpReagentId,myExpId,expReagent.expInstructionID,expReagent.reagentID,expReagent.supplierID,expReagent.totalCount,expReagent.reagentSpec];
     return [db executeUpdate:insertSql];
 }
 /**

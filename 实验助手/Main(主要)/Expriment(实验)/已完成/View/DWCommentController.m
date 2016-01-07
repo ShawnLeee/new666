@@ -38,9 +38,46 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addKeyBoardNotification];
     [self p_loadData];
     [self p_setupSelf];
    
+}
+- (void)addKeyBoardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+- (void)keyboardWasShown:(NSNotification *)aNotificatioin
+{
+    NSDictionary *info = [aNotificatioin userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGRect keyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    CGRect rect = [self.tableView convertRect:self.commentView.frame toView:[UIApplication sharedApplication].keyWindow];
+    CGPoint commentBottomLeft = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
+    //tableview向上走
+    if (commentBottomLeft.y > keyboardRect.origin.y) {
+        [UIView animateWithDuration:animationDuration animations:^{
+            self.view.transform = CGAffineTransformMakeTranslation(0, -kbSize.height);
+        }];
+    }
+    
+    
+}
+- (void)keyboardWillBeHidden:(NSNotification *)aNotification
+{
+    NSDictionary *info = [aNotification userInfo];
+    CGFloat animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:animationDuration animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+    }];
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self   name:UIKeyboardDidShowNotification object:nil];
 }
 - (void)p_loadData
 {

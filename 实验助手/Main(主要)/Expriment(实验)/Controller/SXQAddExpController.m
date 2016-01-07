@@ -86,6 +86,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self   name:UIKeyboardDidShowNotification object:nil];
 }
+
 - (void)setupNav{
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"确认" action:^{
        //写入数据到正在进行的实验

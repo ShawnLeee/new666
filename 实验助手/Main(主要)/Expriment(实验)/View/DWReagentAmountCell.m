@@ -27,6 +27,10 @@ NSString * const kAmountIsEditingNotification = @"kamountiseditingnotification";
     _viewModel = viewModel;
     self.nameLabel.text = viewModel.reagentName;
     self.singleUseAmount.text = viewModel.singleAmount;
+    self.sampleField.text = viewModel.sampleAmount;
+    self.repeatCountField.text = viewModel.repeatCount;
+    self.totalLabel.text = viewModel.totalAmount;
+    
     @weakify(self)
     [[self.singleUseAmount.rac_textSignal takeUntil:self.rac_prepareForReuseSignal]
     subscribeNext:^(NSString *singleAmount) {
