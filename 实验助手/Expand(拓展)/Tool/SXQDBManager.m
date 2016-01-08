@@ -7,6 +7,8 @@
 //
 
 @import UIKit;
+#import "DWMyExpAttach.h"
+#import "DGConclusionViewModel.h"
 #import "NSObject+NilString.h"
 #import "NSString+SQL.h"
 #import "DWCurrentViewModel.h"
@@ -190,10 +192,12 @@ static SXQDBManager *_dbManager = nil;
 }
 - (NSArray *)setupMyExp
 {
+    //我的实验附件表
+    NSString *myExpAttach = @"create table if not exists t_myExpAttach (myExpAttchID text primary key,myExpID text,expInstructionID text,attachmentName text,attachLocation text,attachServerPath text,isUpload integer,title text,description text,imageData blob)";
     //我的说明书表
     NSString *myExpInstruction = @"create table if not exists t_myExpInstruction (MyExpInstructionID text,ExpInstructionID text,UserID text,DownloadTime numeric);";
     //我的实验主表
-    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1,projectName text,researchName text,taskName text);";
+    NSString *myExpSQL = @"create table if not exists t_myExp( MyExpID text primary key, ExpInstructionID text, UserID text, CreateTime numeric, CreateYear integer,CreateMonth  integer, FinishTime numeric, ExpVersion integer, IsReviewed integer,IsCreateReport  integer, IsUpload integer, ReportName text, ReportLocation text,ReportServerPath  text,  ExpState integer,ExpMemo  text,currentStep integer default 1,projectName text,researchName text,taskName text,myExpResult text);";
     //我的实验试剂表
     NSString *myExpReageneSQL = @"create table if not exists t_myExpReagent( MyExpReagentID text primary key, MyExpID text, ExpInstructionID text,ReagentID  text, SupplierID text,totalAmount integer,reagentSpec text);";
     //我的实验耗材表
@@ -206,7 +210,7 @@ static SXQDBManager *_dbManager = nil;
     NSString *myExpProcessAttchSQL = @"create table if not exists t_myExpProcessAttch(MyExpProcessAttchID text primary key, MyExpID text,ExpInstructionID text,ExpStepID text,AttchmentName text,AttchmentLocation text,AttchmentServerPath text,IsUpload integer,imgStream blob);";
     //我的实验计划表
     NSString *myExpPlanSQL = @"create table if not exists t_myExpPlan (MyExpPlanID text primary key,UserID text,PlanDate numeric,PlanOfYear integer,PlanOfDate integer,ExpInstructionID text,ExperimentName text);";
-    NSArray *sqlArr = @[myExpInstruction,myExpSQL,myExpReageneSQL,myExpConsumableSQL,myExpEquimentSQL,myExpProcessSQL,myExpProcessAttchSQL,myExpPlanSQL];
+    NSArray *sqlArr = @[myExpInstruction,myExpSQL,myExpReageneSQL,myExpConsumableSQL,myExpEquimentSQL,myExpProcessSQL,myExpProcessAttchSQL,myExpPlanSQL,myExpAttach];
     return sqlArr;
 }
 
@@ -480,6 +484,7 @@ static SXQDBManager *_dbManager = nil;
         experiment.projectName = [rs stringForColumn:@"projectName"];
         experiment.researchName = [rs stringForColumn:@"researchName"];
         experiment.taskName = [rs stringForColumn:@"taskName"];
+        experiment.myExpResult = [rs stringForColumn:@"myExpResult"];
     }
     return experiment;
 }
@@ -777,9 +782,9 @@ static SXQDBManager *_dbManager = nil;
 - (void)insertReagent:(SXQReagent *)reagent db:(FMDatabase *)db
 {
 //    NSString *reagentSQL = @"create table if not exists t_reagent(reagentID text primary key,reagentName text,reagentCommonName text,levelOneSortID text,levelTwoSortID text,originalPlace text,productNo text,agents text,specification text,price integer,chemicalName text,CASNo text,arriveDate numeric,memo text)";
-    NSString *insertSql = [NSString stringWithFormat:@"insert into t_reagent (reagentID,reagentName ,reagentCommonName ,levelOneSortID ,levelTwoSortID ,originalPlace ,productNo,agents,specification ,price,chemicalName ,CASNo ,arriveDate ,memo) values (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)",reagent.reagentID,reagent.reagentName,reagent.reagentCommonName,reagent.levelOneSortID,reagent.levelTwoSortID,reagent.originPlace,reagent.productNo,reagent.agents,reagent.specification,reagent.price,reagent.chemicalName,reagent.casNo,reagent.arrivalDate,reagent.memo];
-    NSString *newSQL = [insertSql stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
-    [db executeUpdate:insertSql];
+//    NSString *insertSql = [NSString stringWithFormat:@"insert into t_reagent (reagentID,reagentName ,reagentCommonName ,levelOneSortID ,levelTwoSortID ,originalPlace ,productNo,agents,specification ,price,chemicalName ,CASNo ,arriveDate ,memo) values (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)",reagent.reagentID,reagent.reagentName,reagent.reagentCommonName,reagent.levelOneSortID,reagent.levelTwoSortID,reagent.originPlace,reagent.productNo,reagent.agents,reagent.specification,reagent.price,reagent.chemicalName,reagent.casNo,reagent.arrivalDate,reagent.memo];
+    
+    [db executeUpdate:@"insert into t_reagent (reagentID,reagentName ,reagentCommonName ,levelOneSortID ,levelTwoSortID ,originalPlace ,productNo,agents,specification ,price,chemicalName ,CASNo ,arriveDate ,memo) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",reagent.reagentID,reagent.reagentName,reagent.reagentCommonName,reagent.levelOneSortID,reagent.levelTwoSortID,reagent.originPlace,reagent.productNo,reagent.agents,reagent.specification,reagent.price,reagent.chemicalName,reagent.casNo,reagent.arrivalDate,reagent.memo];
    
 }
 - (void)insertReagentMap:(SXQReagentMap *)reagentMap db:(FMDatabase *)db
@@ -1069,12 +1074,16 @@ static SXQDBManager *_dbManager = nil;
         NSArray *equipmentArray = [SXQExpEquipment keyValuesArrayWithObjectArray:[self myexpEquipmentWithMyexpId:myexpid db:db]];
         NSArray *attchArray = [SXQExpProcessAttch keyValuesArrayWithObjectArray:[self myexpProcessAttachWithMyexpId:myexpid db:db]];
         NSArray *reagentArray = [self myExpReagentDictArrayWithMyExpId:myexpid db:db];
+        
+        NSArray *myExpAttch = [DWMyExpAttach keyValuesArrayWithObjectArray:[self myExpAttachWithMyExpID:myexpid db:db]];
+                               
         [myExpData setValue:processArray forKey:@"myExpProcess"];
         [myExpData setValue:consumableDictArr forKey:@"myExpConsumable"];
         [myExpData setValue:myExp forKey:@"myExp"];
         [myExpData setValue:equipmentArray forKey:@"myExpEquipment"];
         [myExpData setValue:reagentArray forKey:@"myExpReagent"];
         [myExpData setValue:attchArray forKey:@"myExpProcessAttch"];
+        [myExpData setValue:myExpAttch forKey:@"myExpAttch"];
     }];
     [_queue close];
     return [myExpData copy];
@@ -1734,8 +1743,46 @@ static SXQDBManager *_dbManager = nil;
     [_queue close];
     return success;
 }
+- (BOOL)saveExperimentConclusionWithMyExpID:(NSString *)myExpID conclusionViewModel:(DGConclusionViewModel *)conclusionViewModel
+{
+    __block BOOL success = NO;
+    [_queue inDatabase:^(FMDatabase *db) {
+        success = [db executeUpdate:@"update t_myExp set myExpResult = ? where MyExpID = ?",conclusionViewModel.conclusionText,myExpID];
+        if (!success) {
+            return ;
+        }
+        [conclusionViewModel.images enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL * _Nonnull stop) {
+            success = [self addImageToMyExpAttachWith:myExpID expInstructionID:conclusionViewModel.expInstructionID image:image db:db];
+            *stop = !success;
+        }];
+    }];
+    [_queue close];
+    return success;
+}
+- (BOOL)addImageToMyExpAttachWith:(NSString *)myExpID expInstructionID:(NSString *)expInstructionID image:(UIImage *)image db:(FMDatabase *)db
+{
+    
+    NSData *imageData = [NSKeyedArchiver archivedDataWithRootObject:image];
+    return [db executeUpdate:@"insert into t_myExpAttach (myExpAttchID ,myExpID,expInstructionID,imageData) values (?,?,?,?)",[NSString uuid],myExpID,expInstructionID,imageData];
+}
+- (NSArray *)myExpAttachWithMyExpID:(NSString *)myExpID db:(FMDatabase *)db
+{
+    NSMutableArray *tmpArr = [NSMutableArray array];
+    FMResultSet *rs = [db executeQuery:@"select * from t_myExpAttach where myExpID = ?",myExpID];
+    while (rs.next) {
+        DWMyExpAttach *myExpAttach = [DWMyExpAttach new];
+        myExpAttach.myExpID = myExpID;
+        myExpAttach.expInstructionID = [rs stringForColumn:@"expInstructionID"];
+        myExpAttach.myExpAttchID = [rs stringForColumn:@"myExpAttchID"];
+        NSData *data = [rs dataForColumn:@"imageData"];
+        UIImage *image = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSData *imageData = UIImageJPEGRepresentation(image, 0);
+        myExpAttach.imgStream = [NSString base64forData:imageData];
+        [tmpArr addObject:myExpAttach];
+    }
+    return tmpArr;
+}
 @end
-
 
 
 

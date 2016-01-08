@@ -5,7 +5,7 @@
 //  Created by sxq on 15/9/25.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
-@class SXQExpInstruction,SXQInstructionData,SXQCurrentExperimentData,SXQExperimentModel,SXQInstructionDetail,DWAddInstructionViewModel,DWInstructionUploadParam,SXQExpStep;
+@class SXQExpInstruction,SXQInstructionData,SXQCurrentExperimentData,SXQExperimentModel,SXQInstructionDetail,DWAddInstructionViewModel,DWInstructionUploadParam,SXQExpStep,DGConclusionViewModel;
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 typedef void  (^CompletionHandler)(BOOL success,NSDictionary *info);
@@ -102,6 +102,10 @@ typedef NS_ENUM(NSUInteger,ExperimentState) {
  *   设置说明书上传时间
  */
 - (void)updateUploadTimeWithInstructionID:(NSString *)instrucitonID;
+/**
+ *  添加实验结论
+ */
+- (BOOL)saveExperimentConclusionWithMyExpID:(NSString *)myExpID conclusionViewModel:(DGConclusionViewModel *)conclusionViewModel;
 @end
 
 

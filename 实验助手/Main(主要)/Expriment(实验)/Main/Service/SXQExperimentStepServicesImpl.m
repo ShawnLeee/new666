@@ -159,4 +159,17 @@
         [[SXQDBManager sharedManager] setCurrentStepWithMyExpStep:expStep];
     });
 }
+- (RACSignal *)saveExperimentResultWithMyExpID:(NSString *)myExpID conclusionViewModel:(DGConclusionViewModel *)viewModel
+{
+    return  [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            BOOL success = [[SXQDBManager sharedManager] saveExperimentConclusionWithMyExpID:myExpID conclusionViewModel:viewModel];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [subscriber sendNext:@(success)];
+                [subscriber sendCompleted];
+            });
+        });
+        return nil;
+    }];
+}
 @end

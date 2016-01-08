@@ -31,7 +31,4 @@
      UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:vcIdentifier];
     [self presentViewController:vc animated:YES completion:nil];
 }
-- (void)awakeFromNib
-{
-}
 @end

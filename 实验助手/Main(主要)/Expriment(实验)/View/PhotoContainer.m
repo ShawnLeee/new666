@@ -9,6 +9,7 @@
 #define IWPhotoH 70
 #define IWPhotoMargin 10
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "DGConclusionViewModel.h"
 #import "PhotoContainer.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
@@ -90,12 +91,26 @@ static NSUInteger numberOfColumns = 3;
 - (void)setViewModel:(CellContainerViewModel *)viewModel
 {
     _viewModel = viewModel;
+    @weakify(self)
     [RACObserve(self.viewModel, images)
     subscribeNext:^(NSMutableArray *images) {
+        @strongify(self)
         self.myImages = images;
         [self layoutButton];
     }];
     self.addImageButton.rac_command = viewModel.addImageCommand;
+}
+- (void)setConculusionModel:(DGConclusionViewModel *)conculusionModel
+{
+    _conculusionModel = conculusionModel;
+    @weakify(self)
+    [RACObserve(self.conculusionModel, images)
+    subscribeNext:^(NSMutableArray *images) {
+        @strongify(self)
+        self.myImages = images;
+        [self layoutButton];
+    }];
+    self.addImageButton.rac_command = conculusionModel.addImageCmd;
 }
 - (void)layoutButton
 {

@@ -9,8 +9,8 @@
 
 //#define LAB_APP_BASE_URL @"http://hualang.wicp.net:8090/LabAssistant/"
 //#define LAB_APP_BASE_URL @"http://127.0.0.1:9090/LabAssistant/"
-//#define LAB_APP_BASE_URL @"http://172.18.1.55:8080/LabAssistant/"
-#define LAB_APP_BASE_URL @"http://139.196.194.0:9090/LabAssistant/"
+#define LAB_APP_BASE_URL @"http://172.18.1.55:8080/LabAssistant/"
+//#define LAB_APP_BASE_URL @"http://139.196.194.0:9090/LabAssistant/"
 
 static NSString * const DWLABAPPDotNetAPIBaseURLString = LAB_APP_BASE_URL;
 

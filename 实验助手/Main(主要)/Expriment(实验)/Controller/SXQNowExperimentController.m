@@ -70,6 +70,7 @@
     
     SXQExperimentModel *experiment = [[SXQExperimentModel alloc] init];
     experiment.myExpID = currentViewModel.myExpID;
+    experiment.expInstructionID = currentViewModel.expInstructionID;
     
     DGExperimentBaseController *stepVC = [[DGExperimentBaseController alloc] initWithExperimentModel:experiment];
     [self.navigationController pushViewController:stepVC animated:YES];

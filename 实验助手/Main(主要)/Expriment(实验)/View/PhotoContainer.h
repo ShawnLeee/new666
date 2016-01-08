@@ -6,11 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CellContainerViewModel;
+@class CellContainerViewModel,DGConclusionViewModel;
 
 @interface PhotoContainer : UIView
+
 @property (nonatomic,strong) NSMutableArray *myImages;
+
 @property (nonatomic,strong) CellContainerViewModel *viewModel;
+
+@property (nonatomic,strong) DGConclusionViewModel *conculusionModel;
+
 + (CGSize)photosViewSizeWithPhotosCount:(NSUInteger)count;
 @end
 

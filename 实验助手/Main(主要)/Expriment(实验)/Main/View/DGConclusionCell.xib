@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DGConclusionCell" rowHeight="412" id="KGk-i7-Jjw" customClass="DGConclusionCell">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="412"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="411"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCH-o2-ptz">
+                        <rect key="frame" x="10" y="63" width="388" height="200"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="999" constant="200" id="22t-xc-Jga"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="实验结论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inp-hR-755">
+                        <rect key="frame" x="10" y="10" width="60" height="49"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySQ-Ot-aFa" customClass="PhotoContainer">
+                        <rect key="frame" x="10" y="273" width="388" height="128"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="tlO-aa-zN0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="SCH-o2-ptz" secondAttribute="bottom" constant="10" id="0Xb-Uc-eNa"/>
+                    <constraint firstItem="SCH-o2-ptz" firstAttribute="leading" secondItem="inp-hR-755" secondAttribute="leading" id="3xt-Dk-q55"/>
+                    <constraint firstItem="SCH-o2-ptz" firstAttribute="top" secondItem="inp-hR-755" secondAttribute="top" id="BE3-M8-mpV"/>
+                    <constraint firstAttribute="bottom" secondItem="ySQ-Ot-aFa" secondAttribute="bottom" constant="10" id="JFK-VV-iV4"/>
+                    <constraint firstItem="SCH-o2-ptz" firstAttribute="top" secondItem="inp-hR-755" secondAttribute="bottom" constant="4" id="OCQ-D6-KlQ"/>
+                    <constraint firstItem="inp-hR-755" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Q9n-FY-tor"/>
+                    <constraint firstItem="SCH-o2-ptz" firstAttribute="leading" secondItem="inp-hR-755" secondAttribute="trailing" constant="14" id="RU1-VS-CJb"/>
+                    <constraint firstItem="ySQ-Ot-aFa" firstAttribute="top" secondItem="SCH-o2-ptz" secondAttribute="bottom" constant="10" id="V5L-mC-P6N"/>
+                    <constraint firstItem="ySQ-Ot-aFa" firstAttribute="leading" secondItem="inp-hR-755" secondAttribute="leading" id="a7G-lf-RNh"/>
+                    <constraint firstAttribute="trailing" secondItem="ySQ-Ot-aFa" secondAttribute="trailing" constant="10" id="mkY-oC-NYe"/>
+                    <constraint firstAttribute="trailing" secondItem="SCH-o2-ptz" secondAttribute="trailing" constant="10" id="tBS-mQ-rQN"/>
+                    <constraint firstItem="inp-hR-755" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yzc-rO-h5j"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="0Xb-Uc-eNa"/>
+                        <exclude reference="BE3-M8-mpV"/>
+                        <exclude reference="RU1-VS-CJb"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="conclusionView" destination="SCH-o2-ptz" id="7VG-bq-YX6"/>
+                <outlet property="photoContainer" destination="ySQ-Ot-aFa" id="3gI-0b-Av3"/>
+                <outlet property="photoHeightConstraint" destination="tlO-aa-zN0" id="wyy-9P-zkR"/>
+            </connections>
+            <point key="canvasLocation" x="-69" y="321"/>
+        </tableViewCell>
+    </objects>
+</document>

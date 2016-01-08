@@ -5,6 +5,7 @@
 //  Created by SXQ on 15/10/25.
 //  Copyright © 2015年 SXQ. All rights reserved.
 //
+#import "DGExperimentConclusionController.h"
 #import "SXQSaveReagentController.h"
 #import "SXQNavgationController.h"
 #import "DWMyExperimentServicesImpl.h"
@@ -244,19 +245,31 @@
     footBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
     [footBtn setBackgroundImage:[UIImage imageNamed:@"signup"] forState:UIControlStateNormal];
     self.tableView.tableFooterView = footBtn;
-    
-    [[[footBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
-     flattenMap:^RACStream *(id value) {
-        return [self.services setCompleteWithMyExpId:self.experimentModel.myExpID];
-     }]
-     subscribeNext:^(NSNumber *success) {
-         if ([success boolValue]) {
-             [self.navigationController popViewControllerAnimated:YES];
-         }else
-         {
-             [MBProgressHUD showError:@"操作失败!"];
-         }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"结束实验" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"是",@"否", nil];
+    @weakify(self)
+    [alertView.rac_buttonClickedSignal subscribeNext:^(NSNumber *buttonIndex) {
+        @strongify(self)
+        if ([buttonIndex integerValue] == 0) {
+            DGExperimentConclusionController *conclusionVC = [[DGExperimentConclusionController alloc] initWithExperimentModel:self.experimentModel service:self.services];
+            [self.navigationController pushViewController:conclusionVC animated:YES];
+        }
     }];
+    [[footBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        [alertView show];
+    }];
+//    [[[footBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
+//     flattenMap:^RACStream *(id value) {
+//        return [self.services setCompleteWithMyExpId:self.experimentModel.myExpID];
+//     }]
+//     subscribeNext:^(NSNumber *success) {
+//         if ([success boolValue]) {
+//             [self.navigationController popViewControllerAnimated:YES];
+//         }else
+//         {
+//             [MBProgressHUD showError:@"操作失败!"];
+//         }
+//    }];
     self.tableView.tableFooterView.hidden = YES;
 }
 #pragma mark TableviewDelegate Method
